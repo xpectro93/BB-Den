@@ -1,5 +1,7 @@
+#                <(=^-^=)> 
 
 # Schema
+
 ## USER
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -14,24 +16,31 @@ column name     | data type | details
 id              | integer   | not null, primary key
 Title           | varchar   | not null
 Author          | varchar   | not null
-CoverPic        | integer   | not null
+CoverPic        | varchar   | not null
 
 ## LIKES
-Id
-userid
-Type
-Status(WishList,Read)
-Rating
-memeURL
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+userid          | integer   | not null
+type            | varchar   | not null
+status          | varchar   | not null
+rating          | integer   | not null
+memeURL         | varchar   | not null
 
-TODO
-Id
-UserId
-Body
-Topic
+## TODO
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+userId          | integer   | not null
+body            | varchar   | not null
+Topic           | varchar   | not null
 
-MESSAGE
-Id
-userId
-Email
-Message
+## MESSAGE
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+userId          | integer   | not null
+Email           | varchar   | not null
+Message         | varchar   | not null
+timestamp       | timestamp | default
