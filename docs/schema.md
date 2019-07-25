@@ -1,4 +1,4 @@
-#                <(=^-^=)> 
+#                <(=^-^=)>
 
 # Schema
 
@@ -22,7 +22,7 @@ CoverPic        | varchar   | not null
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-userid          | integer   | not null
+userid          | integer   | references user(id) ON DELETE CASCADE
 type            | varchar   | not null
 status          | varchar   | not null
 rating          | integer   | not null
@@ -32,15 +32,17 @@ memeURL         | varchar   | not null
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-userId          | integer   | not null
+userId          | integer   | references user(id) ON DELETE CASCADE
 body            | varchar   | not null
 Topic           | varchar   | not null
+data            | varchar   |
+timestamp       | timestamp | default
 
 ## MESSAGE
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-userId          | integer   | not null
+userId          | integer   | references user(id) ON DELETE CASCADE
 Email           | varchar   | not null
 Message         | varchar   | not null
 timestamp       | timestamp | default
