@@ -17,7 +17,7 @@ id              | integer   | not null, primary key
 Title           | varchar   | not null
 Author          | varchar   | not null
 CoverPic        | varchar   | not null
-
+memes/youtube/books
 ## LIKES
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -26,7 +26,9 @@ userid          | integer   | references user(id) ON DELETE CASCADE
 type            | varchar   | not null
 status          | varchar   | not null
 rating          | integer   | not null
-memeURL         | varchar   | not null
+thumbnail       | varchar   |
+likeURL         | varchar   | not null
+
 
 ## TODO
 column name     | data type | details
