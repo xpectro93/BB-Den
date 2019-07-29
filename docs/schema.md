@@ -25,7 +25,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 userid          | integer   | references user(id) ON DELETE CASCADE
 type            | varchar   | not null
-status          | varchar   | not null
+status(book)    | varchar   | not null
 rating          | integer   | not null
 thumbnail       | varchar   |
 likeURL         | varchar   | not null
@@ -36,10 +36,10 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 userId          | integer   | references user(id) ON DELETE CASCADE
-body            | varchar   | not null
-Topic           | varchar   | not null
-IsFinished      | boolean   | not null
+topic           | varchar   | not null
+title           | varchar   | not null
 body            | varchar   |
+completed       | boolean   | not null
 timestamp       | timestamp | default
 
 ## MESSAGE
