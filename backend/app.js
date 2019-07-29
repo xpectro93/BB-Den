@@ -10,7 +10,11 @@ const bodyParser = require('body-parser');
 
 
 //route imports
-
+const usersRouter = require('./routes/users');
+// const booksRouter = require('./routes/books');
+// const likesRouter = require('./routes/likesRouter');
+// const todosRouter = require('./routes/todosRouter');
+// const sessionsRouter = require('./routes/sessionsRouter');
 
 const app = express();
 
@@ -21,9 +25,14 @@ app.use(bodyParser.json());
 // app.use(cookieParser('Scrambled words'));
 
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use("/", (req, res) => {
-//   res.send('hello');
-// });
+
+
+//routers use
+app.use('/api/users', usersRouter);
+// app.use('/api/books', booksRouter);
+// app.use('/api/likes', likesRouter);
+// app.use('/api/todos', todosRouter);
+// app.use('/api/sessions', sessionsRouter);
 
 
 app.get("/*", (req, res) => {
