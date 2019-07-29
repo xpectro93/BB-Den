@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 const secret = require('./secret.json')
 
+// axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
+
 function App() {
   console.log(secret)
   return (
@@ -18,7 +20,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn to be supreme
         </a>
       </header>
     </div>

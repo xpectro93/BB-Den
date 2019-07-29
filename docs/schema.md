@@ -17,8 +17,9 @@ id              | integer   | not null, primary key
 Title           | varchar   | not null
 Author          | varchar   | not null
 CoverPic        | varchar   | not null
-memes/youtube/books
-## LIKES
+
+
+## LIKES (memes/vids/books)
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -37,7 +38,8 @@ id              | integer   | not null, primary key
 userId          | integer   | references user(id) ON DELETE CASCADE
 body            | varchar   | not null
 Topic           | varchar   | not null
-data            | varchar   |
+IsFinished      | boolean   | not null
+body            | varchar   |
 timestamp       | timestamp | default
 
 ## MESSAGE
