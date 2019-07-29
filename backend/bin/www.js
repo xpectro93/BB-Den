@@ -9,8 +9,7 @@ const http = require('http');
 
 const port =normalizePort(process.env.PORT || '3100');
 
-app.set('port',port);
-
+app.set('port', port);
 
 // Create HTTP server
 
@@ -24,7 +23,7 @@ server.on('listening', onListening);
 
 ///////////////////////////////////////////////////////////////////////
 
-function normalizePort(val) =>{
+function normalizePort(val){
   let port = parseInt(val, 10);
     //named pipe
   if (isNaN(port)) return val;
