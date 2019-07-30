@@ -11,7 +11,6 @@ module.exports = () => {
 //took out name from user
   passport.deserializeUser((userId, done) => {
 
-
     db.one("SELECT * FROM users WHERE id = ${userId}", {
       //added user. instead of username to username
       userId: userId

@@ -3,9 +3,19 @@ const authHelpers = require("../../auth/helpers");
 
 // * `GET /api/users/:id`
 //   * Get user based on id
-// const getAUser = (req, res, next) => {
-//   db.one('')
-// }
+const getAUser = (req, res, next) => {
+  let userId = req.params.id
+  db.one('SELECT id, username, profile_pic FROM users WHERE id=$1',userId)
+    .then(data => {
+      res.status(200)
+      .json({
+        status:'Success',
+        message:'Retrieved Badger: ', userId,
+        user:data
+      })
+    })
+    .catch(err => next(err));
+}
 
 // * `GET /api/users`
 //   * Get all users
@@ -41,15 +51,18 @@ const createUser =(req, res, next)=> {
     });
 }
 
+//POST /api/user/logout
 const  logoutUser = (req, res, next) => {
   req.logout();
   res.status(200).send("log out success");
 }
 
+//POST /api/users/login
 const loginUser = (req, res)=> {
   res.json(req.user);
 }
 
+//GET /api/users/isLoggedIn
 const isLoggedIn = (req, res) => {
 
   if (req.user) {
@@ -61,12 +74,32 @@ const isLoggedIn = (req, res) => {
 
 // * `PATCH /api/users/:user_id`
 //   * Update a specific user
-// router.patch('/:id', updateUser);
+const updateUser = (req, res, next) => {
+  let user_id = parseInt(req.params.id)
+  let queryString = '';
+  for (let key in req.body) {
+    if (key !== undefined) {
+    queryString += key + "=${" + key + "}, "
+    }
+  }
+  queryString = queryString.slice(0,-2);
+  db.none('UPDATE users SET '+ queryString +' WHERE id='+user_id, req.body)
+    .then(() => {
+      res.status(200).json({
+        status: "success",
+        message: "Editted badger with user Id: "+user_id
+      })
+    })
+    .catch(err => next(err));
+}
+
 
 module.exports = {
+  getAUser,
   getAllUsers,
   createUser,
   logoutUser,
   loginUser,
-  isLoggedIn
+  isLoggedIn,
+  updateUser
 }
