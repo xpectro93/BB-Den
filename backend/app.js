@@ -11,10 +11,10 @@ const passport = require('./auth/local');
 
 //route imports
 const usersRouter = require('./routes/users');
-// const booksRouter = require('./routes/books');
-// const likesRouter = require('./routes/likesRouter');
-// const todosRouter = require('./routes/todosRouter');
-// const sessionsRouter = require('./routes/sessionsRouter');
+const booksRouter = require('./routes/books');
+// const likesRouter = require('./routes/likes');
+// const todosRouter = require('./routes/todos');
+// const sessionsRouter = require('./routes/sessions');
 
 const app = express();
 
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routers use
 app.use('/api/users', usersRouter);
-// app.use('/api/books', booksRouter);
+app.use('/api/books', booksRouter);
 // app.use('/api/likes', likesRouter);
 // app.use('/api/todos', todosRouter);
 
@@ -52,7 +52,7 @@ app.use('/api/users', usersRouter);
 
 // // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  console.log('Test 1')
+
   next(createError(404));
 });
 //
@@ -64,7 +64,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send('Error');
 });
 
 
