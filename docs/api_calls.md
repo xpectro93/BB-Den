@@ -41,6 +41,8 @@
   * `Get likes by user`
 * `POST /likes`
   * `Post a like`
+* `PATCH /:id`
+  * `update like(aimed for books)`
 * `DELETE /likes/:id`
   * `Delete a like by id`
 
