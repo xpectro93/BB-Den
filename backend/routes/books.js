@@ -8,7 +8,6 @@ const {
 
 
 ;
-//this is a test
 // * `GET /book/search/:id`
 //   * `Get book based on title or author`
 router.get('/search/:id', searchForBook);
@@ -16,9 +15,6 @@ router.get('/search/:id', searchForBook);
 // * `GET /books`
 //   * `Get all books`
 router.get('/',getAllBooks)
-
-// * `POST /books/mylist/`
-//   * `Adds new Book to user's list`
 
 // * `POST /book/list`
 //   * `Add new book to list`
