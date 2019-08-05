@@ -8,8 +8,8 @@ const {
         getAllLikesByUserId,
         postLike,
         addBookToMyList,
-        // updateBookStatus,
-        // deleteLike
+        updateBookStatus,
+        deleteLike
       } = require('../db/queries/likesQueries.js');
 
 
@@ -37,18 +37,16 @@ router.get('/:id', getAllLikesByUserId);
 //   * `Post a like`
 router.post('/', postLike);
 
-
 // * `POST /likes/books`
 //   * `add book to user's list`
 router.post('/books', addBookToMyList);
 
 // * `PATCH /:id`
 //   * `update like(aimed for books)`
-// router.patch('/:id', updateBookStatus);
-
+router.patch('/:id', updateBookStatus);
 
 // * `DELETE /likes/:id`
 //   * `Delete a like by id`
-// router.delete('/:id', deleteLike);
+router.delete('/:id', deleteLike);
 
 module.exports = router

@@ -20,7 +20,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn to be supreme
+          Learn to be supreme Testing environment
         </a>
       </header>
     </div>

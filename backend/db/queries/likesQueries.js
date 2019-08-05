@@ -108,9 +108,40 @@ const addBookToMyList = ( req, res, next) => {
     })
     .catch(err => next(err));
 }
+// * `PATCH /:id`
+//   * `update like(aimed for books)`
+const updateBookStatus = ( req,res, next ) => {
+  let like_id = parseInt(req.params.id)
+  let queryString = '';
+  for (let key in req.body) {
+    if (key !== undefined) {
+    queryString += key + "=${" + key + "}, "
+    }
+  }
+  queryString = queryString.slice(0,-2);
+  db.none('UPDATE likes SET '+ queryString +' WHERE id=' + like_id, req.body)
+    .then(() => {
+      res.status(200).json({
+        status: "Success",
+        message: "Editted badger with user Id: " + like_id
+      })
+    })
+    .catch(err => next(err));
+}
 
 // * `DELETE /likes/:id`
 //   * `Delete a like by id`
+const deleteLike = ( req, res, next ) => {
+  let submissionId = parseInt(req.params.id);
+  db.none('DELETE FROM likes WHERE id = $1', submissionId)
+  .then(() => {
+    res.status(200).json({
+      status: 'success',
+      message: 'Like deleted'
+    })
+  })
+  .catch(err => next(err))
+}
 
 module.exports = {
   getAllLikes,
@@ -120,6 +151,6 @@ module.exports = {
   getAllLikesByUserId,
   postLike,
   addBookToMyList,
-  // updateBookStatus,
-  // deleteLike
+  updateBookStatus,
+  deleteLike
 }

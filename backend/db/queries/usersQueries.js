@@ -33,7 +33,6 @@ const getAllUsers = (req, res, next) => {
 
 // * `POST /api/users`
 //   * Create a new user
-// router.post('/', createUser);
 const createUser =(req, res, next)=> {
   const hash = authHelpers.createHash(req.body.password_digest);
   db.none(
