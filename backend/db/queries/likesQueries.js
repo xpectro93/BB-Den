@@ -75,8 +75,7 @@ const getAllLikesByUserId = ( req, res, next) => {
 // * `POST /likes`
 //   * `Post a like`
 const postLike = (req, res, next) => {
-
-  console.log('here');
+  
   db.one('INSERT INTO likes (userid, type,status,thumbnail,likeurl) VALUES (${userid}, ${type},${status},${thumbnail},${likeurl}) RETURNING id',req.body)
     .then(data => {
       res.status(200).json({

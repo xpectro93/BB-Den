@@ -13,8 +13,8 @@ const passport = require('./auth/local');
 const usersRouter = require('./routes/users');
 const booksRouter = require('./routes/books');
 const likesRouter = require('./routes/likes');
-// const todosRouter = require('./routes/todos');
-// const sessionsRouter = require('./routes/sessions');
+const todosRouter = require('./routes/todos');
+
 
 const app = express();
 
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/users', usersRouter);
 app.use('/api/books', booksRouter);
 app.use('/api/likes', likesRouter);
-// app.use('/api/todos', todosRouter);
+app.use('/api/todos', todosRouter);
 
 
 

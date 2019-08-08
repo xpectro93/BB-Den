@@ -14,7 +14,9 @@ const getAUser = (req, res, next) => {
         user:data
       })
     })
-    .catch(err => next(err));
+    .catch(err => {
+      console.log(err)
+      next(err)})
 }
 
 // * `GET /api/users`
@@ -28,7 +30,9 @@ const getAllUsers = (req, res, next) => {
       message: "Received all Badgers"
     });
   })
-  .catch(err => next(err));
+  .catch(err => {
+    console.log(err)
+    next(err)})
 }
 
 // * `POST /api/users`
@@ -44,10 +48,8 @@ const createUser =(req, res, next)=> {
       });
     })
     .catch(err => {
-      res.status(500).json({
-        message: err
-      });
-    });
+      console.log(err)
+      next(err)})
 }
 
 //POST /api/user/logout

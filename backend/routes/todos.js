@@ -8,16 +8,24 @@ const {
     deleteTodo
 } = require('../db/queries/todosQueries.js');
 
+// * `GET /todo/topic/:id`
+//   * `Get todo by topic id`
+router.get('/topic/:id', getTodosByTopic);
 
 // * `GET /todo/user/:id`
 //   * `Get like by user id`
-// * `GET /todo/topic/:id`
-//   * `Get todo by topic id`
+router.get('/', getTodosByUser);
+
 // * `POST /todo`
 //   * `Post todo`
-// * `PUT /todo`
+router.post('/',postTodo);
+
+// * `PATCH /todo`
 //   * `Update isFinished option`
+router.patch('/:id',updateTodo);
+
 // * `DELETE /todo/:id`
 //   * `Delete todo`
+router.delete('/:id',deleteTodo);
 
 module.exports = router;
