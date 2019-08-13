@@ -1,0 +1,22 @@
+{
+  "name": "bb-den",
+  "version": "1.0.0",
+  "description": "A Badger's sett",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xpectro93/BB-Den.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xpectro93/BB-Den/issues"
+  },
+  "homepage": "https://github.com/xpectro93/BB-Den#readme"
+}

@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+// const cors = require('cors');
 
 //auth
 const session = require('express-session');
@@ -18,12 +19,13 @@ const todosRouter = require('./routes/todos');
 
 const app = express();
 
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser('Scrambled words'));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
     secret: 'Scrambled words',
@@ -35,7 +37,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 //routers use

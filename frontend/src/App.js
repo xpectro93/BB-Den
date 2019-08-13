@@ -3,7 +3,7 @@ import NavBar from './NavBar.js'
 import { Switch, Route } from 'react-router-dom'
 import './CSS/App.css';
 import axios from 'axios'
-const secret = require('./secret.json')
+// const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
 
@@ -20,10 +20,11 @@ class App extends Component{
   componentDidMount(){
 
   }
-  isLoggedin =()=> {
-    axios.get('/lmao/api/users/isLoggedIn')
+  isLoggedin = () => {
+    // axios.get('https://ghibliapi.herokuapp.com/films')
+    axios.get('/api/users/isLoggedIn')
       .then(resp => {
-        console.log('resp')
+        console.log(resp)
       })
   }
 
