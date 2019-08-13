@@ -1,30 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import NavBar from './NavBar.js'
+import { Switch, Route } from 'react-router-dom'
+import './CSS/App.css';
 const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
 
-function App() {
-  console.log(secret)
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn to be supreme Testing environment
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  state = {
+  test:''
+  }
+  handleChange = e => {
+    this.setState({
+      [e.target.id] : e.target.value
+    })
+
+  }
+
+
+  render(){
+    const { test } = this.state;
+    return (
+      <>
+
+      <NavBar/>
+      <h1>{test}</h1>
+      <input id="test" onChange={this.handleChange}/>
+          <Switch>
+
+          </Switch>
+      </>
+    )
+
+  }
+
 }
 
 export default App;

@@ -69,7 +69,9 @@ const updateTodo = ( req,res, next ) => {
         message: "Editted todo with Id: " + todo_id
       })
     })
-    .catch(err => next(err));
+    .catch(err => {
+      console.log(err)
+      next(err)})
 }
 // * `DELETE /todo/:id`
 //   * `Delete todo`
@@ -82,7 +84,9 @@ const deleteTodo = ( req, res, next ) => {
       message: 'Todo deleted'
     })
   })
-  .catch(err => next(err))
+  .catch(err => {
+    console.log(err)
+    next(err)})
 }
 
 module.exports = {
