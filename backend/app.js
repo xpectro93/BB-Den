@@ -50,13 +50,12 @@ app.use('/api/todos', todosRouter);
 //   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 // });
 
-// // catch 404 and forward to error handler
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
-
   next(createError(404));
 });
 //
-// // error handler
+// error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -64,7 +63,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.send('Error');
+  // res.render('error');
+  res.json({
+    message: err.message,
+    error: err
+  });
 });
 
 

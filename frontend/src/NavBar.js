@@ -10,11 +10,8 @@ export default class NavBar extends Component {
       <h1>Badger's Den</h1>
       <ul>
       <li>Books</li>
-      <li>Todo</li>
-
-      <li>
-      
-      </li>
+      <li>Todos</li>
+      <li>Memes</li>
       </ul>
 
       </div>
