@@ -23,3 +23,7 @@
 .try option {
   background:red
 }
+.App {
+  background-color: red;
+  min-height: 100vh
+}
