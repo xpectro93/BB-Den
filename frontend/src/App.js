@@ -8,13 +8,14 @@ import * as Util from './util/util'
 //Components
 import SignUp from './components/users/SignUp'
 import Login from './components/users/Login'
+import Hooks from './Hooks.js'
 // const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
 
 class App extends Component{
   state = {
-  test:''
+  isLoggedIn:false
   }
   handleChange = e => {
     this.setState({
@@ -33,7 +34,7 @@ class App extends Component{
       })
   }
   login = () => {
-
+  Util.login()
   }
 
 
@@ -48,6 +49,7 @@ class App extends Component{
           <Switch>
         <Route path='/signup' component={SignUp} />
         <Route path='/login'  component={Login} />
+        <Route path='/hooks' component={Hooks} />
           </Switch>
       </div>
     )
