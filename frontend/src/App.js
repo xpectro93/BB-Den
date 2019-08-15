@@ -15,7 +15,8 @@ import Hooks from './Hooks.js'
 
 class App extends Component{
   state = {
-  isLoggedIn:false
+  isLoggedIn:false,
+  userId:null
   }
   handleChange = e => {
     this.setState({
@@ -39,15 +40,13 @@ class App extends Component{
 
 
   render(){
-    const { test } = this.state;
+
     return (
       <div className="App">
 
       <NavBar/>
-      <h1>{test}</h1>
-      <input id="test" onChange={this.handleChange}/>
           <Switch>
-        <Route path='/signup' component={SignUp} />
+        <Route path='/signup' render={(props) => <SignUp {...props} {...this.state}/> } />
         <Route path='/login'  component={Login} />
         <Route path='/hooks' component={Hooks} />
           </Switch>

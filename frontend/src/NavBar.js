@@ -7,7 +7,7 @@ export default class NavBar extends Component {
   render(){
     return (
       <div className='NavBar'>
-      <h1>Badger's Den</h1>
+      <h1>Test</h1>
       <ul>
       <li>Books</li>
       <li>Todos</li>
