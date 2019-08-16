@@ -4,13 +4,13 @@ const {db} = require('../db/queries/index.js')
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-
+    console.log('user and done', user)
     //took out .username in user
     done(null, user.id);
   });
 //took out name from user
   passport.deserializeUser((userId, done) => {
-
+    console.log('userId', userId)
     db.one("SELECT * FROM users WHERE id = ${userId}", {
       //added user. instead of username to username
       userId: userId

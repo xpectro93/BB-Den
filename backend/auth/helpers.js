@@ -1,6 +1,9 @@
 const bcrypt = require("bcryptjs");
 
 function comparePass(userPass, databasePass) {
+  console.log('HIDDEN',userPass.charCodeAt(5))
+  console.log('helpers', userPass,databasePass)
+  console.log('helpers2',bcrypt.compareSync(userPass, databasePass))
   return bcrypt.compareSync(userPass, databasePass);
 }
 
