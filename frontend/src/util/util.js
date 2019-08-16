@@ -4,18 +4,16 @@ import Auth from './Auth'
 //USER
 export const isLoggedIn = () => axios.get('/api/users/isLoggedIn')
 
-export const login = (userInfo) => {
-  axios.post('/api/users/login',userInfo)
-    .then( response => {
-      console.log(response)
-    })
-  // .then(res => {
-  //   Auth.authenticateUser(res.data.id);
-  // })
-  // .then(() => {
-  //   // checkAuthenticateStatus();
-  // })
-  return
+export const login =async(userInfo) => {
+  let res =await axios.post('/api/users/login',userInfo)
+
+    //user id becomes local storage token
+    Auth.authenticateUser(res.data.id);
+
+    //checks if token matches login request on backend. Returns if user is authenticated, and userIdToken
+    let  [isUserAuthenticated, userIdToken] = await checkAuthenticateStatus()
+
+  return [res.data, isUserAuthenticated, userIdToken]
 }
 
 
@@ -26,17 +24,20 @@ export const logoutUser = () => {
     logout().then(() => Auth.deauthenticateUser())
     .then(() => checkAuthenticateStatus());
 };
-export const checkAuthenticateStatus = (setIsLoggedIn,setUserId) => {
-  isLoggedIn().then(user => {
-    if (user.data.id === Auth.getToken()) {
-        setIsLoggedIn(Auth.isUserAuthenticated())
-        setUserId(Auth.getToken())
+
+export const checkAuthenticateStatus = async() => {
+  let returnArr = []
+  let user = await isLoggedIn()
+
+  if(user.data.id === +Auth.getToken()) {
+      returnArr.push(Auth.isUserAuthenticated())
+      returnArr.push(+Auth.getToken())
+      return returnArr
+  } else {
+    if (user.data.id) {
+      logoutUser();
     } else {
-      if (user.data.id) {
-        logoutUser();
-      } else {
-        Auth.deauthenticateUser();
-      }
+      Auth.deauthenticateUser();
     }
-  });
+  }
 };

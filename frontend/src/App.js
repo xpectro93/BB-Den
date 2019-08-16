@@ -23,14 +23,14 @@ const App = props =>{
   //   fetchIsLoggedIn()
   // },[])
 
-const fetchIsLoggedIn = () => {
-    axios.post('/api/users/login',{username:'hello1',password:'hello1'})
-    // Util.isLoggedIn()
-      .then(resp => {
-        console.log(resp)
-        // setUserId(resp.data.id)
-      })
-  }
+// const fetchIsLoggedIn = () => {
+//     axios.post('/api/users/login',{username:'hello1',password:'hello1'})
+//     // Util.isLoggedIn()
+//       .then(resp => {
+//         console.log(resp)
+//         // setUserId(resp.data.id)
+//       })
+// }
 
 
 // isLoggedIn={isLoggedIn}

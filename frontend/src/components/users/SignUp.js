@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as Util from '../../util/util'
 import axios from 'axios'
 
 const SignUp = props => {
-  const [username, setUsername] = useState('hello')
-  const [password, setPassword] = useState('hello')
+  const [username, setUsername] = useState('hello1')
+  const [password, setPassword] = useState('hello1')
   // state = {
   //   username:'',
   //   password:'',
   //   SignUp:false,
   //   Login:false
   // }
+  useEffect(()=> {
+    login()
+  },[])
+
   const changeName = e => setUsername(e.target.value)
   const changePassword = e =>setPassword(e.target.value)
-  const login = e =>{
-    e.preventDefault();
-   // Util.login({username,password})
-   console.log('it gets here at least')
-   axios.post('/api/users/login',{username:'hello',password:'hello'})
-   .then(res => {
-     console.log('this is res',res)
-     // Auth.authenticateUser(res.data.id);
-   })
-
+  const login = async ()=>{
+  let res =  await Util.login({username,password})
+  console.log(res)
  }
-   // console.log(username,password)
 
 
     return (<>
