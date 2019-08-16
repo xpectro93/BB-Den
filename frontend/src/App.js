@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar.js'
 import { Switch, Route } from 'react-router-dom'
 import './CSS/App.css';
@@ -14,20 +14,16 @@ import axios from 'axios'
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
 
-class App extends Component{
-state = {
+const App = props =>{
 
-}
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [userId, setUserId] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
 
   // useEffect(()=> {
   //   fetchIsLoggedIn()
   // },[])
-async componentDidMount(){
-  await this.fetchIsLoggedIn()
-}
-fetchIsLoggedIn = () => {
+
+const fetchIsLoggedIn = () => {
     axios.post('/api/users/login',{username:'hello1',password:'hello1'})
     // Util.isLoggedIn()
       .then(resp => {
@@ -38,7 +34,7 @@ fetchIsLoggedIn = () => {
 
 
 // isLoggedIn={isLoggedIn}
-render(){
+
 
 
     return (
@@ -54,7 +50,6 @@ render(){
     )
 
 
-}
 }
 
 export default React.memo(App);

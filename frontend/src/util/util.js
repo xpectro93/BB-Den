@@ -5,18 +5,17 @@ import Auth from './Auth'
 export const isLoggedIn = () => axios.get('/api/users/isLoggedIn')
 
 export const login = (userInfo) => {
-  let newObj = {
-    username:userInfo.username,
-    password_digest:userInfo.password
-  }
-  console.log('this is newObj', newObj)
-  axios.post('/api/users/login',newObj)
+  axios.post('/api/users/login',userInfo)
+    .then( response => {
+      console.log(response)
+    })
   // .then(res => {
   //   Auth.authenticateUser(res.data.id);
   // })
   // .then(() => {
   //   // checkAuthenticateStatus();
   // })
+  return
 }
 
 
