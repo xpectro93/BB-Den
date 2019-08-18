@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
-export default class NavBar extends Component {
-  state = {
+const NavBar = props => {
 
-  }
-  render(){
+
+
     return (
       <div className='NavBar'>
       <h1>Test</h1>
@@ -12,9 +11,10 @@ export default class NavBar extends Component {
       <li>Books</li>
       <li>Todos</li>
       <li>Memes</li>
+
       </ul>
 
       </div>
     )
-  }
 }
+export default NavBar

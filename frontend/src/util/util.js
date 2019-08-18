@@ -16,8 +16,8 @@ export const login =async(userInfo) => {
   return [res.data, isUserAuthenticated, userIdToken]
 }
 
-
 export const logout = () => axios.post('api/users/logout')
+
 export const newUser = (userInfo) => axios.post('api/users/new',userInfo)
 
 export const logoutUser = () => {
@@ -26,13 +26,12 @@ export const logoutUser = () => {
 };
 
 export const checkAuthenticateStatus = async() => {
-  let returnArr = []
   let user = await isLoggedIn()
 
   if(user.data.id === +Auth.getToken()) {
-      returnArr.push(Auth.isUserAuthenticated())
-      returnArr.push(+Auth.getToken())
-      return returnArr
+
+    return [Auth.isUserAuthenticated(), +Auth.getToken()]
+
   } else {
     if (user.data.id) {
       logoutUser();
