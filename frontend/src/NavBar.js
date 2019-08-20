@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = props => {
 
-
-
     return (
       <div className='NavBar'>
-      <h1>Test</h1>
+      <h1><NavLink to="/">Logo</NavLink></h1>
       <ul>
-      <li>Books</li>
-      <li>Todos</li>
-      <li>Memes</li>
-
+      <li><NavLink to="/books">Books</NavLink></li>
+      <li><NavLink to="/todos">To-Do</NavLink></li>
+      <li><NavLink to="/memes">Memes</NavLink></li>
       </ul>
 
       </div>

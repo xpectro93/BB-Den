@@ -20,13 +20,14 @@ const Hooks = props => {
   const [age, setAge ] = useState(26);
   const [ isTired, setIsTired ] = useState(false)
 
-  const fetching = () => axios.get('/api/users/isLoggedIn').then(resp => resp.data.id === null ? setName('It Worked'):setName('It didnt'))
+  const fetching = () => axios.get('/api/users/isLoggedIn').then(resp => resp.data.id === 7 ? setName('It Worked'):setName('It didnt'))
 
 
   //**componentDidMount**It takes a function that will run right after the DOM has been rendered
   useEffect(() => {
     fetching()
   }, [])
+
 
   //**componentDidUpdate** second argument [], tells it to execute whenever w/e [] changes,replaces if there is a second argument to the function
   // useEffect(() => {

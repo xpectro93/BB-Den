@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar.js'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import './CSS/App.css';
 import * as Util from './util/util'
-import Auth from './util/Auth'
 
 //Components
 import SignUp from './components/users/SignUp'
 import Login from './components/users/Login'
+import Books from './components/books/Books'
+import Memes from './components/memes/Memes'
+import Todos from './components/todos/Todos'
+
 import Hooks from './Hooks.js'
 // const secret = require('./secret.json')
 
@@ -18,34 +21,58 @@ import Hooks from './Hooks.js'
 //
 // }
 
-const App = props =>{
 
-// isLoggedIn={isLoggedIn}
+const App = props =>{
 
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [userId, setUserId] = useState(9);
+const [profile, setProfile] = useState({});
 
+
+//App has checkauth and logout
 const checkAuth = async () => {
-let [isLogged, userToken ] = await Util.checkAuthenticateStatus()
 
-setUserId(userToken)
-setIsLoggedIn(isLogged)
+let [isLogged, userToken] = await Util.checkAuthenticateStatus()
+ setUserId(userToken)
+ setIsLoggedIn(isLogged)
 }
+
+const login = (arr) => {
+  let [res,isLogged,userId] = arr
+  setUserId(userId);
+  setIsLoggedIn(isLogged);
+  setProfile(res)
+}
+
+const logout = ( res ) => {
+  let [resp,isLogged,userId] = res;
+  setUserId(userId);
+  setIsLoggedIn(isLogged);
+  setProfile(resp)
+}
+
+
 useEffect(()=> {
   checkAuth()
 },[])
+useEffect(()=> {
+},[isLoggedIn,userId])
 
+console.log(userId)
 
     return (
       <div className="App">
 
-      <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={userId} />
-      {isLoggedIn ? <h1>Logged In</h1>: <h1>Not Logged in</h1>}
+      <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+      {isLoggedIn ? <h1>Logged In</h1>: ''}
     <h1> {userId}</h1>
           <Switch>
-        <Route path='/signup' render={(props) => <SignUp {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+        <Route path='/signup' render={(props) => <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
         <Route path='/login'  component={Login} />
         <Route path='/hooks' component={Hooks} />
+        <Route path='/books' render={(props) => <Books {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+        <Route path='/memes' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+        <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
           </Switch>
       </div>
     )

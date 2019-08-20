@@ -4,23 +4,26 @@ import * as Util from '../../util/util'
 const SignUp = props => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [profile, setProfile] = useState({})
 
-  // useEffect(()=> {
-  //   // login();
-  // },[])
-  useEffect(() => {
-    props.setUserId(profile.id)
-  },[profile.id])
-
+//login, register with checkAuthenticateStatus as props
   const changeName = e => setUsername(e.target.value)
   const changePassword = e =>setPassword(e.target.value)
-  const login = async () => {
-    let res =  await Util.login({username,password})
-    let [userInfo, isUserAuthenticated, userIdToken ] = res
-    props.setIsLoggedIn(isUserAuthenticated)
-    setProfile(userInfo)
+
+const login = async () => {
+    //returns [profile,isLoggedin, userTokenId]
+    let res = await Util.login({username,password});
+
+     props.login(res)
+     setUsername('');
+     setPassword('')
  }
+ const logout = async () => {
+   //this returns w/e checkAuthenticateStatus returns
+    let res = await (Util.logout());
+    props.logout(res)
+ }
+
+
 
     return (<>
           <form>
@@ -34,9 +37,10 @@ const SignUp = props => {
           <input type='password' onChange={changePassword}/>
           </form>
           <button onClick={login}type='submit'>Submit</button>
-          <img src={profile.profile_pic}/>
-          <h1>{props.userId}</h1>
+          <button onClick={logout}>Log Me outie</button>
+
           </>)
 
 }
 export default SignUp
+// <img src={profile.profile_pic}/>
