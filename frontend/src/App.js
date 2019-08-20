@@ -33,14 +33,17 @@ const [profile, setProfile] = useState({});
 const checkAuth = async () => {
 
 let [isLogged, userToken] = await Util.checkAuthenticateStatus()
+
  setUserId(userToken)
  setIsLoggedIn(isLogged)
 }
 
 const login = (arr) => {
+
   let [res,isLogged,userId] = arr
   setUserId(userId);
   setIsLoggedIn(isLogged);
+  console.log('res',res)
   setProfile(res)
 }
 
@@ -58,14 +61,18 @@ useEffect(()=> {
 useEffect(()=> {
 },[isLoggedIn,userId])
 
-console.log(userId)
+console.log(profile)
+
+
 
     return (
+
       <div className="App">
 
       <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
-      {isLoggedIn ? <h1>Logged In</h1>: ''}
-    <h1> {userId}</h1>
+      {isLoggedIn ?<h1>I am Logged In</h1>:<h1>Not Logged In</h1>}
+
+      <h1> {userId}</h1>
           <Switch>
         <Route path='/signup' render={(props) => <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
         <Route path='/login'  component={Login} />
@@ -76,8 +83,6 @@ console.log(userId)
           </Switch>
       </div>
     )
-
-
 }
 
 export default App;

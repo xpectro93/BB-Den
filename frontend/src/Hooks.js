@@ -16,16 +16,16 @@ const Hooks = props => {
   // })
 
   //HOOKS
-  const [name, setName ] = useState('Jon');
-  const [age, setAge ] = useState(26);
-  const [ isTired, setIsTired ] = useState(false)
+  // const [name, setName ] = useState('Jon');
+  // const [age, setAge ] = useState(26);
+  // const [ isTired, setIsTired ] = useState(false)
 
-  const fetching = () => axios.get('/api/users/isLoggedIn').then(resp => resp.data.id === 7 ? setName('It Worked'):setName('It didnt'))
+  // const fetching = () => axios.get('/api/users/isLoggedIn').then(resp => resp.data.id === 7 ? setName('It Worked'):setName('It didnt'))
 
 
   //**componentDidMount**It takes a function that will run right after the DOM has been rendered
   useEffect(() => {
-    fetching()
+    // fetching()
   }, [])
 
 
@@ -49,7 +49,7 @@ const Hooks = props => {
 
 
     //OTHER WAY
-    setName(e.target.value)
+    // setName(e.target.value)
 
 
   }
@@ -60,11 +60,11 @@ const Hooks = props => {
 // OR this.handleChange() <-BEFORE
 //         handleChange() <- HOOKS
 //
-console.log(name)
+
 return (
   <>
   <div>
-<h1>{name}</h1>
+
 <input onChange={handleChange}/>
   </div>
   </>

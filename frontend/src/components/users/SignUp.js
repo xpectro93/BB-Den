@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import * as Util from '../../util/util'
 
 const SignUp = props => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('hello1')
+  const [password, setPassword] = useState('hello1')
 
 //login, register with checkAuthenticateStatus as props
   const changeName = e => setUsername(e.target.value)
@@ -22,6 +22,7 @@ const login = async () => {
     let res = await (Util.logout());
     props.logout(res)
  }
+
 
 
 
