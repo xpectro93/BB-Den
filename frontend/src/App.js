@@ -10,17 +10,9 @@ import Login from './components/users/Login'
 import Books from './components/books/Books'
 import Memes from './components/memes/Memes'
 import Todos from './components/todos/Todos'
-
-import Hooks from './Hooks.js'
 // const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
-
-// const userAuth = () => {
-//
-//
-// }
-
 
 const App = props =>{
 
@@ -33,21 +25,25 @@ const [profile, setProfile] = useState({});
 const checkAuth = async () => {
 
 let [isLogged, userToken] = await Util.checkAuthenticateStatus()
-
+let user = await Util.getAUser(userToken)
  setUserId(userToken)
  setIsLoggedIn(isLogged)
+ setProfile(user.data.user)
 }
 
 const login = (arr) => {
 
+  //takes in response from Util.login invoked on SignUp
   let [res,isLogged,userId] = arr
   setUserId(userId);
   setIsLoggedIn(isLogged);
-  console.log('res',res)
+  console.log(res)
   setProfile(res)
 }
 
 const logout = ( res ) => {
+
+  //this just adds and updates app to have[{},false,null]
   let [resp,isLogged,userId] = res;
   setUserId(userId);
   setIsLoggedIn(isLogged);
@@ -57,30 +53,31 @@ const logout = ( res ) => {
 
 useEffect(()=> {
   checkAuth()
+  return ()=> {
+    console.log('checauth clean up');
+  }
 },[])
-useEffect(()=> {
-},[isLoggedIn,userId])
-
-console.log(profile)
-
 
 
     return (
 
       <div className="App">
 
-      <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+      <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
       {isLoggedIn ?<h1>I am Logged In</h1>:<h1>Not Logged In</h1>}
-
       <h1> {userId}</h1>
-          <Switch>
-        <Route path='/signup' render={(props) => <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
-        <Route path='/login'  component={Login} />
-        <Route path='/hooks' component={Hooks} />
-        <Route path='/books' render={(props) => <Books {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
-        <Route path='/memes' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
-        <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
-          </Switch>
+      {isLoggedIn?
+
+        <Switch>
+      <Route path='/books' render={(props) => <Books {...props} profile={profile} /> } />
+      <Route path='/memes' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+      <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+      </Switch>
+      :
+      <>
+      <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
+      </>}
+
       </div>
     )
 }

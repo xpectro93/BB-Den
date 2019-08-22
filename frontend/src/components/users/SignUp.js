@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as Util from '../../util/util'
 
 const SignUp = props => {
-  const [username, setUsername] = useState('hello1')
-  const [password, setPassword] = useState('hello1')
+  const [username, setUsername] = useState('hello1');
+  const [password, setPassword] = useState('hello1');
+  const [isNewUser, setIsNewUser] = useState(false);
+  const [isExistingUser, setIsExistingUser] = useState(false);
 
 //login, register with checkAuthenticateStatus as props
   const changeName = e => setUsername(e.target.value)
@@ -12,19 +14,14 @@ const SignUp = props => {
 const login = async () => {
     //returns [profile,isLoggedin, userTokenId]
     let res = await Util.login({username,password});
-
      props.login(res)
-     setUsername('');
-     setPassword('')
  }
- const logout = async () => {
+ const logout = () => {
    //this returns w/e checkAuthenticateStatus returns
-    let res = await (Util.logout());
-    props.logout(res)
+   //AWAIT Canceled here due to memory leak
+  Util.logout()
+  props.logout([{},false,null])
  }
-
-
-
 
     return (<>
           <form>
@@ -38,7 +35,7 @@ const login = async () => {
           <input type='password' onChange={changePassword}/>
           </form>
           <button onClick={login}type='submit'>Submit</button>
-          <button onClick={logout}>Log Me outie</button>
+          {props.isLoggedIn?<button onClick={logout}>Log Me outie</button>:"Youre logged out"}
 
           </>)
 
