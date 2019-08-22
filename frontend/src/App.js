@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar.js'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import './CSS/App.css';
 import * as Util from './util/util'
 
