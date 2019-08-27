@@ -7,23 +7,24 @@ const SignUp = props => {
   const [isNewUser, setIsNewUser] = useState(false);
   const [isExistingUser, setIsExistingUser] = useState(false);
 
-//login, register with checkAuthenticateStatus as props
+  //login, register with checkAuthenticateStatus as props
   const changeName = e => setUsername(e.target.value)
   const changePassword = e =>setPassword(e.target.value)
 
-const login = async () => {
-    //returns [profile,isLoggedin, userTokenId]
-    let res = await Util.login({username,password});
-     props.login(res)
- }
- const logout = () => {
-   //this returns w/e checkAuthenticateStatus returns
-   //AWAIT Canceled here due to memory leak
-  Util.logout()
-  props.logout([{},false,null])
- }
+  const login = async () => {
+      //returns [profile,isLoggedin, userTokenId]
+      let res = await Util.login({username,password});
+       props.login(res)
+   }
+   const logout = () => {
+     //this returns w/e checkAuthenticateStatus returns
+     //AWAIT Canceled here due to memory leak
+    Util.logout()
+    props.logout([{},false,null])
+   }
 
-    return (<>
+    return (
+      <>
           <form>
           user:{username}
           <br/>
@@ -37,7 +38,7 @@ const login = async () => {
           <button onClick={login}type='submit'>Submit</button>
           {props.isLoggedIn?<button onClick={logout}>Log Me outie</button>:"Youre logged out"}
 
-          </>)
+    </>)
 
 }
 export default SignUp

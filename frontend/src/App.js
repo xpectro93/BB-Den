@@ -24,31 +24,31 @@ const [profile, setProfile] = useState({});
 //App has checkauth and logout
 const checkAuth = async () => {
 
-let [isLogged, userToken] = await Util.checkAuthenticateStatus()
-let user = await Util.getAUser(userToken)
- setUserId(userToken)
- setIsLoggedIn(isLogged)
- setProfile(user.data.user)
-}
+  let [isLogged, userToken] = await Util.checkAuthenticateStatus()
+  let user = await Util.getAUser(userToken)
+   setUserId(userToken)
+   setIsLoggedIn(isLogged)
+   setProfile(user.data.user)
+  }
 
-const login = (arr) => {
+  const login = (arr) => {
 
-  //takes in response from Util.login invoked on SignUp
-  let [res,isLogged,userId] = arr
-  setUserId(userId);
-  setIsLoggedIn(isLogged);
-  console.log(res)
-  setProfile(res)
-}
+    //takes in response from Util.login invoked on SignUp
+    let [res,isLogged,userId] = arr
+    setUserId(userId);
+    setIsLoggedIn(isLogged);
+    console.log(res)
+    setProfile(res)
+  }
 
-const logout = ( res ) => {
+  const logout = ( res ) => {
 
-  //this just adds and updates app to have[{},false,null]
-  let [resp,isLogged,userId] = res;
-  setUserId(userId);
-  setIsLoggedIn(isLogged);
-  setProfile(resp)
-}
+    //this just adds and updates app to have[{},false,null]
+    let [resp,isLogged,userId] = res;
+    setUserId(userId);
+    setIsLoggedIn(isLogged);
+    setProfile(resp)
+  }
 
 
 useEffect(()=> {

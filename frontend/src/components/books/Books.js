@@ -2,25 +2,34 @@ import React,  { useState, useEffect } from 'react'
 import '../../CSS/Books.css'
 import axios from 'axios'
 
+//Book components
+import BookShow from './BookShow'
+
 let url = 'https://www.googleapis.com/books/v1/volumes?q='
+
 const Books = props => {
   const [user,setUser] = useState(props.profile);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [books, setBooks] = useState({})
   useEffect(()=> {
     setUser(props.profile)
   },[props.profile])
-  // useEffect(()=> {
-  //   fetch()
-  // },[])
+  useEffect(()=> {
+    fetch()
+  },[])
 const fetch = () => {
-  axios.get(url+'harry').then(resp => console.log(resp))
+  axios.get(url+'harry').then(resp => setBooks(resp.data.items))
 }
+
+
 return (
 
   <div className="books">
   <h1>user</h1>
   <h1>User Token {user.id}</h1>
   <img src={user.profile_pic} alt='User profile'/>
+  <BookShow books={books}/>
+
   </div>
 )
 }
