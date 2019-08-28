@@ -43,7 +43,7 @@ const checkAuth = async () => {
 
   const logout = ( res ) => {
 
-    //this just adds and updates app to have[{},false,null]
+    //this logs out user and updates app to have[{},false,null]
     let [resp,isLogged,userId] = res;
     setUserId(userId);
     setIsLoggedIn(isLogged);

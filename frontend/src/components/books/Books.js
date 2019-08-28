@@ -10,24 +10,29 @@ let url = 'https://www.googleapis.com/books/v1/volumes?q='
 const Books = props => {
   const [user,setUser] = useState(props.profile);
   const [search, setSearch] = useState('');
-  const [books, setBooks] = useState({})
+  const [books, setBooks] = useState([]);
+
+
   useEffect(()=> {
     setUser(props.profile)
   },[props.profile])
+
   useEffect(()=> {
-    fetch()
-  },[])
-const fetch = () => {
-  axios.get(url+'harry').then(resp => setBooks(resp.data.items))
+  },[books])
+const getBooks = () => {
+  axios.get(url+search).then(resp => setBooks(resp.data.items))
 }
 
-
+console.log(books);
 return (
 
   <div className="books">
   <h1>user</h1>
   <h1>User Token {user.id}</h1>
   <img src={user.profile_pic} alt='User profile'/>
+  {search}
+  <input onChange={(e)=>setSearch(e.target.value)}/>
+  <button onClick={()=>getBooks()}> Search</button>
   <BookShow books={books}/>
 
   </div>
