@@ -3,7 +3,7 @@ import NavBar from './NavBar.js'
 import { Switch, Route } from 'react-router-dom'
 import './CSS/App.css';
 import * as Util from './util/util'
-
+import M from 'materialize-css'
 //Components
 import SignUp from './components/users/SignUp'
 import Login from './components/users/Login'
@@ -53,6 +53,11 @@ const checkAuth = async () => {
 
 useEffect(()=> {
   checkAuth()
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems);
+    console.log('loaded');
+  });
   return ()=> {
     console.log('checauth clean up');
   }
@@ -63,7 +68,7 @@ useEffect(()=> {
 
       <div className="App">
 
-      <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
+      <NavBar M={M} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
       {isLoggedIn?
 
         <Switch>

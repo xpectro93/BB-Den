@@ -33,8 +33,8 @@ const Books = props => {
 let myBooks = books ? books.map(el => {
   return(
     <>
-  <img  src={el.thumbnail} />
-  <a target='_blank'href={el.likeurl}>Learn More</a>
+  <img  src={el.thumbnail} alt=''/>
+  <a target='_blank' rel="noopener noreferrer" href={el.likeurl}>Learn More</a>
     </>
   )
 }) : null;

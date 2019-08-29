@@ -24,7 +24,7 @@ const SignUp = props => {
    }
 
     return (
-      <>
+      <div className='container'>
           <form>
           user:{username}
           <br/>
@@ -38,7 +38,7 @@ const SignUp = props => {
           <button onClick={login}type='submit'>Submit</button>
           {props.isLoggedIn?<button onClick={logout}>Log Me outie</button>:"Youre logged out"}
 
-    </>)
+    </div>)
 
 }
 export default SignUp

@@ -27,3 +27,7 @@ nav {
   background-color: white;
   min-height: 100vh
 }
+.nav-wrapper img {
+  width:50px;
+  align-self: auto;
+}
