@@ -1,5 +1,6 @@
 import React,  { useState, useEffect } from 'react'
 import '../../CSS/Books.css'
+import M from 'materialize-css'
 import axios from 'axios'
 
 //Book components
@@ -18,24 +19,36 @@ const Books = props => {
   },[props.profile])
 
   useEffect(()=> {
-  },[books])
-const getBooks = () => {
+
+      let elems = document.querySelectorAll('.tabs');
+      M.Tabs.init(elems);
+  },[])
+
+  const getBooks = () => {
   axios.get(url+search).then(resp => setBooks(resp.data.items))
 }
 
-console.log(books);
+
 return (
 
-  <div className="books">
-  <h1>user</h1>
+  <div className="books container">
+  <ul className="tabs">
+        <li className="tab col s3"><a className="active" href="#test1">My List</a></li>
+        <li className="tab col s3"><a href="#test2">Wishlist</a></li>
+        <li className="tab col s3"><a href="#test4">Rating</a></li>
+  </ul>
   <h1>User Token {user.id}</h1>
-  <img src={user.profile_pic} alt='User profile'/>
-  {search}
   <input onChange={(e)=>setSearch(e.target.value)}/>
   <button onClick={()=>getBooks()}> Search</button>
-  <BookShow books={books}/>
+
+
+  <div id="test1" className="col s12">Test 1</div>
+  <div id="test2" className="col s12"><BookShow books={books}/></div>
+  <div id="test4" className="col s12">Rating</div>
 
   </div>
+
+
 )
 }
 
@@ -49,6 +62,19 @@ export default Books;
 //books[0].volumeInfo.imageLinks <- obj[smallThumbnail] and obj[thumbnail] <- links to pics
 //books[0].previewLink <-link to preview of book <-short reading.
 //Tabs
-  //My List
-  //Want to read
+  //Add to List
+  //My List [id, title, author, cover_pic]
+  //Want to read []
   //Rating
+
+  //
+  // <ul className="tabs">
+  //       <li className="tab col s3"><a href="#test1">Test 1</a></li>
+  //       <li className="tab col s3"><a className="active" href="#test2">Test 2</a></li>
+  //       <li className="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+  //       <li className="tab col s3"><a href="#test4">Test 4</a></li>
+  // </ul>
+  // <div id="test1" className="col s12">Test 1</div>
+  // <div id="test2" className="col s12"><BookShow books={books}/></div>
+  // <div id="test3" className="col s12">Test 3</div>
+  // <div id="test4" className="col s12">Test 4</div>

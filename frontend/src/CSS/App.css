@@ -1,9 +1,9 @@
-.NavBar {
+/* .NavBar {
   background: pink;
   display: flex;
   flex-direction: row;
-}
-.NavBar h1 {
+} */
+/* .NavBar h1 {
   margin-left: 2%;
 }
 .NavBar ul {
@@ -22,7 +22,7 @@
 }
 .try option {
   background:red
-}
+} */
 .App {
   background-color: white;
   min-height: 100vh
