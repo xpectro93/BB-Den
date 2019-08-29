@@ -64,8 +64,6 @@ useEffect(()=> {
       <div className="App">
 
       <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
-      {isLoggedIn ?<h1>I am Logged In</h1>:<h1>Not Logged In</h1>}
-      <h1> {userId}</h1>
       {isLoggedIn?
 
         <Switch>

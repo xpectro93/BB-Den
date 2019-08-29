@@ -16,18 +16,28 @@ const Books = props => {
 
   useEffect(()=> {
     setUser(props.profile)
+    getAllMyBooks()
   },[props.profile])
 
   useEffect(()=> {
-
-      let elems = document.querySelectorAll('.tabs');
-      M.Tabs.init(elems);
+    let elems = document.querySelectorAll('.tabs');
+    M.Tabs.init(elems);
   },[])
 
   const getBooks = () => {
   axios.get(url+search).then(resp => setBooks(resp.data.items))
 }
-
+  const getAllMyBooks = () => {
+    axios.get(`/api/likes/${localStorage.getItem("token")}`).then(res => setBooks(res.data.data))
+  }
+let myBooks = books ? books.map(el => {
+  return(
+    <>
+  <img  src={el.thumbnail} />
+  <a target='_blank'href={el.likeurl}>Learn More</a>
+    </>
+  )
+}) : null;
 
 return (
 
@@ -42,7 +52,9 @@ return (
   <button onClick={()=>getBooks()}> Search</button>
 
 
-  <div id="test1" className="col s12">Test 1</div>
+  <div id="test1" className="col s12">
+{myBooks}
+  </div>
   <div id="test2" className="col s12"><BookShow books={books}/></div>
   <div id="test4" className="col s12">Rating</div>
 

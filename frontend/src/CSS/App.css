@@ -1,8 +1,8 @@
-/* .NavBar {
-  background: pink;
+nav {
+  background-image: linear-gradient(to right, #f9e1c2, #f9dbe7, #ebb5fc);
   display: flex;
   flex-direction: row;
-} */
+}
 /* .NavBar h1 {
   margin-left: 2%;
 }

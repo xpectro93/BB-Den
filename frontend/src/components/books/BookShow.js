@@ -7,29 +7,29 @@ if(!props.books){
     <h1>Loading</h1>
     </>)
 }else{
-
-let bookShow = props.books.map((aSingleBook, i )=> {
-  let book = aSingleBook.volumeInfo
-
-  return (
-    <div className='book' key={i}>
-    <h1>{book.title}</h1>
-    <img src={book.imageLinks.smallThumbnail} alt='book cover'/>
-    <p>{book.description}</p>
-    <a href={book.previewLink}> Book Preview</a>
-    <br/>
-    <a href={book.canonicalVolumeLink}>Google page</a>
-
-    </div>
-  )
-})
-
-  return (
-    <div className='BookShow'>
-    <h1>This is the book show component</h1>
-      {bookShow}
-    </div>
-        )
+return <h1>Hello</h1>
+// let bookShow = props.books.map((aSingleBook, i )=> {
+//   let book = aSingleBook.volumeInfo
+//
+//   return (
+//     <div className='book' key={i}>
+//     <h1>{book.title}</h1>
+//     <img src={book.imageLinks.smallThumbnail} alt='book cover'/>
+//     <p>{book.description}</p>
+//     <a href={book.previewLink}> Book Preview</a>
+//     <br/>
+//     <a href={book.canonicalVolumeLink}>Google page</a>
+//
+//     </div>
+//   )
+// })
+//
+//   return (
+//     <div className='BookShow'>
+//     <h1>This is the book show component</h1>
+//       {bookShow}
+//     </div>
+//         )
 }
 }
 

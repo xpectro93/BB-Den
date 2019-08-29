@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import * as Util from './util/util'
+import * as Util from './util/util';
+import './bb-pixilart.png';
 
 const NavBar = props => {
   const logout =() => {
@@ -15,9 +16,9 @@ const NavBar = props => {
       {props.isLoggedIn ?
         <>
         <nav>
-          <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <div className="nav-wrapper container">
+            <a href="#" className="brand-logo">Logo</a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
              <li><NavLink to="/memes">Memes</NavLink></li>
@@ -41,7 +42,7 @@ const NavBar = props => {
 export default NavBar
 
 // <nav>
-//   <div class="nav-wrapper">
+//   <div className="nav-wrapper">
 //     <a href="#" class="brand-logo">Logo</a>
 //     <ul id="nav-mobile" class="right hide-on-med-and-down">
 //       <li><a href="sass.html">Sass</a></li>
