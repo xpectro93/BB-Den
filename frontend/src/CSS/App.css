@@ -1,33 +1,4 @@
-nav {
-  background-image: linear-gradient(to right, #f9e1c2, #f9dbe7, #ebb5fc);
-  display: flex;
-  flex-direction: row;
-}
-/* .NavBar h1 {
-  margin-left: 2%;
-}
-.NavBar ul {
-  display: flex;
-  width:80%;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top:2%;
-  list-style: none;
-  font-size: 20px;
-}
-.try {
-  background: inherit;
-  border:none;
-  font-size:20px;
-}
-.try option {
-  background:red
-} */
 .App {
   background-color: white;
   min-height: 100vh
-}
-.nav-wrapper img {
-  width:50px;
-  align-self: auto;
 }

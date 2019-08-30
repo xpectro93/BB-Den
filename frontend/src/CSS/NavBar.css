@@ -1,0 +1,14 @@
+nav {
+  background-image: linear-gradient(to right, #f9e1c2, #f9dbe7, #ebb5fc);
+  display: flex;
+  flex-direction: row;
+}
+.nav-wrapper img {
+  width:50px;
+  align-self: auto;
+}
+.sidenav {
+  background-image: url('https://media.tenor.com/images/071fa1f5449efb934bc549d364ca623f/tenor.gif');
+  background-repeat: no-repeat;
+  background-size: 400px;
+}

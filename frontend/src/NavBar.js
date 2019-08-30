@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import * as Util from './util/util';
 import logo from './bb-pixilart.png';
 import M from 'materialize-css'
+import './CSS/NavBar.css'
 
 const NavBar = props => {
   const logout =() => {

@@ -17,7 +17,7 @@ export const login =async (userInfo) => {
 }
 
 export const logout = async() => {
-  let resp = await axios.post('api/users/logout')
+  await axios.post('api/users/logout')
 
   Auth.deauthenticateUser();
 
@@ -53,3 +53,10 @@ export const checkAuthenticateStatus = async() => {
   }
 };
 export const getAUser = id => axios.get(`/api/users/${id}`)
+
+
+
+
+//MEMES
+//maybe make limit be changeable
+export const getMemes = () => axios.get('https://www.reddit.com/r/dankmemes/.json?&show=all&limit=100')
