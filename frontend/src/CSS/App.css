@@ -1,4 +1,7 @@
 .App {
   background-color: white;
-  min-height: 100vh
+  min-height: 100vh;
+  font-family: "Shadows Into Light", cursive;
+  text-shadow: -1px 0 #8498b7, 0 1px #8498b7, 1px 0 #8498b7, 0 -1px #8498b7;
+  color:#9cb4d8
 }

@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import * as Util from './util/util';
-import logo from './bb-pixilart.png';
+import logo from './BB2.png';
 import M from 'materialize-css'
 import './CSS/NavBar.css'
 
@@ -31,7 +31,7 @@ const NavBar = props => {
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
               <li><NavLink to="/memes">Memes</NavLink></li>
-              <button onClick={logout}>Log me Outie</button>
+              <button  className='waves-effect waves-light btn' onClick={logout}>Log me Outie</button>
             </ul>
 
           </div>
@@ -53,7 +53,7 @@ const NavBar = props => {
               <div className="nav-wrapper container">
                 <a href="/" className="brand-logo"><img src={logo} alt='logo'/></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                 <button onClick={logout}><NavLink to="/signup">Sign-Up / Log In</NavLink></button>
+                 <button className='waves-effect waves-light btn' onClick={logout}><NavLink to="/signup">Sign-Up / Log In</NavLink></button>
                 </ul>
               </div>
             </nav>
