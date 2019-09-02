@@ -18,7 +18,7 @@ const Memes = props => {
   },[])
 return (
   <div className="memes">
-    <h1>ShoW me WhAT YoU GoT</h1>
+    
     <DisplayMemes memes={memes} />
 
   </div>

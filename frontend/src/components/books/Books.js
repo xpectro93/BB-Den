@@ -1,4 +1,4 @@
-import React,  { useState, useEffect } from 'react'
+import React,  { useState, useEffect, useRef } from 'react'
 import '../../CSS/Books.css'
 import M from 'materialize-css'
 import axios from 'axios'
@@ -9,6 +9,15 @@ import BookShow from './BookShow'
 let url = 'https://www.googleapis.com/books/v1/volumes?q='
 
 const Books = props => {
+  const testRef = useRef(null);
+  const move = e => {
+    if (testRef.current) {
+      testRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }
+  }
   const [user,setUser] = useState(props.profile);
   const [search, setSearch] = useState('');
   const [books, setBooks] = useState([]);
@@ -41,8 +50,8 @@ let myBooks = books ? books.map(el => {
 
 return (
 
-  <div className="books container">
-  <ul className="tabs">
+  <div  className="books container">
+  <ul ref={testRef} className="tabs">
         <li className="tab col s3"><a className="active" href="#test1">My List</a></li>
         <li className="tab col s3"><a href="#test2">Wishlist</a></li>
         <li className="tab col s3"><a href="#test4">Rating</a></li>
@@ -53,7 +62,11 @@ return (
 
 
   <div id="test1" className="col s12">
-{myBooks}
+    {myBooks}
+    <div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+  <button onClick={(e)=>move(e)}>click</button>
   </div>
   <div id="test2" className="col s12"><BookShow books={books}/></div>
   <div id="test4" className="col s12">Rating</div>
@@ -78,15 +91,3 @@ export default Books;
   //My List [id, title, author, cover_pic]
   //Want to read []
   //Rating
-
-  //
-  // <ul className="tabs">
-  //       <li className="tab col s3"><a href="#test1">Test 1</a></li>
-  //       <li className="tab col s3"><a className="active" href="#test2">Test 2</a></li>
-  //       <li className="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-  //       <li className="tab col s3"><a href="#test4">Test 4</a></li>
-  // </ul>
-  // <div id="test1" className="col s12">Test 1</div>
-  // <div id="test2" className="col s12"><BookShow books={books}/></div>
-  // <div id="test3" className="col s12">Test 3</div>
-  // <div id="test4" className="col s12">Test 4</div>

@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import * as Util from './util/util';
-import logo from './BB2.png';
+import logo from './bbb.png';
 import M from 'materialize-css'
 import './CSS/NavBar.css'
 

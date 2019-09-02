@@ -1,4 +1,7 @@
 .meme{
-  margin:auto;
-  background-color: purple;
+  background-color: #EBB5FC;
+  border-radius: 10px;
+}
+.something {
+  float:none;
 }

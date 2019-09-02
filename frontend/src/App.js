@@ -58,9 +58,9 @@ useEffect(()=> {
     M.Sidenav.init(elems);
     var elemss = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elemss)
-    debugger
-  return ()=> {
-    console.log('checauth clean up');
+
+return ()=> {
+  console.log('checauth clean up');
   }
 },[props.isLoggedIn])
 
@@ -82,14 +82,14 @@ useEffect(()=> {
       <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
       </>}
       <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
+        <p class="btn-floating btn-large indigo lighten-3">
           <i class="large material-icons">mode_edit</i>
-        </a>
+        </p>
         <ul>
-          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+          <li><p class="btn-floating red"><i class="material-icons">insert_chart</i></p></li>
+          <li><p class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></p></li>
+          <li><p class="btn-floating green"><i class="material-icons">publish</i></p></li>
+          <li><p class="btn-floating blue"><i class="material-icons">attach_file</i></p></li>
         </ul>
       </div>
       </div>
