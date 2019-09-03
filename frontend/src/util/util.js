@@ -59,4 +59,5 @@ export const getAUser = id => axios.get(`/api/users/${id}`)
 
 //MEMES
 //maybe make limit be changeable
-export const getMemes = () => axios.get('https://www.reddit.com/r/dankmemes/.json?&show=all&limit=100')
+export const getMemes = () => axios.get(`https://www.reddit.com/r/dankmemes/.json?&count=`)
+// export const getMemes = () => axios.get('https://www.reddit.com/r/dankmemes/.json?&show=all&limit=100')

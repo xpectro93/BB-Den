@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react'
 import '../../CSS/Meme.css'
 
 const DisplayMemes = ({memes}) => {
-
   let memeList = memes.map((meme,i)=> {
-    console.log(meme,i);
-    let page1,page2,page3,page4,page5 = []
     let imgType = meme.data.url.slice(-3)
-    if(i===0){
+    if(meme.data.url==='https://i.redd.it/sol5qp0l2gj31.png'){
       return(
         <div className='container meme' key={i}>
         <img className="responsive-img" src='https://steamuserimages-a.akamaihd.net/ugc/360653586050510880/2F485F41314D6EC9AA611689E9DC3BAA2573D5E0/?imw=268&imh=268&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true' alt='dank meme'/>
@@ -17,7 +14,7 @@ const DisplayMemes = ({memes}) => {
       if(imgType ==='jpg' || imgType === 'png'){
         return (
 
-            <div class="container row something ">
+            <div class="container row" key={i}>
 
                 <div class=" container card col m9 meme">
                   <div class="card-image">

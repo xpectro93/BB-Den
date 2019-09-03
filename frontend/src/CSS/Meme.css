@@ -1,7 +1,10 @@
 .meme{
   background-color: #EBB5FC;
   border-radius: 10px;
+  width:100%;
 }
-.something {
-  float:none;
+@media only screen and (min-width: 601px) {
+  .row .col.m9 {
+    left:12%
+  }
 }
