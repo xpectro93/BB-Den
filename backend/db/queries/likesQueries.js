@@ -4,7 +4,7 @@ const { db } = require('./index.js');
 // * `GET /likes`
 //   * `Get all likes`
 const getAllLikes = ( req, res, next) => {
-  db.any('SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id')
+  db.any('SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id ORDER BY post_id DESC')
     .then( data => {
       res.status(200).json({
         status:'Success',
@@ -17,7 +17,7 @@ const getAllLikes = ( req, res, next) => {
 // * `GET /likes/books`
 //   * `Get book likes`
 const getAllBookLikes = ( req, res, next) => {
-  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.type = 'BOOK'")
+  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.type = 'BOOK' ORDER BY post_id DESC")
     .then( data => {
       res.status(200).json({
         status:'Success',
@@ -31,7 +31,7 @@ const getAllBookLikes = ( req, res, next) => {
 // * `GET /likes/memes`
 //   * `Get meme likes`
 const getAllMemeLikes = ( req, res, next) => {
-  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.type = 'MEME'")
+  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.type = 'MEME' ORDER BY post_id DESC")
     .then( data => {
       res.status(200).json({
         status:"Success",
@@ -45,7 +45,7 @@ const getAllMemeLikes = ( req, res, next) => {
 // * `GET /likes/vid`
 //   * `Get vid likes`
 const getAllVidLikes = ( req, res, next) => {
-  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.type = 'VID'")
+  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.type = 'VID' ORDER BY post_id DESC")
     .then( data => {
       res.status(200).json({
         status:"Success",
@@ -60,7 +60,7 @@ const getAllVidLikes = ( req, res, next) => {
 //   * `Get likes by user`
 const getAllLikesByUserId = ( req, res, next) => {
   let userId = req.params.id;
-  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.userid = $1",userId)
+  db.any("SELECT likes.id AS post_id, userid,username, profile_pic, created_at, type, bookid, status, thumbnail, likeurl FROM likes JOIN users ON likes.userid = users.id WHERE likes.userid = $1 ORDER BY post_id DESC",userId)
     .then( data => {
       res.status(200).json({
         status:"Success",
@@ -75,7 +75,7 @@ const getAllLikesByUserId = ( req, res, next) => {
 // * `POST /likes`
 //   * `Post a like`
 const postLike = (req, res, next) => {
-  
+
   db.one('INSERT INTO likes (userid, type,status,thumbnail,likeurl) VALUES (${userid}, ${type},${status},${thumbnail},${likeurl}) RETURNING id',req.body)
     .then(data => {
       res.status(200).json({

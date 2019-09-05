@@ -69,7 +69,7 @@ return ()=> {
 
       <div className="App">
 
-      <NavBar M={M} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
+      <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
       {isLoggedIn?
 
         <Switch>
@@ -81,7 +81,7 @@ return ()=> {
       <>
       <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
       </>}
-      
+
       </div>
     )
 }
