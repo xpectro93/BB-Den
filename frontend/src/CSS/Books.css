@@ -1,7 +1,15 @@
 .books {
   text-align: center;
-  background: purple;
 }
 .tabs .tab a {
   color:#9cb4d8;
+}
+.tabs{
+  width:75%;
+}
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: #ebb5fc;
+}
+.tabs .indicator {
+  background-color: #ebb5fc
 }

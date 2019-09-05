@@ -35,23 +35,31 @@ const Books = props => {
 
   const getBooks = () => {
   axios.get(url+search).then(resp => setBooks(resp.data.items))
-}
+  }
   const getAllMyBooks = () => {
     axios.get(`/api/likes/${localStorage.getItem("token")}`).then(res => setBooks(res.data.data))
   }
-let myBooks = books ? books.map(el => {
-  return(
-    <>
-  <img  src={el.thumbnail} alt=''/>
-  <a target='_blank' rel="noopener noreferrer" href={el.likeurl}>Learn More</a>
-    </>
-  )
+let myBooks = books ? books.map((el, index) => {
+  if(el.type === 'MEME'){
+    return (<div className='container col m9 meme' key={index}>
+              <img className='responsive-img'src={el.likeurl} alt='leMeme'/>
+            </div>)
+  }else {
+    return(
+      <div className='meme' key={index}>
+    <img  src={el.thumbnail} alt=''/>
+    <a target='_blank' rel="noopener noreferrer" href={el.likeurl}>Learn More</a>
+      </div>
+    )
+  }
+
 }) : null;
 
 return (
 
   <div  className="books container">
-  <ul ref={testRef} className="tabs">
+  <div className="space"></div>
+  <ul ref={testRef} className="tabs round">
         <li className="tab col s3"><a className="active" href="#test1">My List</a></li>
         <li className="tab col s3"><a href="#test2">Wishlist</a></li>
         <li className="tab col s3"><a href="#test4">Rating</a></li>

@@ -1,27 +1,39 @@
 import React, { useEffect, useState } from 'react'
+import LikeMeme from './LikeMeme.js'
 import '../../CSS/Meme.css'
+import totoro from '../../assets/totoro.gif'
 
-const DisplayMemes = ({memes}) => {
+const DisplayMemes = ({memes, firstLoad, likes}) => {
+
   let memeList = memes.map((meme,i)=> {
+
+  if(likes.data !== undefined && memes.data !== undefined){
+  likes.data.data.forEach(like => {
+    console.log(like.likeurl);
+    console.log(meme.url);
+  })
+  }
     let imgType = meme.data.url.slice(-3)
-    if(meme.data.url==='https://i.redd.it/sol5qp0l2gj31.png'){
+    if(firstLoad && i === 1 ){
       return(
-        <div className='container meme' key={i}>
-        <img className="responsive-img" src='https://steamuserimages-a.akamaihd.net/ugc/360653586050510880/2F485F41314D6EC9AA611689E9DC3BAA2573D5E0/?imw=268&imh=268&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true' alt='dank meme'/>
+        <div className='container warning' key={i}>
+          <h1>Some Memes might be too spicy</h1>
+          <h1>Proceed at your own risk</h1>
+        <img className="circle responsive-img" src='https://steamuserimages-a.akamaihd.net/ugc/360653586050510880/2F485F41314D6EC9AA611689E9DC3BAA2573D5E0/?imw=268&imh=268&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true' alt='dank meme'/>
         </div>
       )
     }else{
       if(imgType ==='jpg' || imgType === 'png'){
         return (
 
-            <div class="container row" key={i}>
+            <div className="container row" key={i}>
 
-                <div class=" container card col m9 meme">
-                  <div class="card-image">
+                <div className=" container card col m9 meme">
+                  <div className="card-image">
                     <img src={meme.data.url}/>
-                    <a class="btn-floating halfway-fab waves-effect waves-light indigo lighten-3"><i class="material-icons">add</i></a>
+               <LikeMeme memeInfo={meme.data}/>
                   </div>
-                  <div class="card-content">
+                  <div className="card-content">
                     <p>
                     Title:<i>{meme.data.title}</i>
                     <br/>
@@ -30,6 +42,7 @@ const DisplayMemes = ({memes}) => {
                   </div>
 
                 </div>
+              <div className='divider'></div>
               </div>
 
         )
@@ -37,12 +50,15 @@ const DisplayMemes = ({memes}) => {
     }
 
   })
-let itsLoading = <h1>PreLoad</h1>
+let itsLoading = ( <div className="container" >
+                  <h1>Loading Badger relating content</h1>
+                  <img src={totoro} alt='loading'/>
+                  </div>)
   return (
     <>
     <div className='center-align'>
-    <h1>ShoW me WhAT YoU GoT</h1>
-    {memes ? memeList :itsLoading}
+
+    {memeList.length!== 0 ? memeList :itsLoading}
     </div>
   </>
   )

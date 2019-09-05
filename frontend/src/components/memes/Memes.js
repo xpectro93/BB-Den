@@ -9,11 +9,25 @@ const Memes = props => {
   const [ prev, setPrev ] = useState(null);
   const [ next, setNext ] = useState(null);
   const [page, setPage ] = useState(1);
+  const [ likes, setLikes ] = useState([]);
+  const [firstLoad, setFirstLoad ] =useState(true);
 
-  const setLeMemes = (thing,memeSet,prev,next) => {
-    memeSet(thing.data.data.children);
-    next(thing.data.data.after);
-    prev(thing.data.data.before);
+let pageButtons = (<ul className="center-align pagination container">
+                    <button onClick={()=>{
+                      prevPage()
+                      window.scrollTo(0,0)
+                      }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_left</i></button>
+                    <li><span className='pageNum'>{page}</span></li>
+                    <button onClick={()=>{
+                              nextPage()
+                              window.scrollTo(0,0)
+                            }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_right</i></button>
+                  </ul>)
+
+  const setLeMemes = (leData,memeSet,prev,next) => {
+    memeSet(leData.data.data.children);
+    next(leData.data.data.after);
+    prev(leData.data.data.before);
   }
 
 
@@ -21,6 +35,7 @@ const Memes = props => {
     let resp = await axios.get(url + (page *25 ) + '&after=' + next)
     setLeMemes(resp,setMemes,setPrev,setNext);
     setPage(page + 1)
+    setFirstLoad(false)
   }
 
   const prevPage = async() => {
@@ -32,6 +47,8 @@ const Memes = props => {
   const fetchMemes = async() => {
       let resp = await axios.get(url + 25 + '&after=' + next)
       setLeMemes(resp,setMemes,setPrev,setNext);
+      let likes = await axios.get('api/likes/memes')
+      await setLikes(likes);
 
   }
   useEffect(() => {
@@ -39,17 +56,11 @@ const Memes = props => {
   },[])
 return (
   <div className="memes">
-  <ul className="center-align pagination container">
-      <button onClick={()=>prevPage()}className="button waves-effect"><i className="material-icons">chevron_left</i></button>
-      {page}
-      <button onClick={()=>nextPage()}className="button waves-effect"><i className="material-icons">chevron_right</i></button>
-  </ul>
-    <DisplayMemes memes={memes} />
-    <ul className="center-align pagination container">
-        <button onClick={()=>prevPage()}className="button waves-effect"><i className="material-icons">chevron_left</i></button>
-        {page}
-        <button onClick={()=>nextPage()}className="button waves-effect"><i className="material-icons">chevron_right</i></button>
-    </ul>
+  <div className="space"></div>
+    {pageButtons}
+    {memes && likes ?<DisplayMemes memes={memes} likes={likes} firstLoad={firstLoad}/> : null}
+    {pageButtons}
+
 
   </div>
       )

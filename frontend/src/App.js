@@ -81,17 +81,7 @@ return ()=> {
       <>
       <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
       </>}
-      <div class="fixed-action-btn">
-        <p class="btn-floating btn-large indigo lighten-3">
-          <i class="large material-icons">mode_edit</i>
-        </p>
-        <ul>
-          <li><p class="btn-floating red"><i class="material-icons">insert_chart</i></p></li>
-          <li><p class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></p></li>
-          <li><p class="btn-floating green"><i class="material-icons">publish</i></p></li>
-          <li><p class="btn-floating blue"><i class="material-icons">attach_file</i></p></li>
-        </ul>
-      </div>
+      
       </div>
     )
 }
