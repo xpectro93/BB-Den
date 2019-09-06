@@ -14,25 +14,16 @@ const Memes = props => {
   const [ likes, setLikes ] = useState([]);
   const [firstLoad, setFirstLoad ] =useState(true);
 
-
-
-  let pageButtons = (<ul className="center-align pagination container">
-                    <button onClick={()=>{
-                      prevPage()
-                      window.scrollTo(0,0)
-                      }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_left</i></button>
-                    <li><span className='pageNum'>{page}</span></li>
-                    <button onClick={()=>{
-                              nextPage()
-                              window.scrollTo(0,0)
-                            }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_right</i></button>
-                  </ul>)
-
   const setLeMemes = (leData,memeSet,prev,next) => {
     memeSet(leData.data.data.children);
     next(leData.data.data.after);
     prev(leData.data.data.before);
   }
+  // const distance = () => {
+  //   let test = document.getElementById("aTest")
+  //   let height = test.getBoundingClientRect().top;
+  //   return height
+  // }
 
 
   const nextPage = async() => {
@@ -58,14 +49,27 @@ const Memes = props => {
 
       let meGusta = await axios.get('api/likes/memes')
       setLikes(meGusta);
-      console.log('meGusta at FETCH');
+
 
   }
   const getMeGusta = async () => {
     let meGusta = await axios.get('api/likes/memes')
     setLikes(meGusta);
-    console.log('Me gusta at MEMES');
+
   }
+  let pageButtons = (<ul id='aTest' className="center-align pagination container">
+                    <button  onClick={()=>{
+                      prevPage()
+                      window.scrollTo(0,0)
+                      }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_left</i></button>
+                    <li><span className='pageNum'>{page}</span></li>
+                    <button onClick={()=>{
+                              nextPage()
+                              window.scrollTo(0,0)
+                            }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_right</i></button>
+                  </ul>
+
+                  )
   useEffect(() => {
     fetchMemes()
   },[])
@@ -83,7 +87,6 @@ return (
     {pageButtons}
     {memes && likes.data ? <DisplayMemes getMeGusta={getMeGusta} memes={memes} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
     {pageButtons}
-
 
   </div>
       )

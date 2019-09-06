@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import * as Util from '../../util/util'
+import React, { useState, useEffect } from 'react';
+import * as Util from '../../util/util';
+import M from 'materialize-css';
 
 const SignUp = props => {
   const [username, setUsername] = useState('hello1');
@@ -23,22 +24,54 @@ const SignUp = props => {
     props.logout([{},false,null])
    }
 
-    return (
-      <div className='container'>
-          <form>
-          user:{username}
-          <br/>
-          <input onChange={changeName}/>
+   useEffect(()=> {
+     M.updateTextFields();
+   },[])
+   //New User Sign up
+   if(isNewUser){
 
-          <br/>
-          Pass:{password}
-          <br/>
-          <input type='password' onChange={changePassword}/>
-          </form>
-          <button onClick={login}type='submit'>Submit</button>
-          {props.isLoggedIn?<button onClick={logout}>Log Me outie</button>:"Youre logged out"}
 
-    </div>)
+   //Existing User Sign up
+   }else if(isExistingUser){
+     return (
+
+       <div className='container'>
+            <div className='space'></div>
+            <div className='space'></div>
+            <div className='container'>
+               <form>
+                 <div className='input-field'>
+                   <input className='bb' onChange={changeName} id="username" type="text" className="validate"/>
+                   <label htmlFor="username">Username</label>
+                 </div>
+                 <div className='input-field'>
+                   <input className='bb' onChange={changePassword} id="password" type="password" className="validate"/>
+                   <label htmlFor="password">Password</label>
+                 </div>
+               </form>
+             <button className="waves-effect waves-light btn round indigo lighten-3" onClick={login}type='submit'>Submit</button>
+             <button className="waves-effect waves-light btn round indigo lighten-3"
+                onClick={()=>{
+                 setIsExistingUser(false);
+                 setIsNewUser(false);}
+                }>Go Back</button>
+           {props.isLoggedIn?
+            <button className="waves-effect waves-light btn round indigo lighten-3" onClick={logout}>Log Me outie</button>:"Youre logged out"}
+          </div>
+
+     </div>)
+
+   //Intro
+   }else{
+     return(
+       <div className='center-align container'>
+         <div className='space'></div>
+         <button className="waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsNewUser(true)}>Sign Up</button>
+         <button className="waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsExistingUser(true)}>Log In</button>
+       </div>
+     )
+   }
+
 
 }
 export default SignUp

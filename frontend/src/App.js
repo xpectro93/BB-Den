@@ -10,6 +10,8 @@ import Login from './components/users/Login'
 import Books from './components/books/Books'
 import Memes from './components/memes/Memes'
 import Todos from './components/todos/Todos'
+import Den from './components/profiles/Den'
+import Profiles from './components/profiles/Profiles'
 // const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
@@ -71,15 +73,20 @@ return ()=> {
 
       <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
       {isLoggedIn?
-
-        <Switch>
-      <Route path='/books' render={(props) => <Books {...props} profile={profile} /> } />
-      <Route path='/memes' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
-      <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+      <Switch>
+        <Route path='/books' render={(props) => <Books {...props} profile={profile} /> } />
+        <Route path='/memes' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+        <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+        <Route path='/den/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
+        <Route path='/myden' render={(props) => <Den {...props} profile={profile} /> } />
+        <Route path='/' render={(props) => <Den {...props} profile={profile} /> } />
       </Switch>
       :
       <>
       <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
+      <Switch>
+        <Route path='/profile/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
+      </Switch>
       </>}
 
       </div>

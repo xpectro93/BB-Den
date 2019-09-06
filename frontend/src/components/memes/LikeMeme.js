@@ -36,14 +36,6 @@ const LikeMeme = ({memeInfo, getMeGusta,likes}) => {
     setLikeSet(likeSet)
   },[likeSet])
 
-  useEffect(()=> {
-    let likeSet = new Set()
-    likes.data.forEach(like => {
-      likeSet.add(like.likeurl)
-    })
-    setLikeSet(likeSet)
-  },[])
-
   if(likeSet.has(memeInfo.url)){
     return <a onClick={async()=> {
                               await deleteMeme()
