@@ -3,16 +3,9 @@ import LikeMeme from './LikeMeme.js'
 import UnlikeMeme from './UnlikeMeme.js'
 import '../../CSS/Meme.css'
 
-const useForceUpdate = () => useState()[1];
+
 
 const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
-  let likeSet = new Set()
-  likes.data.forEach(like => {
-    likeSet.add(like.likeurl);
-  })
-  const remove = url => likeSet.delete(url)
-  const forceUpdate = useForceUpdate();
-
 
   let memeList = memes.map((meme,i)=> {
 
@@ -34,14 +27,8 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
                 <div className=" container card col m9 meme">
                   <div className="card-image">
                     <img src={meme.data.url}/>
-                  {likeSet.has(meme.data.url)?
-                   <span onClick={() => {
-                            remove(meme.data.url)
-                            console.log(likeSet);
-                            forceUpdate()
 
-                            }}><UnlikeMeme likes={likes} getMeGusta={getMeGusta} memeInfo={meme.data}/></span>
-                  :<LikeMeme getMeGusta={getMeGusta} memeInfo={meme.data}/>}
+                  <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
                   </div>
                   <div className="card-content">
                     <p>
@@ -60,8 +47,9 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
 
   })
   useEffect(()=> {
-    console.log('likes changed',likeSet);
+console.log('rerender at displaymemes');
   },[likes])
+
   return (
     <>
     <div className='center-align'>
@@ -73,3 +61,4 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
 }
 
 export default DisplayMemes;
+                // <UnlikeMeme likes={likes} r={r} likeSet={likeSet} remove={remove} getMeGusta={getMeGusta} memeInfo={meme.data}/>

@@ -4,6 +4,8 @@ import totoro from '../../assets/totoro.gif'
 import axios from 'axios';
 
 let url = 'https://www.reddit.com/r/dankmemes/.json?&count='
+
+
 const Memes = props => {
   const [ memes, setMemes ] = useState([]);
   const [ prev, setPrev ] = useState(null);
@@ -12,7 +14,9 @@ const Memes = props => {
   const [ likes, setLikes ] = useState([]);
   const [firstLoad, setFirstLoad ] =useState(true);
 
-let pageButtons = (<ul className="center-align pagination container">
+
+
+  let pageButtons = (<ul className="center-align pagination container">
                     <button onClick={()=>{
                       prevPage()
                       window.scrollTo(0,0)
@@ -51,6 +55,7 @@ let pageButtons = (<ul className="center-align pagination container">
   const fetchMemes = async() => {
       let resp = await axios.get(url + 25 + '&after=' + next)
       setLeMemes(resp,setMemes,setPrev,setNext);
+
       let meGusta = await axios.get('api/likes/memes')
       setLikes(meGusta);
       console.log('meGusta at FETCH');
@@ -64,12 +69,14 @@ let pageButtons = (<ul className="center-align pagination container">
   useEffect(() => {
     fetchMemes()
   },[])
+
   useEffect(()=> {
   },[likes])
   let loadTotoro = ( <div className="container" >
                     <h1>Loading Badger relating content</h1>
                     <img src={totoro} alt='loading'/>
                     </div>)
+
 return (
   <div className="memes center-align">
   <div className="space"></div>

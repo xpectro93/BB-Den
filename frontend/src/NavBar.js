@@ -11,6 +11,9 @@ const NavBar = props => {
     Util.logout()
      props.logout([{},false,null])
   }
+  const scrollUp = ()=> {
+    window.scrollTo(0,0)
+  }
 
   useEffect(() => {
     var elems = document.querySelectorAll('.sidenav');
@@ -29,9 +32,9 @@ const NavBar = props => {
             <a href="/books" className="brand-logo"><img src={logo}alt='Logo'/></a>
             <span><Link to='#' data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link></span>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><NavLink to="/books">Books</NavLink></li>
-              <li><NavLink to="/todos">To-Do</NavLink></li>
-              <li><NavLink to="/memes">Memes</NavLink></li>
+              <li oncClick={()=>scrollUp()} ><NavLink to="/books">Books</NavLink></li>
+              <li oncClick={()=>scrollUp()} ><NavLink to="/todos">To-Do</NavLink></li>
+              <li oncClick={()=>scrollUp()} ><NavLink to="/memes">Memes</NavLink></li>
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
             </ul>
           </div>
