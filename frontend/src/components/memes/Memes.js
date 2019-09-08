@@ -3,7 +3,7 @@ import DisplayMemes from './DisplayMemes.js'
 import totoro from '../../assets/totoro.gif'
 import axios from 'axios';
 
-let url = 'https://www.reddit.com/r/dankmemes/.json?&count='
+let url = 'https://www.reddit.com/r/dankmemes/controversial.json?&count='
 
 
 const Memes = props => {

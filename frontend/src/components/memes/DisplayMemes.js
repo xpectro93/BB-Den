@@ -33,14 +33,14 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
 
 
                   <div className="row card-content">
-                    <div className='col s4 m4 l4'>
+                    <div className='col s2 m5 l2'>
                     <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
                     </div>
-                    <p className='col s8 m8 l8'>
+                    <p className='col s10 m7 l10'>
 
-                    Title:<i>{meme.data.title}</i>
+                    Title:<p className='flow-text'>{meme.data.title}</p>
                     <br/>
-                    Author: {meme.data.author}
+                    Author: <p className='flow-text'>{meme.data.author}</p>
                     </p>
                   </div>
 

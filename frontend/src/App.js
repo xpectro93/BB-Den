@@ -85,7 +85,7 @@ return ()=> {
       <>
       <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
       <Switch>
-        <Route path='/profile/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
+        <Route path='/den/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
       </Switch>
       </>}
 
