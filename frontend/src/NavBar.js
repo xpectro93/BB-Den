@@ -25,8 +25,10 @@ const NavBar = props => {
         <nav>
 
           <div className="nav-wrapper container">
-            <a href="#" className="brand-logo"><img src={logo}alt='Logo'/></a>
+            <a href="/myden" className="brand-logo"><img src={logo}alt='Logo'/></a>
+
             <span><Link to='#' data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link></span>
+            
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>

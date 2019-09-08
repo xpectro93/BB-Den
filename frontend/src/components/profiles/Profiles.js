@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const Profiles = props => {
-  const [ profile, setProfile ] = useState(null);
 
+  const [ profile, setProfile ] = useState(null);
+  const getProfile = () => {
+    
+    setProfile()
+  }
   let arr = [1,100];
 
   let [min, max] = arr

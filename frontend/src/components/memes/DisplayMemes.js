@@ -9,7 +9,7 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
   let memeList = memes.map((meme,i)=> {
 
     let imgType = meme.data.url.slice(-3)
-    if(firstLoad && i === 1 ){
+    if(firstLoad && i === 0 ){
       return(
         <div className='container warning' key={i}>
           <h1 className='flow-text' >Some Memes might be too spicy</h1>
@@ -21,21 +21,30 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
       if(imgType ==='jpg' || imgType === 'png'){
         return (
 
-            <div className="container row" key={i}>
+            <div className="row" key={i}>
 
-                <div className=" container card col m9 meme">
+                <div className=" container card col s12 offset-m2 m8 offset-l3 l6 meme">
                   <div className="card-image">
                     <img src={meme.data.url}/>
 
-                  <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
+
                   </div>
-                  <div className="card-content">
-                    <p>
+
+
+
+                  <div className="row card-content">
+                    <div className='col s4 m4 l4'>
+                    <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
+                    </div>
+                    <p className='col s8 m8 l8'>
+
                     Title:<i>{meme.data.title}</i>
                     <br/>
                     Author: {meme.data.author}
                     </p>
                   </div>
+
+
 
                 </div>
               </div>
