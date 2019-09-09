@@ -2,7 +2,7 @@ import React,  { useState, useEffect } from 'react'
 import DisplayMemes from './DisplayMemes.js'
 import totoro from '../../assets/totoro.gif'
 import axios from 'axios';
-
+//reddits of interest -> InsanePeopleQuora, TikTokCringe, dankmemes
 let url = 'https://www.reddit.com/r/dankmemes/controversial.json?&count='
 
 
@@ -19,12 +19,6 @@ const Memes = props => {
     next(leData.data.data.after);
     prev(leData.data.data.before);
   }
-  // const distance = () => {
-  //   let test = document.getElementById("aTest")
-  //   let height = test.getBoundingClientRect().top;
-  //   return height
-  // }
-
 
   const nextPage = async() => {
     let resp = await axios.get(url + (page *25 ) + '&after=' + next)
@@ -47,9 +41,9 @@ const Memes = props => {
       let resp = await axios.get(url + 25 + '&after=' + next)
       setLeMemes(resp,setMemes,setPrev,setNext);
 
-      let meGusta = await axios.get('api/likes/memes')
-      setLikes(meGusta);
-
+      // let meGusta = await axios.get('api/likes/memes')
+      // setLikes(meGusta);
+      getMeGusta()
 
   }
   const getMeGusta = async () => {

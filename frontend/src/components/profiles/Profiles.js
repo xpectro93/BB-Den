@@ -4,9 +4,14 @@ import axios from 'axios'
 const Profiles = props => {
 
   const [ profile, setProfile ] = useState(null);
-  const getProfile = () => {
-    
-    setProfile()
+  const getProfile = async() => {
+  try {
+    let resp = await axios.get('/api/users/7')
+    console.log(resp);
+  }catch(err){
+  console.log(err);
+  }
+
   }
   let arr = [1,100];
 
@@ -16,7 +21,7 @@ const Profiles = props => {
 
 
   useEffect(()=> {
-    console.log('it loaded');
+    getProfile()
   },[])
 
 

@@ -28,11 +28,13 @@ const NavBar = props => {
             <a href="/myden" className="brand-logo"><img src={logo}alt='Logo'/></a>
 
             <span><Link to='#' data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link></span>
-            
+
             <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><NavLink to="/myden">My Badger Den</NavLink></li>
+              <li><NavLink to="/memes">Memes</NavLink></li>
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
-              <li><NavLink to="/memes">Memes</NavLink></li>
+
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
             </ul>
           </div>
@@ -41,13 +43,14 @@ const NavBar = props => {
 
 
 </div>
-<div>
-<ul className="sidenav" id="mobile-demo">
-  <li className="sidenav-close" ><NavLink to='/memes'>Memes</NavLink></li>
-  <li className="sidenav-close" ><NavLink to='/books'>books</NavLink></li>
-  <li className="sidenav-close" ><NavLink to='/todos'>todos</NavLink></li>
-</ul>
-</div>
+  <div>
+    <ul className="sidenav" id="mobile-demo">
+      <li className="sidenav-close" ><NavLink to='/myden'>My Badger Den</NavLink></li>
+      <li className="sidenav-close" ><NavLink to='/memes'>Memes</NavLink></li>
+      <li className="sidenav-close" ><NavLink to='/books'>books</NavLink></li>
+      <li className="sidenav-close" ><NavLink to='/todos'>To-Do</NavLink></li>
+    </ul>
+  </div>
         </div>
         :
         <>
