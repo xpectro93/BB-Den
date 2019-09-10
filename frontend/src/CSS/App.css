@@ -40,3 +40,6 @@ h1,h2,h3 {
   border-bottom: 1px solid #9CB4D8 !important;
   box-shadow: 0 1px 0 0 #9CB4D8 !important;
 }
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #9CB4D8 !important;
+}

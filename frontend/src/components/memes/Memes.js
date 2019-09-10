@@ -1,14 +1,18 @@
 import React,  { useState, useEffect } from 'react'
-import DisplayMemes from './DisplayMemes.js'
-import totoro from '../../assets/totoro.gif'
+import DisplayMemes from './DisplayMemes.js';
+import totoro from '../../assets/totoro.gif';
+import memepic from '../../assets/cat.png';
+import tiktok from '../../assets/tiktok.png';
+import quora from '../../assets/quora.png';
 import axios from 'axios';
 import M from 'materialize-css'
 //reddits of interest -> InsanePeopleQuora, TikTokCringe, dankmemes
 // let url = 'https://www.reddit.com/r/dankmemes/controversial.json?&count='
 let url = 'https://www.reddit.com/r/'
 
+const useForceUpdate = () => useState()[1];
 const Memes = props => {
-  const [memeTopic, quoraTopic, tiktokTopic ] = ['dankmemes', 'InsanePeopleQuora', 'TikTokCringe'];
+  const forceUpdate = useForceUpdate();
   const [ content, setContent ] = useState([]);
   const [ prev, setPrev ] = useState(null);
   const [ next, setNext ] = useState(null);
@@ -26,7 +30,7 @@ const Memes = props => {
   }
 
   const nextPage = async() => {
-    let resp = await axios.get(url + (page *25 ) + '&after=' + next)
+    let resp = await axios.get(url + currentType+'.json?&count=' + (page *25 ) + '&after=' + next)
     setLeContent(resp,setContent,setPrev,setNext);
     setPage(page + 1)
     setFirstLoad(false)
@@ -34,7 +38,7 @@ const Memes = props => {
 
   const prevPage = async() => {
     if (page > 1) {
-      let resp = await axios.get(url + (((page - 1) * 25) - 1) + '&before=' + prev)
+      let resp = await axios.get(url + currentType +'.json?&count=' + (((page - 1) * 25) - 1) + '&before=' + prev)
       setLeContent(resp,setContent,setPrev,setNext);
       setPage(page - 1)
     }else {
@@ -42,10 +46,10 @@ const Memes = props => {
     }
 
   }
-  const fetContent = async() => {
-      let resp = await axios.get(url+ currentType +'/controversial.json?&count='+ 25 + '&after=' + next)
+  const fetchContent = async() => {
+      let resp = await axios.get(url+ currentType +'/.json?&count='+ 25 + '&after=' + next)
+      console.log('At fetch',resp);
       setLeContent(resp,setContent,setPrev,setNext);
-
       getMeGusta()
 
   }
@@ -54,48 +58,31 @@ const Memes = props => {
     setLikes(meGusta);
 
   }
-  const changeTopic = type => {
-    setLeContent([],null,null)
-    setPage(1)
-    setCurrentType('memes')
+  const changeTopic = () => {
+    setContent([]);
+    setNext(null);
+    setPrev(null);
   }
+
   const makeTypeList = () => {
 
-    let select = (<div class="input-field col s12 m6">
-        <select class="icons">
-          <option value="" data-icon="images/yuna.jpg" className="left">Dank Memes</option>
-          <option value="" data-icon="images/yuna.jpg" className="left">Quora Madness</option>
-          <option value="" data-icon="images/yuna.jpg" className="left">TikTok Cringe</option>
+    let select = (
+      <div className='row'>
+        <div className="input-field col s10 offset-s1 offset-m3 m6 offset-l3 l6">
+        <select className="icons" onChange={(e)=>{setCurrentType(e.target.value)
+                            
+                                                  }}>
+          <option value="dankmemes" data-icon={memepic} className="left">Dank Memes</option>
+          <option value="InsanePeopleQuora" data-icon={quora} className="left">Quora Madness</option>
+          <option value="TikTokCringe" data-icon={tiktok} className="left">TikTok Cringe</option>
         </select>
         <label>Choose something to gnaw on</label>
+        </div>
         </div>)
-
-    // <option value="" disabled selected>Choose your option</option>
     return select
   }
+  console.log(currentType);
 
-//   changeSubreddit(sub) {
-//   /*
-//    * Empty the files so we will show 'Loading...'
-//    * Reset page to 1
-//    */
-//   this.setState({
-//     files: [],
-//     currentSubreddit: sub,
-//     page: 1
-//   });
-//   fetch(this.url + sub + "/" + this.state.sort + '.json')
-//     .then(res => res.json())
-//     .then((data) => {
-//       this.setState({
-//         files: data.data.children,
-//         after: data.data.after,
-//         before: data.data.before
-//       });
-//       window.scrollTo(0, 0);
-//     })
-//     .catch(console.log)
-// }
 
   let pageButtons = (<ul id='aTest' className="center-align pagination container">
                     <button  onClick={()=>{
@@ -110,10 +97,14 @@ const Memes = props => {
                      </ul>)
 
   useEffect(() => {
-    fetContent()
+    fetchContent()
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
   },[])
+  // useEffect(()=> {
+  //   changeTopic();
+  //   fetchContent()
+  // },[currentType])
 
   useEffect(()=> {
 

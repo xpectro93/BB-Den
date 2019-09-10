@@ -7,7 +7,6 @@ import '../../CSS/Meme.css'
 const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
 
   let memeList = memes.map((meme,i)=> {
-    console.log('meme',meme);
     let imgType = meme.data.url.slice(-3)
     if(firstLoad && i === 0 ){
       return(
