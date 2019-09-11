@@ -1,7 +1,7 @@
 nav {
   background-image: linear-gradient(to right, #f9e1c2, #f9dbe7, #ebb5fc);
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 }
 .nav-wrapper img {
   width:75px 50px;
@@ -19,4 +19,18 @@ nav {
 }
 .brand-logo img {
   margin-top:30%;
+}
+.sidenav li>a {
+  text-align: center;
+  color: #9cb4d8;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 25px;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+
+.icons img {
+  width:40px;
+  float: left;
+  border-radius: 50%
 }

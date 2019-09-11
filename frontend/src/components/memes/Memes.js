@@ -62,6 +62,7 @@ const Memes = props => {
     setContent([]);
     setNext(null);
     setPrev(null);
+    fetchContent()
   }
 
   const makeTypeList = () => {
@@ -70,8 +71,10 @@ const Memes = props => {
       <div className='row'>
         <div className="input-field col s10 offset-s1 offset-m3 m6 offset-l3 l6">
         <select className="icons" onChange={(e)=>{setCurrentType(e.target.value)
-                            
-                                                  }}>
+                  console.log('current',currentType);
+                  changeTopic()
+                                                            }}>
+          <option value="" disabled defaultValue>Choose your option</option>
           <option value="dankmemes" data-icon={memepic} className="left">Dank Memes</option>
           <option value="InsanePeopleQuora" data-icon={quora} className="left">Quora Madness</option>
           <option value="TikTokCringe" data-icon={tiktok} className="left">TikTok Cringe</option>
@@ -81,7 +84,7 @@ const Memes = props => {
         </div>)
     return select
   }
-  console.log(currentType);
+  console.log('current log',currentType);
 
 
   let pageButtons = (<ul id='aTest' className="center-align pagination container">
@@ -111,19 +114,24 @@ const Memes = props => {
   },[likes])
   let loadTotoro = ( <div className="container" >
                     <h1>Loading Badger relating content</h1>
-                    <img src={totoro} alt='loading'/>
+                    <img className='responsive-img'src={totoro} alt='loading'/>
                     </div>)
+if(currentType === ''){
+  return(<h1>FML</h1>)
+}else{
+  return (
+    <div className="memes center-align">
+    <div className="space"></div>
+      {makeTypeList()}
 
-return (
-  <div className="memes center-align">
-  <div className="space"></div>
-    {makeTypeList()}
-    {pageButtons}
-    {content && likes.data ? <DisplayMemes getMeGusta={getMeGusta} memes={content} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
-    {pageButtons}
+      {pageButtons}
+      {content && likes.data ? <DisplayMemes getMeGusta={getMeGusta} memes={content} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
+      {pageButtons}
 
-  </div>
-      )
+    </div>
+        )
+}
+
 }
 
 export default Memes;

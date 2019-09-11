@@ -47,7 +47,7 @@ let myBooks = books ? books.map((el, index) => {
   }else {
     return(
       <div className='meme' key={index}>
-    <img  src={el.thumbnail} alt=''/>
+    <img  className='responsive-img'src={el.thumbnail} alt=''/>
     <a target='_blank' rel="noopener noreferrer" href={el.likeurl}>Learn More</a>
       </div>
     )

@@ -7,6 +7,7 @@ import '../../CSS/Meme.css'
 const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
 
   let memeList = memes.map((meme,i)=> {
+
     let imgType = meme.data.url.slice(-3)
     if(firstLoad && i === 0 ){
       return(
@@ -19,34 +20,34 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
     }else{
       if(imgType ==='jpg' || imgType === 'png'){
         return (
+          <div className="row" key={i}>
 
-            <div className="row" key={i}>
-
-                <div className=" container card col s12 offset-m2 m8 offset-l3 l6 meme">
-                  <div className="card-image">
-                    <img src={meme.data.url}/>
-
-
-                  </div>
-
-
-
-                  <div className="row card-content">
-                    <div className='col s2 m5 l2'>
-                    <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
-                    </div>
-                    <div className='col s10 m7 l10'>
-
-                    Title:<p className='flow-text'>{meme.data.title}</p>
-                    <br/>
-                    Author: {meme.data.author}
-                    </div>
-                  </div>
-
+              <div className=" container card col s12 offset-m2 m8 offset-l3 l6 meme">
+                <div className="card-image">
+                  <img src={meme.data.url}/>
 
 
                 </div>
+
+
+
+                <div className="row card-content">
+                  <div className='col s2 m5 l2'>
+                  <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
+                  </div>
+                  <div className='col s10 m7 l10'>
+
+                  Title:<p className='flow-text'>{meme.data.title}</p>
+                  <br/>
+                  Author: {meme.data.author}
+                  </div>
+                </div>
+
+
+
               </div>
+            </div>
+
 
         )
       }
@@ -68,4 +69,4 @@ console.log('rerender at displaymemes');
 }
 
 export default DisplayMemes;
-                // <UnlikeMeme likes={likes} r={r} likeSet={likeSet} remove={remove} getMeGusta={getMeGusta} memeInfo={meme.data}/>
+// <UnlikeMeme likes={likes} r={r} likeSet={likeSet} remove={remove} getMeGusta={getMeGusta} memeInfo={meme.data}/>
