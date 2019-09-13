@@ -75,7 +75,7 @@ return ()=> {
       {isLoggedIn?
       <Switch>
         <Route path='/books' render={(props) => <Books {...props} profile={profile} /> } />
-        <Route path='/dankmemes' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
+        <Route path='/memes/:id' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
         <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
         <Route path='/den/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
         <Route path='/myden' render={(props) => <Den {...props} profile={profile} /> } />

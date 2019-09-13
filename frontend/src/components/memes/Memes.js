@@ -6,6 +6,7 @@ import tiktok from '../../assets/tiktok.png';
 import quora from '../../assets/quora.png';
 import axios from 'axios';
 import M from 'materialize-css'
+
 //reddits of interest -> InsanePeopleQuora, TikTokCringe, dankmemes
 // let url = 'https://www.reddit.com/r/dankmemes/controversial.json?&count='
 let url = 'https://www.reddit.com/r/'
@@ -20,7 +21,7 @@ const Memes = props => {
   const [ likes, setLikes ] = useState([]);
   const [firstLoad, setFirstLoad ] =useState(true);
 
-  const [ currentType, setCurrentType ] = useState('dankmemes')
+  const [ currentType, setCurrentType ] = useState(props.match.params.id)
 
 
   const setLeContent = (leData,contentSet,prev,next) => {
@@ -54,7 +55,7 @@ const Memes = props => {
 
   }
   const getMeGusta = async () => {
-    let meGusta = await axios.get('api/likes/memes')
+    let meGusta = await axios.get('/api/likes/memes')
     setLikes(meGusta);
 
   }
@@ -71,7 +72,6 @@ const Memes = props => {
       <div className='row'>
         <div className="input-field col s10 offset-s1 offset-m3 m6 offset-l3 l6">
         <select className="icons" onChange={(e)=>{setCurrentType(e.target.value)
-                  console.log('current',currentType);
                   changeTopic()
                                                             }}>
           <option value="" disabled defaultValue>Choose your option</option>
@@ -84,8 +84,6 @@ const Memes = props => {
         </div>)
     return select
   }
-  console.log('current log',currentType);
-
 
   let pageButtons = (<ul id='aTest' className="center-align pagination container">
                     <button  onClick={()=>{
@@ -104,10 +102,12 @@ const Memes = props => {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
   },[])
-  // useEffect(()=> {
-  //   changeTopic();
-  //   fetchContent()
-  // },[currentType])
+  useEffect(()=> {
+    console.log('at currentType',currentType);
+    changeTopic()
+    setPage(1)
+    fetchContent()
+  },[currentType])
 
   useEffect(()=> {
 
@@ -119,6 +119,7 @@ const Memes = props => {
 if(currentType === ''){
   return(<h1>FML</h1>)
 }else{
+
   return (
     <div className="memes center-align">
     <div className="space"></div>
@@ -135,3 +136,13 @@ if(currentType === ''){
 }
 
 export default Memes;
+
+// <video id='leVid' controls onPlay={(e)=>{
+//   let vid = document.getElementById(e.target.id);
+//   let audio = document.getElementById('leAudio');
+//
+//   audio.currentTime  = vid.currentTime
+//   }} autoplay="false">
+//   <source src="https://v.redd.it/aq8do2qz75m31/DASH_1080?source=fallback" type="video/mp4"/>
+// </video>
+// <audio id='leAudio' autoplay='true' src="https://v.redd.it/aq8do2qz75m31/audio?source=fallback"> Something</audio>

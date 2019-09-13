@@ -37,8 +37,8 @@ const NavBar = props => {
 
             <span><Link to='#' data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link></span>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><NavLink to="/myden">My Badger Den TEST</NavLink></li>
-              <li><NavLink to="/dankmemes">Memes</NavLink></li>
+              <li><NavLink to="/myden">My Badger</NavLink></li>
+              <li><NavLink to="/memes/dankmemes">Memes</NavLink></li>
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
