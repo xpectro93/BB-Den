@@ -5,11 +5,10 @@ import '../../CSS/Meme.css'
 
 
 const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
+
   const vidControl = (e,isPlaying) => {
     let num = e.target.id.split('-')[1]
     let vid  = document.getElementById(`video-${num}`);
-    console.log('this b my event',e);
-
     let audio = document.getElementById(`audio-${num}`);
 
     vid.currentTime = audio.currentTime;
@@ -28,8 +27,17 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
     }
 
   }
+  const memeType = url => {
+    let type;
+    if(url.includes('jpg'||'png')) type = 'IMG'
+    else if(url.includes('v.redd.it'))type = 'VID'
+    else if(url.includes('gfycat')) type = 'GFYCAT'
+    else if(url.includes('gifv')) type = 'GIFV'
+    else type = null;
+    return type
+  }
   let memeList = memes.map((meme,i)=> {
-
+    console.log(meme.data);
     let imgType = meme.data.url.slice(-3)
     let isVid = meme.data.url.includes('v.redd.it')
     if(firstLoad && i === 0){
@@ -69,7 +77,8 @@ const DisplayMemes =({memes, firstLoad, likes, getMeGusta}) => {
 
 
         )
-      }else if(isVid){
+      }else if(isVid && meme && meme.data){
+
         let fallback = meme.data.secure_media.reddit_video.fallback_url.split('DASH')
         let audioUrl = fallback[0]+'audio?source=fallback'
         let isPlaying = false;

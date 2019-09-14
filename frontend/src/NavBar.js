@@ -61,9 +61,9 @@ const NavBar = props => {
              <a className="color-test collapsible-header">CHOOSE MEME TOPIC<i className="medium material-icons">arrow_drop_down</i></a>
              <div className="collapsible-body">
                <ul className='icons'>
-                 <li className="sidenav-close"><NavLink to='/dankmemes'><img  src={memepic} alt='topic pic'/>Memes</NavLink></li>
-                 <li className="sidenav-close"><NavLink to='/tiktok'><img  src={tiktok} alt='topic pic'/>Tik Tok Cringe</NavLink></li>
-                 <li className="sidenav-close"><NavLink to='/quora'><img  src={quora} alt='topic pic'/>Quora Madness</NavLink></li>
+                 <li className="sidenav-close"><NavLink to='/memes/dankmemes'><img  src={memepic} alt='topic pic'/>Memes</NavLink></li>
+                 <li className="sidenav-close"><NavLink to='/memes/TikTokCringe'><img  src={tiktok} alt='topic pic'/>Tik Tok Cringe</NavLink></li>
+                 <li className="sidenav-close"><NavLink to='/memes/InsanePeopleQuora'><img  src={quora} alt='topic pic'/>Quora Madness</NavLink></li>
 
                </ul>
              </div>

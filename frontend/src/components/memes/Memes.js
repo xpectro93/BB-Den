@@ -11,9 +11,9 @@ import M from 'materialize-css'
 // let url = 'https://www.reddit.com/r/dankmemes/controversial.json?&count='
 let url = 'https://www.reddit.com/r/'
 
-const useForceUpdate = () => useState()[1];
+// const useForceUpdate = () => useState()[1];
 const Memes = props => {
-  const forceUpdate = useForceUpdate();
+  // const forceUpdate = useForceUpdate();
   const [ content, setContent ] = useState([]);
   const [ prev, setPrev ] = useState(null);
   const [ next, setNext ] = useState(null);
@@ -107,7 +107,7 @@ const Memes = props => {
     changeTopic()
     setPage(1)
     fetchContent()
-  },[currentType])
+  },[currentType,props.match.params.id])
 
   useEffect(()=> {
 
@@ -116,6 +116,7 @@ const Memes = props => {
                     <h1>Loading Badger relating content</h1>
                     <img className='responsive-img'src={totoro} alt='loading'/>
                     </div>)
+
 if(currentType === ''){
   return(<h1>FML</h1>)
 }else{

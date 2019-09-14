@@ -20,9 +20,10 @@ const LikeMeme = ({memeInfo, getMeGusta,likes}) => {
     likeSet.delete(memeInfo.url)
     let memes = await axios.get(`/api/likes/memes`)
     let memeId;
-    memes.data.data.filter(el=> {
+    //changed from filter
+    memes.data.data.forEach(el=> {
 
-      if(el.userid === +localStorage.getItem('token') && el.likeurl ===memeInfo.url){
+      if(el.userid === +localStorage.getItem('token') && el.likeurl === memeInfo.url){
         memeId = el.post_id;
       }
     })
@@ -38,24 +39,17 @@ const LikeMeme = ({memeInfo, getMeGusta,likes}) => {
 
   if(likeSet.has(memeInfo.url)){
     return <a onClick={async()=> {
-                                  await deleteMeme()
-                                  M.toast({html: 'Deleted meme from you stash', classes: 'rounded toast'})
-                                  await getMeGusta()
-                                } } className="btn-floating btn-large waves-effect waves-light indigo lighten-3"><i className="material-icons">favorite</i></a>
-  }else{
+                              await deleteMeme()
+                              M.toast({html: 'Deleted meme from you stash', classes: 'rounded toast'})
+                              await getMeGusta()
+                            } } className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3"><i className="material-icons">favorite</i></a>
+}else{
     return <a onClick={()=> {
                               postMeme()
                               M.toast({html: 'Saved to your stash of memes.', classes: 'rounded toast'})
                               getMeGusta()
-                            } }className="btn-floating btn-large waves-effect waves-light indigo lighten-3" ><i className="material-icons">favorite_border</i></a>
-
-  }
-
-
-
-
-
-
+                            } }className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3" ><i className="material-icons">favorite_border</i></a>
+   }
 };
 
 export default LikeMeme;
