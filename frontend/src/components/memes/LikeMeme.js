@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import M from 'materialize-css'
 
-const LikeMeme = ({memeInfo, getMeGusta,likes}) => {
+const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
   const [ likeSet, setLikeSet ] = useState(new Set())
 
   const postMeme = async() => {
@@ -42,13 +42,13 @@ const LikeMeme = ({memeInfo, getMeGusta,likes}) => {
                               await deleteMeme()
                               M.toast({html: 'Deleted meme from you stash', classes: 'rounded toast'})
                               await getMeGusta()
-                            } } className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3"><i className="material-icons">favorite</i></a>
+                            } } className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3"><i id={`icon-${i}`} className="material-icons">favorite</i></a>
 }else{
     return <a onClick={()=> {
                               postMeme()
                               M.toast({html: 'Saved to your stash of memes.', classes: 'rounded toast'})
                               getMeGusta()
-                            } }className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3" ><i className="material-icons">favorite_border</i></a>
+                            } }className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3" ><i id={`icon-${i}`}className="material-icons">favorite_border</i></a>
    }
 };
 

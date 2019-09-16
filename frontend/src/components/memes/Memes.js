@@ -1,5 +1,5 @@
 import React,  { useState, useEffect } from 'react'
-import DisplayMemes from './DisplayMemes.js';
+import MemeMap from './MemeMap.js';
 import totoro from '../../assets/totoro.gif';
 import memepic from '../../assets/cat.png';
 import tiktok from '../../assets/tiktok.png';
@@ -127,7 +127,7 @@ if(currentType === ''){
       {makeTypeList()}
 
       {pageButtons}
-      {content && likes.data ? <DisplayMemes getMeGusta={getMeGusta} memes={content} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
+      {content && likes.data ? <MemeMap getMeGusta={getMeGusta} memes={content} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
       {pageButtons}
 
     </div>
