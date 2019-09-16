@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LikeMeme from './LikeMeme.js'
-import {DisplayMeme} from './Display/DisplayMeme'
+import { DisplayMeme } from './Display/DisplayMeme'
+import { DisplayVid } from './Display/DisplayVid'
 import '../../CSS/Meme.css'
 
 
