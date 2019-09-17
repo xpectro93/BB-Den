@@ -17,10 +17,15 @@ const NavBar = props => {
      props.logout([{},false,null])
   }
   useEffect(() => {
-    var elems = document.querySelectorAll('.sidenav');
+    let elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems);
-    var elemss = document.querySelectorAll('.collapsible');
-    var instancess = M.Collapsible.init(elemss);
+    let collap = document.querySelectorAll('.collapsible');
+    // eslint-disable-next-line no-unused-vars
+    let instaCollap = M.Collapsible.init(collap);
+    let item = document.querySelectorAll('.dropdown-trigger');
+    // eslint-disable-next-line no-unused-vars
+    let instances = M.Dropdown.init(item);
+
 
   }, [props.isLoggedIn])
 
@@ -29,16 +34,26 @@ const NavBar = props => {
       <div className='NavBar'>
       {props.isLoggedIn ?
         <div>
+          {/* {Dropdown content/} */}
+          <ul id="dropdown1" class="dropdown-content">
+            <li><Link to='/memes/dankmemes'><img  className='nav-icon round' src={memepic} alt='topic pic'/>Dank Memes</Link></li>
+            <li class="divider"></li>
+            <li><Link to='/memes/insanepeoplequora'><img  className='nav-icon round' src={quora} alt='topic pic'/>Quora Madness</Link></li>
+            <li class="divider"></li>
+            <li><Link to='/memes/tiktokcringe'><img  className='nav-icon round' src={tiktok} alt='topic pic'/>TikTok Cringe</Link></li>
+          </ul>
+
         <div className='navbar-fixed'>
         <nav>
 
           <div className="nav-wrapper container">
             <a href="/myden" className="brand-logo"><img src={logo}alt='Logo'/></a>
-
+            {/* {SideNav trigger} */}
             <span><Link to='#' data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link></span>
+            {/* {SideNav Content} */}
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><NavLink to="/myden">My Badger</NavLink></li>
-              <li><NavLink to="/memes/dankmemes">Memes</NavLink></li>
+              <li><NavLink to="/myden">My Den</NavLink></li>
+              <li><a class="dropdown-trigger"  data-target="dropdown1">Meme Type<i class="material-icons right">arrow_drop_down</i></a></li>
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
@@ -62,8 +77,8 @@ const NavBar = props => {
              <div className="collapsible-body">
                <ul className='icons'>
                  <li className="sidenav-close"><NavLink to='/memes/dankmemes'><img  src={memepic} alt='topic pic'/>Memes</NavLink></li>
-                 <li className="sidenav-close"><NavLink to='/memes/TikTokCringe'><img  src={tiktok} alt='topic pic'/>Tik Tok Cringe</NavLink></li>
                  <li className="sidenav-close"><NavLink to='/memes/InsanePeopleQuora'><img  src={quora} alt='topic pic'/>Quora Madness</NavLink></li>
+                 <li className="sidenav-close"><NavLink to='/memes/TikTokCringe'><img  src={tiktok} alt='topic pic'/>Tik Tok Cringe</NavLink></li>
 
                </ul>
              </div>

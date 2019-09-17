@@ -8,7 +8,7 @@ export const DisplayMeme =({i ,meme, getMeGusta, likes})=> {
 
         <div className="container card col s12 offset-m2 m8 offset-l3 l6 meme">
           <div className="card-image">
-            <img src={meme.data.url}/>
+            <img src={meme.data.url} alt="content"/>
           </div>
 
           <div className="row card-content">
