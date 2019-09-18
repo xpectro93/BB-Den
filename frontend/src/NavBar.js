@@ -35,11 +35,11 @@ const NavBar = props => {
       {props.isLoggedIn ?
         <div>
           {/* {Dropdown content/} */}
-          <ul id="dropdown1" class="dropdown-content">
+          <ul id="dropdown1" className="dropdown-content">
             <li><Link to='/memes/dankmemes'><img  className='nav-icon round' src={memepic} alt='topic pic'/>Dank Memes</Link></li>
-            <li class="divider"></li>
+            <li className="divider"></li>
             <li><Link to='/memes/insanepeoplequora'><img  className='nav-icon round' src={quora} alt='topic pic'/>Quora Madness</Link></li>
-            <li class="divider"></li>
+            <li className="divider"></li>
             <li><Link to='/memes/tiktokcringe'><img  className='nav-icon round' src={tiktok} alt='topic pic'/>TikTok Cringe</Link></li>
           </ul>
 
@@ -53,7 +53,7 @@ const NavBar = props => {
             {/* {SideNav Content} */}
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><NavLink to="/myden">My Den</NavLink></li>
-              <li><a class="dropdown-trigger"  data-target="dropdown1">Meme Type<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a className="dropdown-trigger"  data-target="dropdown1">Meme Type<i className="material-icons right">arrow_drop_down</i></a></li>
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>

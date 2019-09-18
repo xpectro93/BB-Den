@@ -23,11 +23,11 @@ export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
     }
 
   }
-
-
-        let fallback = meme.data.secure_media.reddit_video.fallback_url.split('DASH')
+   let fallback = meme.data.secure_media.reddit_video.fallback_url.split('DASH')
         let audioUrl = fallback[0]+'audio?source=fallback'
         let isPlaying = false;
+
+       
         return (
           <div id={i} className="row" key={i}>
           <div id={`container-${i}`} className="container card col s12 offset-m2 m8 offset-l3 l6 meme">

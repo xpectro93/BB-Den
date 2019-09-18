@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 // import LikeMeme from './LikeMeme.js'
 import { DisplayMeme } from './Display/DisplayMeme'
 import { DisplayVid } from './Display/DisplayVid'
+import { DisplayGif } from './Display/DisplayGif'
+import { DisplayGFY } from './Display/DisplayGFY'
 import '../../CSS/Meme.css'
 
 
@@ -9,9 +11,11 @@ import '../../CSS/Meme.css'
 const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
   
+  
   const memeType = url => {
     let type;
-    if(url.includes('jpg'||'png')) type = 'IMG'
+    if(url.includes('jpg')) type = 'IMG'
+    else if(url.includes('png')) type = 'IMG'
     else if(url.includes('v.redd.it'))type = 'VID'
     else if(url.includes('gfycat')) type = 'GFYCAT'
     else if(url.includes('gifv')) type = 'GIFV'
@@ -36,9 +40,16 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
       }else if(memeType(url) === "VID" && meme.data.secure_media){
 
         return (<DisplayVid key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
-
-      }else if(memeType(url) === "GFYCAT") return <h1>MEOW</h1>
-       else if(memeType(url) === "GIFV") return <h1>LOOPER</h1>
+        
+      }else if(memeType(url) === "GFYCAT"){
+        // console.log('gfycat', url);
+       
+        return (<DisplayGFY key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+      }else if(memeType(url) === "GIFV"){
+        // console.log('GIFV',url);
+      
+        return ( <DisplayGif key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/> )
+      }
     }else return (<h1 id={i}>We b ded</h1>)
 
   })
