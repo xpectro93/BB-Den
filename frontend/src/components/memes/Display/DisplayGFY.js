@@ -53,7 +53,3 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes})=> {
   )
 }
 
-{/* <iframe title={meme.title} src={content} 
-                  frameBorder='0' 
-                  scrolling='no' 
-                  allowFullScreen  /> */}

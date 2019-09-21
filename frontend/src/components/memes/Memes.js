@@ -19,8 +19,8 @@ const Memes = props => {
   const [ next, setNext ] = useState(null);
   const [ page, setPage ] = useState(1);
   const [ likes, setLikes ] = useState([]);
-  const [firstLoad, setFirstLoad ] =useState(true);
-
+  const [firstLoad, setFirstLoad ] = useState(true);
+  const [ searchInput, setSearchInput ] = useState('')
   const [ currentType, setCurrentType ] = useState(props.match.params.id)
 
   const setLeContent = (leData,contentSet,prev,next) => {
@@ -48,9 +48,10 @@ const Memes = props => {
   }
   const fetchContent = async() => {
       let resp = await axios.get(url+ currentType +'/.json?&count='+ 25 + '&after=' + next)
+      getMeGusta()
       console.log('At fetch',resp);
       setLeContent(resp,setContent,setPrev,setNext);
-      getMeGusta()
+      
 
   }
   const getMeGusta = async () => {
@@ -84,10 +85,23 @@ const Memes = props => {
     return select
   }
   const makeSearchBar = () => {
- return (<>
-    <input placeHolder="type a random word" onClick={()=>{props.history.push('/home')}}>
-    </input>
-   </>)
+    return (<div className='row'>
+    <form className='container' onSubmit={(e)=>{
+                    e.preventDefault()
+                    if(searchInput !== ''){
+                      props.history.push(`/memes/${searchInput}`)
+                      changeTopic()
+                    }
+                    
+                        }}>
+             <div className="input-field">
+            <input  id='digup' type="text" className="validate"
+            onChange={(e)=>setSearchInput(e.target.value)}/>
+            <label htmlFor="digup">Type a word to search for specific content</label>
+            <button className='btn round indigo lighten-3' type='submit' >Search the badger's den</button>
+          </div>
+    </form>
+   </div>)
   }
 
   let pageButtons = (<ul id='aTest' className="center-align pagination container">
@@ -127,8 +141,8 @@ const Memes = props => {
 if(currentType === ''){
   return(<h1>FML</h1>)
 }else{
-console.log('props',props);
 
+  
 console.log('real current type', currentType);
 
   return (

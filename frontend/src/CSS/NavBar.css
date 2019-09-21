@@ -42,3 +42,6 @@ nav {
   font-family: "Shadows Into Light", cursive;
   font-size: 25px;
 }
+button, input, optgroup, select, textarea {
+  text-align: center
+}

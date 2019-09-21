@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Profiles = props => {
 
-  const [ profile, setProfile ] = useState(null);
+  // const [ profile, setProfile ] = useState(null);
   const getProfile = async() => {
   try {
     let resp = await axios.get('/api/users/7')
@@ -13,13 +13,6 @@ const Profiles = props => {
   }
 
   }
-  let arr = [1,100];
-
-  let [min, max] = arr
-  console.log('min',min);
-
-
-
   useEffect(()=> {
     getProfile()
   },[])

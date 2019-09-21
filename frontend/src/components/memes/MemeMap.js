@@ -57,6 +57,8 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
   })
   useEffect(()=> {
 console.log('rerender at displaymemes');
+
+
   },[likes])
 
   return (

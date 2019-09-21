@@ -53,7 +53,7 @@ const NavBar = props => {
             {/* {SideNav Content} */}
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><NavLink to="/myden">My Den</NavLink></li>
-              <li><a className="dropdown-trigger"  data-target="dropdown1">Meme Type<i className="material-icons right">arrow_drop_down</i></a></li>
+              <li><a href="/#" className="dropdown-trigger"  data-target="dropdown1">Meme Type<i className="material-icons right">arrow_drop_down</i></a></li>
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
@@ -112,28 +112,3 @@ const NavBar = props => {
     )
 }
 export default NavBar
-
-// <li className="no-padding">
-//   <ul className="collapsible collapsible-accordion">
-//     <li>
-//       <a className="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
-//       <div classNames="collapsible-body">
-//         <ul>
-//           <li><a href="#!">First</a></li>
-//           <li><a href="#!">Second</a></li>
-//           <li><a href="#!">Third</a></li>
-//           <li><a href="#!">Fourth</a></li>
-//         </ul>
-//       </div>
-//     </li>
-//   </ul>
-// </li>
-
-
-// <ul className="sidenav" id="mobile-demo">
-//
-//   <li className="sidenav-close" ><NavLink to='/myden'>My Badger Den</NavLink></li>
-//   <li className="sidenav-close" ><NavLink to='/memes'>Memes</NavLink></li>
-//   <li className="sidenav-close" ><NavLink to='/books'>books</NavLink></li>
-//   <li className="sidenav-close" ><NavLink to='/todos'>To-Do</NavLink></li>
-// </ul>

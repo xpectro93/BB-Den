@@ -35,7 +35,6 @@ const SignUp = props => {
    },[])
    //New User Sign up
    if(isNewUser){
-     console.log('jere');
      return (
        <div className='container'>
             <div className='space'></div>
