@@ -23,7 +23,6 @@ const Memes = props => {
 
   const [ currentType, setCurrentType ] = useState(props.match.params.id)
 
-
   const setLeContent = (leData,contentSet,prev,next) => {
     contentSet(leData.data.data.children);
     next(leData.data.data.after);
@@ -72,24 +71,30 @@ const Memes = props => {
       <div className='row'>
         <div className="input-field col s10 offset-s1 offset-m3 m6 offset-l3 l6">
         <select className="icons" onChange={(e)=>{setCurrentType(e.target.value)
-                  changeTopic()
-                                                            }}>
+                                          console.log('type after select', currentType);
+                                          changeTopic()}}>
           <option value="" disabled defaultValue>Choose your option</option>
           <option value="dankmemes" data-icon={memepic} className="left">Dank Memes</option>
-          <option value="InsanePeopleQuora" data-icon={quora} className="left">Quora Madness</option>
-          <option value="TikTokCringe" data-icon={tiktok} className="left">TikTok Cringe</option>
+          <option value="insanepeoplequora" data-icon={quora} className="left">Quora Madness</option>
+          <option value="tiktokcringe" data-icon={tiktok} className="left">TikTok Cringe</option>
         </select>
         <label>Choose something to gnaw on</label>
         </div>
         </div>)
     return select
   }
+  const makeSearchBar = () => {
+ return (<>
+    <input placeHolder="type a random word" onClick={()=>{props.history.push('/home')}}>
+    </input>
+   </>)
+  }
 
   let pageButtons = (<ul id='aTest' className="center-align pagination container">
                     <button  onClick={()=>{
                       prevPage()
                       window.scrollTo(0,0)
-                      }}className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_left</i></button>
+                      }} className="btn-floating btn waves-effect waves-light indigo lighten-3"><i className="material-icons">chevron_left</i></button>
                     <li><span className='pageNum'>{page}</span></li>
                     <button onClick={()=>{
                               nextPage()
@@ -100,10 +105,12 @@ const Memes = props => {
   useEffect(() => {
     fetchContent()
     var elems = document.querySelectorAll('select');
+    // eslint-disable-next-line no-unused-vars
     var instances = M.FormSelect.init(elems);
   },[])
   useEffect(()=> {
     console.log('at currentType',currentType);
+    setCurrentType(props.match.params.id)
     changeTopic()
     setPage(1)
     fetchContent()
@@ -120,11 +127,15 @@ const Memes = props => {
 if(currentType === ''){
   return(<h1>FML</h1>)
 }else{
+console.log('props',props);
+
+console.log('real current type', currentType);
 
   return (
     <div className="memes center-align">
     <div className="space"></div>
-      {makeTypeList()}
+      {/* {makeTypeList()} */}
+      {makeSearchBar()}
 
       {pageButtons}
       {content && likes.data ? <MemeMap getMeGusta={getMeGusta} memes={content} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
@@ -138,12 +149,3 @@ if(currentType === ''){
 
 export default Memes;
 
-// <video id='leVid' controls onPlay={(e)=>{
-//   let vid = document.getElementById(e.target.id);
-//   let audio = document.getElementById('leAudio');
-//
-//   audio.currentTime  = vid.currentTime
-//   }} autoplay="false">
-//   <source src="https://v.redd.it/aq8do2qz75m31/DASH_1080?source=fallback" type="video/mp4"/>
-// </video>
-// <audio id='leAudio' autoplay='true' src="https://v.redd.it/aq8do2qz75m31/audio?source=fallback"> Something</audio>

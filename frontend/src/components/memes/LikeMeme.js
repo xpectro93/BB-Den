@@ -29,7 +29,7 @@ const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
         memeId = el.post_id;
       }
     })
-    let resp =  await axios.delete(`/api/likes/${memeId}`)
+    await axios.delete(`/api/likes/${memeId}`)
   }
   useEffect(()=> {
     let likeSet = new Set()

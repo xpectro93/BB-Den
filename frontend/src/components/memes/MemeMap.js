@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 // import LikeMeme from './LikeMeme.js'
 import { DisplayMeme } from './Display/DisplayMeme'
 import { DisplayVid } from './Display/DisplayVid'
@@ -22,7 +22,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
     else type = null;
     return type
   }
-  let memeList = memes.map((meme,i)=> {
+  let memeList = memes.map((meme,i) => {
     let url = meme.data.url;
     // let imgType = meme.data.url.slice(-3)
     // let isVid = meme.data.url.includes('v.redd.it')
@@ -36,19 +36,21 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
       )
     }else if(meme && meme.data){
       if(memeType(url) === "IMG"){
-        return ( <DisplayMeme key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>  )
+
+        return (<DisplayMeme key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+
       }else if(memeType(url) === "VID" && meme.data.secure_media){
 
         return (<DisplayVid key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
         
       }else if(memeType(url) === "GFYCAT"){
-        // console.log('gfycat', url);
        
         return (<DisplayGFY key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+
       }else if(memeType(url) === "GIFV"){
         // console.log('GIFV',url);
       
-        return ( <DisplayGif key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/> )
+        return ( <DisplayGif key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
       }
     }else return (<h1 id={i}>We b ded</h1>)
 
@@ -60,45 +62,11 @@ console.log('rerender at displaymemes');
   return (
     <>
     <div className='center-align'>
-
-    {memeList.length!== 0 ? memeList :null}
+    {memeList.length !== 0 ? memeList :<h1>Nothing to see, move along</h1>}
     </div>
   </>
   )
 }
 
 export default MemeMap;
-// <UnlikeMeme likes={likes} r={r} likeSet={likeSet} remove={remove} getMeGusta={getMeGusta} memeInfo={meme.data}/>
 
-
-// let fallback = meme.data.secure_media.reddit_video.fallback_url.split('DASH')
-//         let audioUrl = fallback[0]+'audio?source=fallback'
-//         let isPlaying = false;
-//         return (
-//           <div id={i} className="row" key={i}>
-//           <div id={`container-${i}`} className="container card col s12 offset-m2 m8 offset-l3 l6 meme">
-
-//           <div id={`cardimg-${i}`} className="card-image" onClick={(e)=>{
-//                     isPlaying = vidControl(e,isPlaying)
-//                   }} >
-//             <video className="card-video" id={`video-${i}`} autoPlay={false}>
-//               <source src={meme.data.secure_media.reddit_video.fallback_url} type="video/mp4"/>
-//             </video>
-//             <audio id={`audio-${i}`} autoPlay={false} src={audioUrl}> Something</audio>
-//           </div>
-
-//           <div id={`cardContent-${i}`} className="row card-content">
-//             <div id={`likeC-${i}`} className='col s2 m5 l2'>
-//             <LikeMeme i={i}getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
-//             </div>
-//             <div id={`tdiv-${i}`} className='col s10 m7 l10'>
-
-//             Title:<p id={`title-${i}`}className='flow-text'>{meme.data.title}</p>
-//             <br/>
-//             Author: {meme.data.author}
-//             </div>
-//           </div>
-
-
-//           </div>
-//           </div>  )

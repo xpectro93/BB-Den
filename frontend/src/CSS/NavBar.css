@@ -38,3 +38,7 @@ nav {
   float:left;
   margin:5px;
 }
+.sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 25px;
+}

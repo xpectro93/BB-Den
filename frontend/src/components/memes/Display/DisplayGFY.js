@@ -26,9 +26,9 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes})=> {
           <div style={div1}>
               <iframe title={meme.title} 
               src={content} 
-              frameborder='0' scrolling='no' width='100%' height='100%' 
+              frameBorder='0' scrolling='no' width='100%' height='100%' 
               style={div2}
-              allowfullscreen>
+              allowFullScreen>
                   </iframe>
             </div>
           
