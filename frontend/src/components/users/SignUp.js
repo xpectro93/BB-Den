@@ -3,8 +3,8 @@ import * as Util from '../../util/util';
 import M from 'materialize-css';
 
 const SignUp = props => {
-  const [username, setUsername] = useState('hello1');
-  const [password, setPassword] = useState('hello1');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [verPass , setVerPass ] = useState('');
   const [isNewUser, setIsNewUser] = useState(false);
   const [isExistingUser, setIsExistingUser] = useState(false);
@@ -13,10 +13,6 @@ const SignUp = props => {
   const changeName = e => setUsername(e.target.value);
   const changePassword = e =>setPassword(e.target.value);
   const changeVerPass = e => setVerPass(e.target.value);
-
-  const createBadger = () => {
-
-  }
 
   const login = async () => {
       //returns [profile,isLoggedin, userTokenId]
@@ -29,6 +25,19 @@ const SignUp = props => {
     Util.logout()
     props.logout([{},false,null])
    }
+   const signUp = (e) => {
+     e.preventDefault()
+     if(password === verPass){
+      console.log('they match!')
+     }else{
+       console.log('they dont match')  
+     }
+    console.log(username);
+    console.log(password);
+    console.log(verPass);
+    
+    
+   }
 
    useEffect(()=> {
      M.updateTextFields();
@@ -40,7 +49,7 @@ const SignUp = props => {
             <div className='space'></div>
             <div className='space'></div>
             <div className='container'>
-               <form onSubmit={createBadger}>
+               <form onSubmit={signUp}>
                  <div className='input-field'>
                    <input  onChange={changeName} id="username" type="text" className="validate"/>
                    <label htmlFor="username">Username</label>
@@ -53,14 +62,18 @@ const SignUp = props => {
                    <input  onChange={changeVerPass} id="verPass" type="password" className="validate"/>
                    <label htmlFor="verPass">Verify Password</label>
                  </div>
-               </form>
-            <div className='row'>
-             <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3"type='submit'>Sign Up</button>
-             <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3"
+                 <button className={`col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3 ${password===verPass?'pulse':''}`} type='submit'>Sign Up</button>
+                 <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3"
                 onClick={()=>{
+                 setUsername('')
+                 setPassword('')
+                 setVerPass('')
                  setIsExistingUser(false);
                  setIsNewUser(false);}
                 }>Go Back</button>
+               </form>
+            <div className='row'>
+             
            </div>
            {props.isLoggedIn?
             <button className="waves-effect waves-light btn round indigo lighten-3" onClick={logout}>Log Me outie</button>:"Youre logged out"}

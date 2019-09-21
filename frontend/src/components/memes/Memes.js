@@ -47,10 +47,16 @@ const Memes = props => {
 
   }
   const fetchContent = async() => {
+    try{
       let resp = await axios.get(url+ currentType +'/.json?&count='+ 25 + '&after=' + next)
-      getMeGusta()
-      console.log('At fetch',resp);
+      console.log('this b resp',resp);
       setLeContent(resp,setContent,setPrev,setNext);
+      getMeGusta()
+    }catch(err){
+      console.log('err log =>',err);
+      
+    }
+      
       
 
   }

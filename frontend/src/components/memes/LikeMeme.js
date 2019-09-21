@@ -3,6 +3,7 @@ import axios from 'axios'
 import M from 'materialize-css'
 
 const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
+
   const [ likeSet, setLikeSet ] = useState(new Set())
 
   const postMemeLike = async() => {
@@ -45,7 +46,7 @@ const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
                               await deleteMeme()
                               M.toast({html: 'Deleted meme from you stash', classes: 'rounded toast'})
                               await getMeGusta()
-                            } } className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3"><i id={`icon-${i}`} className="material-icons">favorite</i></button>
+                            } } className= "btn-floating btn-large pulse waves-effect waves-light indigo lighten-3" ><i id={`icon-${i}`} className="material-icons">favorite</i></button>
 }else{
     return <button onClick={()=> {
                               postMemeLike()
