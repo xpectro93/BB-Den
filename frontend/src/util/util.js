@@ -20,7 +20,6 @@ export const logout = async() => {
   await axios.post('api/users/logout')
 
   Auth.deauthenticateUser();
-
   return await checkAuthenticateStatus()
 
 } ;

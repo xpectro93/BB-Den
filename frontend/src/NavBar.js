@@ -13,6 +13,7 @@ import quora from './assets/quora.png'
 const NavBar = props => {
   const logout =() => {
     //this returns w/e checkAuthenticateStatus returns
+    localStorage.removeItem("token")
     Util.logout()
      props.logout([{},false,null])
   }
@@ -59,7 +60,6 @@ const NavBar = props => {
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
             </ul>
           </div>
-
         </nav>
 
 

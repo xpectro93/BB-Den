@@ -43,7 +43,7 @@ const checkAuth = async () => {
     setProfile(res)
   }
 
-  const logout = ( res ) => {
+  const logout = res => {
 
     //this logs out user and updates app to have[{},false,null]
     let [resp,isLogged,userId] = res;

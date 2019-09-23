@@ -62,14 +62,14 @@ const SignUp = props => {
                    <input  onChange={changeVerPass} id="verPass" type="password" className="validate"/>
                    <label htmlFor="verPass">Verify Password</label>
                  </div>
-                 <button className={`col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3 ${password===verPass?'pulse':''}`} type='submit'>Sign Up</button>
+                 <button className={`col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3 ${password===verPass && password !== '' ?'pulse':''}`} type='submit'>Sign Up</button>
                  <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3"
                 onClick={()=>{
                  setUsername('')
                  setPassword('')
                  setVerPass('')
                  setIsExistingUser(false);
-                 setIsNewUser(false);}
+                 setIsNewUser(false)}
                 }>Go Back</button>
                </form>
             <div className='row'>
