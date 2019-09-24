@@ -51,8 +51,12 @@ export const checkAuthenticateStatus = async() => {
     }
   }
 };
-export const getAUser = id => axios.get(`/api/users/${id}`)
-
+export const getAUser = id => {
+  if(id !== null){
+    axios.get(`/api/users/${id}`)
+  }
+ 
+}
 
 
 

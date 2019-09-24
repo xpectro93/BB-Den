@@ -92,18 +92,17 @@ const Memes = props => {
   const makeSearchBar = () => {
     return (<div className='row'>
     <form className='container' onSubmit={(e)=>{
-                    e.preventDefault()
+                    // e.preventDefault()
                     if(searchInput !== ''){
                       let input = searchInput.replace(/\s/g,"")
                       props.history.push(`/memes/${input}`)
                       changeTopic()
                     }
-                    
-                        }}>
+                    }}>
              <div className="input-field">
             <input  id='digup' type="text" className="validate"
             onChange={(e)=>setSearchInput(e.target.value)}/>
-            <label htmlFor="digup">Type a word to search for specific content</label>
+            <label className="truncate" htmlFor="digup">Type a word to search for specific content.(ex."apples","filthyfrank","h3h3productions") </label>
             <button className='btn round indigo lighten-3' type='submit' >Search the badger's den</button>
           </div>
     </form>
@@ -152,6 +151,7 @@ if(currentType === ''){
 console.log('real current type', currentType);
 
   return (
+    
     <div className="memes center-align">
     <div className="space"></div>
       {/* {makeTypeList()} */}

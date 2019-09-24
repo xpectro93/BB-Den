@@ -25,12 +25,19 @@ const [profile, setProfile] = useState({});
 
 //App has checkauth and logout
 const checkAuth = async () => {
-
+  try {
   let [isLogged, userToken] = await Util.checkAuthenticateStatus()
   let user = await Util.getAUser(userToken)
+  // console.log('this is user',user);
    setUserId(userToken)
    setIsLoggedIn(isLogged)
    setProfile(user.data.user)
+  }catch(err){
+    console.log('err at user', err);
+    
+  }
+
+  
   }
 
   const login = (arr) => {

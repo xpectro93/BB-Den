@@ -10,12 +10,8 @@ const Den = props => {
       setProfile(myProfile.data.user);
     }catch(err){
       console.log(err);
-      
     }
-    
-    
-    
-    
+ 
   }
   useEffect(()=> {
   loadMyProfile()

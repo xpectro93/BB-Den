@@ -7,10 +7,10 @@ const Profiles = props => {
   const getProfile = async() => {
   try {
     let resp = await axios.get('/api/users/7')
-    console.log(resp);
-  }catch(err){
-  console.log(err);
-  }
+     console.log(resp);
+      }catch(err){
+     console.log(err);
+      }
 
   }
   useEffect(()=> {
