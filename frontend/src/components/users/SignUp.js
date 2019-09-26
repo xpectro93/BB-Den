@@ -10,7 +10,7 @@ const SignUp = props => {
   const [verPass , setVerPass ] = useState('');
   const [isNewUser, setIsNewUser] = useState(false);
   const [isExistingUser, setIsExistingUser] = useState(false);
-
+  const [err, setErr ] = useState('')
   //login, register with checkAuthenticateStatus as props
   const changeName = e => setUsername(e.target.value);
   const changePassword = e =>setPassword(e.target.value);
@@ -37,27 +37,40 @@ const SignUp = props => {
       props.login(resp)
 
      }else{
-       console.log('they dont match') 
+       setErr('Passwords dont match, try again') 
        setPassword('');
        setVerPass('');
+       console.log('Checking if wrong',password, verPass)
      }
    }
-
+   console.log(password)
    let intro = (
      <div className='container'>
-       <ul class="collapsible">
+       <ul className="collapsible">
     <li>
-      <div class="collapsible-header z-depth-1"><img  src={badger} alt="banner"/><p>The Legend of the BlueBadger(Click to read)</p></div>
-      <div class="collapsible-body">
+      <div className="collapsible-header z-depth-1"><img  src={badger} alt="banner"/><p>The Legend of the BlueBadger and the fool(Click to read)</p></div>
+      <div className="collapsible-body">
       <span>
-      Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked. She was coolest brussel sprout in her hood, girls would envy her, she was not only pretty, but she was smart and a hoot to be around. 
+      Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked, she also liked to troll people there, she was a bit of a rascal. She was coolest brussel sprout in her hood, girls would envy her, she was not only pretty, but she was smart and a hoot to be around. 
       <br/>
       <br/>
-      One day she was frolicking thought the forest.... hills. When she ran across a boy....lets call him Flapper Jackson. Flapper was a shy boy, afraid of live, could even barely speak or believe in himself, he was also always sad. She saw him sitting in the grass, looking all moppy and complaining about how his life sucked. She found it quite amusing, but she also felt bad for him so she decided to make him laugh at his own problems, was this unusual? Yes. Did it work? Absolutely! Within minutes of her roasting him, they were both laughing out loud. They spend the rest of that day talking... they got along very well and decided to hangout.
+      One day she was frolicking thought the forest.... hills. When she ran across a boy....lets call him Flapper Jackson. Flapper was a shy boy, afraid of life, could even barely speak or believe in himself, he was also always <a target="_blank" rel="noopener noreferrer" href='https://www.youtube.com/watch?v=pgN-vvVVxMA'>Sad!</a>. She saw him sitting in the grass, looking all moppy and complaining about how his life sucked. She found it quite amusing, but she also felt bad for him so she decided to make him laugh at his own problems, was this unusual? Yes. Did it work? Absolutely! Within minutes of her roasting him, they were both laughing out loud. They spend the rest of that day talking... they got along very well and decided to start hanging out.
       <br/>
-      Within a short period of time she made that fool feel the most loved he's ever felt by anymore. They both fell in love. She made him experience life, she taught many lessons on how to enjoy life. After many years he was finally, able to feel confident and was able to see a bring future for them both. They went on adventures together, they traveled to an abandoned city where the trains stop working at 11pm...spooky, huh? They almost died in that city. But through it all, he loved having that adventure with her. It was life changing for him. They both spent so much time together, they grew so close..
+      Within a short period of time she made that fool feel the most loved he's ever felt by anymore. She was a bit hesitant on getting too close to Flapper, but she agreed to be with him on one condition. She told him to forget about his ghosts and just be happy with her. He happily agreed. They both fell in love. She made him experience new feelings, she taught many lessons on how to enjoy life. After many years he was finally, able to feel confident and was able to see a bring future for them both. They went on adventures together, they traveled to an abandoned city where the trains stop working at 11pm...spooky, huh? They almost died in that city. But through it all, he loved having that adventure with her. It was life changing for him. They both spent so much time together, they grew so close..
       <br/>
-      But this boy was a fool, a big fool.
+      But this boy was a fool, a big fool. He was haunted by his past. It would of been so easy if he just ignored his past and just lived happily with his beloved. But Bluebadger's world was about to go topsy-turby after what he was about to do.
+      <br/> 
+      One normal day, a ghost from his past called to him, he was waiting for a long time to say goodbye to this ghost. He knew he should just move on, but he was such a big dopey fool that he didn't listen to his senses. He answered back to the ghost, he wanted to say goodbye to it, and he did. He was so relieved to have this weight off his shoulders. He now just wanted to be honest with Bluebadger and put his past behind him. But boi he was such a fool. He was blind and stupid. He told Bluebadger about what he had done. Poor girl, he saw her heart break in her expression. He realized he messed up, but it was far too late. He broke the heart of the most wonderful girl he had ever known. Of the girl that pulled him out of his rotten state, the girl who pushed him to better himself and succeed. 
+      <br/>
+      Poor Bluebadger told that nigga to fuck off and ran, she ran as fast as she could. He chased her and tried to apologize, but the damage was already done. How can one careless mistake make such a wonderful girl hurt, he asked himself. He felt so bad, as soon as she was gone, he quickly fell back in <a target="_blank" rel="noopener noreferrer" href='https://www.youtube.com/watch?v=pgN-vvVVxMA'>Sad!</a> boi state, depressed and lonely, and with a broken heart.  Now he sit a dark room in front of a computer screen listening to
+      <a target='_blank' rel="noopener noreferrer" href='https://www.youtube.com/watch?v=-jRKsiAOAA8'> Falling Down</a> thinking many things such as how he hurt the coolest brussel sprout in Antartica, how they will never enjoy the pickles they made together, how he will never experience a hug from her and enjoy her gentle soft warm lips. 
+      <br/>
+      This boi is full of regrets. You might say why doesn't he look for her? Well this boi is afraid of knowing that once he does this and she shoos him away, that will be the definite end of all he loved for the past year. Well, what words would he say to her if he had the chance.....?
+      "<h3>Я люблю тебя</h3>"
+      "I haven't stopped thinking about you for the past two months. I am very sorry for hurting you, I regret my decision. I wish to be with you more than anything. You might not care about me anymore, but I think of you constantly, every morning I wake up with a pain in my chest, everyday It gets worse"
+      
+
+      <a></a>
 
       </span>
       </div>
@@ -105,6 +118,7 @@ const SignUp = props => {
                  setIsExistingUser(false);
                  setIsNewUser(false)}
                 }>Go Back</button>
+                <h3>{err}</h3>
                </form>
             <div className='row'>
              

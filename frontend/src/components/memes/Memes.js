@@ -71,24 +71,6 @@ const Memes = props => {
     fetchContent()
   }
 
-  // const makeTypeList = () => {
-
-  //   let select = (
-  //     <div className='row'>
-  //       <div className="input-field col s10 offset-s1 offset-m3 m6 offset-l3 l6">
-  //       <select className="icons" onChange={(e)=>{setCurrentType(e.target.value)
-  //                                         console.log('type after select', currentType);
-  //                                         changeTopic()}}>
-  //         <option value="" disabled defaultValue>Choose your option</option>
-  //         <option value="dankmemes" data-icon={memepic} className="left">Dank Memes</option>
-  //         <option value="insanepeoplequora" data-icon={quora} className="left">Quora Madness</option>
-  //         <option value="tiktokcringe" data-icon={tiktok} className="left">TikTok Cringe</option>
-  //       </select>
-  //       <label>Choose something to gnaw on</label>
-  //       </div>
-  //       </div>)
-  //   return select
-  // }
   const makeSearchBar = () => {
     return (<div className='row'>
     <form className='container' onSubmit={(e)=>{
@@ -126,6 +108,7 @@ const Memes = props => {
     var elems = document.querySelectorAll('select');
     // eslint-disable-next-line no-unused-vars
     var instances = M.FormSelect.init(elems);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   useEffect(()=> {
     console.log('at currentType',currentType);
@@ -133,6 +116,7 @@ const Memes = props => {
     changeTopic()
     setPage(1)
     fetchContent()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentType,props.match.params.id])
 
   useEffect(()=> {
