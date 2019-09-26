@@ -3,6 +3,7 @@ const router = express.Router();
 const {
         getAllUsers,
         getAUser,
+        getAUserByusername,
         createUser,
         loginUser,
         isLoggedIn,
@@ -17,6 +18,7 @@ const { loginRequired } = require("../auth/helpers");
 
 router.get("/isLoggedIn", isLoggedIn);
 
+router.get("/username/:id",getAUserByusername);
 // * `GET /api/users/:id`
 //   * Get user based on id
 router.get('/:id',getAUser);

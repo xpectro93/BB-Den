@@ -18,6 +18,21 @@ const getAUser = (req, res, next) => {
       console.log(err)
       next(err)})
 }
+const getAUserByusername = (req, res, next) => {
+  let usernameId = req.params.id
+  db.one('SELECT id, username, profile_pic FROM users WHERE username=$1',usernameId)
+    .then(data => {
+      res.status(200)
+      .json({
+        status:'Success',
+        message:'Retrieved Badger: ', usernameId,
+        user:data
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      next(err)})
+}
 
 // * `GET /api/users`
 //   * Get all users
@@ -97,6 +112,7 @@ const updateUser = (req, res, next) => {
 
 module.exports = {
   getAUser,
+  getAUserByusername,
   getAllUsers,
   createUser,
   logoutUser,

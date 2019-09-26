@@ -30,7 +30,7 @@ const SignUp = props => {
      e.preventDefault()
      if(password === verPass){
       console.log('they match!')
-     let resp = await Util.newUser({username:username, 
+     let resp = await Util.newUser({username:username.toLowerCase(), 
                     password_digest:password,
                     profile_pic:pic})
       props.login(resp)
