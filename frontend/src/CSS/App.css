@@ -47,3 +47,6 @@ h1,h2,h3 {
 .dropdown-content li>a, .dropdown-content li>span {
   color: #9CB4D8 !important;
 }
+.prof-container{
+align-content: center
+}

@@ -31,7 +31,6 @@ const Den = props => {
       let myProfile = await axios.get(`/api/users/${localStorage.getItem("token")}`)
       setProfile(myProfile.data.user);
       let meLikes = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
-      console.log(meLikes);
       
       setMyLikes(meLikes.data.data)
       
@@ -75,7 +74,18 @@ const Den = props => {
 
   if(profile){
     return (<>
-            <h1>Hi my name is {profile.username}</h1>
+            <div className="row container align-center">
+            
+            <div className="align-center col s12 offset-m1 m4  offset-l1 l4">
+              <img className="align-center responsive-img circle" src={profile.profile_pic} alt='leMe'/>
+            </div>
+            <div className="col s12 offset-m1 m5  offset-l1 l5">
+              <h1>Hi, my name is {profile.username} </h1>
+            </div>
+
+            
+            </div>
+            
             <div className='row'>
             {displayMyLikes}
             </div>
