@@ -23,7 +23,7 @@ const TB = thumbUrl => {
 
 const Den = props => {
   const [ profile, setProfile ] = useState(null)
-  const [ myLikes, setMyLikes ] = useState([])
+  const [ myLikedPosts, setMyLikedPosts ] = useState([])
   const [ meGusta, setMeGusta ] = useState([])
 
   const loadMyProfile = async() => {
@@ -32,7 +32,7 @@ const Den = props => {
       setProfile(myProfile.data.user);
       let meLikes = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
       
-      setMyLikes(meLikes.data.data)
+      setMyLikedPosts(meLikes.data.data)
       
     }catch(err){
       console.log(err);
@@ -52,7 +52,7 @@ const Den = props => {
   loadMyProfile()
   },[meGusta])
 
-   let displayMyLikes = myLikes.map((post, i) => {
+   let displayMyLikes = myLikedPosts.map((post, i) => {
     let meme = {
       url:post.likeurl,
       title:TB(post.thumbnail)[0],
