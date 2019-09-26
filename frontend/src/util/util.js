@@ -60,7 +60,6 @@ export const checkAuthenticateStatus = async() => {
       console.log('here1');
       return [false, null]
     } else {
-      console.log('here2');
       Auth.deauthenticateUser();
       return [false, null]
     }

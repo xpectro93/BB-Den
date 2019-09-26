@@ -30,7 +30,6 @@ const SignUp = props => {
    const signUp = async e => {
      e.preventDefault()
      if(password === verPass){
-      console.log('they match!')
      let resp = await Util.newUser({username:username.toLowerCase(), 
                     password_digest:password,
                     profile_pic:pic})
@@ -40,10 +39,8 @@ const SignUp = props => {
        setErr('Passwords dont match, try again') 
        setPassword('');
        setVerPass('');
-       console.log('Checking if wrong',password, verPass)
      }
    }
-   console.log(password)
    let intro = (
      <div className='container'>
        <ul className="collapsible">
@@ -73,8 +70,7 @@ const SignUp = props => {
       <br/> I am so sorry, I am not worthy of you, but please talk to me, I miss you, let me learn from my mistakes. I got a job and just want finally spend time with you chilling and eating in all thsoe places we dreamed of eating at... 🍱 Find it in your heart to forgive me. I will wait for you. I love you so much 💙
       <br/>
       I dont know just thought I mention this song gave me the extra motivation to see you. just thought I'd mention it."
-      <h3><a href='https://www.youtube.com/watch?v=Gru4IfbKlfU' target='_blank'rel="noopener noreferrer">
-      Song Link
+      <h3><a href='https://www.youtube.com/watch?v=Gru4IfbKlfU' target='_blank'rel="noopener noreferrer">Song Link
       </a></h3>
       <br/> 
       What about Bluebadger, what happened to her you might ask? No one knows for certain, but knowing her, she keeps herself entertained. Shes a tough gal, thats one of the many reasons that fool feel in love with her.
@@ -113,6 +109,7 @@ const SignUp = props => {
    useEffect(()=> {
      M.updateTextFields();
      let elems = document.querySelectorAll('.collapsible');
+     
      let instance = M.Collapsible.init(elems);
    },[])
    //New User Sign up
@@ -129,7 +126,7 @@ const SignUp = props => {
                    <label htmlFor="username">Username</label>
                  </div>
                  <div className='input-field'>
-                   <input  onChange={setPic} id="profile-pic" type="text" className="validate"/>
+                   <input  onChange={(e)=>setPic(e.target.value)} id="profile-pic" type="text" className="validate"/>
                    <label htmlFor="profile-pic">Paste a link to a picture or gif</label>
                  </div>
                  <div className='input-field'>

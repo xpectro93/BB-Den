@@ -58,7 +58,7 @@ const Memes = props => {
       
   }
   const getMeGusta = async () => {
-    let melike = await axios.get('/api/likes/memes')
+    let melike = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
     console.log('this is meLikes',melike);
     
     setLikes(melike);

@@ -1,33 +1,33 @@
-import React,  { useState, useEffect, useRef } from 'react'
+import React, {useEffect} from 'react'
 import '../../CSS/Books.css'
 import M from 'materialize-css'
-import axios from 'axios'
+// import axios from 'axios'
 
 import tired from '../../assets/tired.gif'
 //Book components
-import BookShow from './BookShow'
+// import BookShow from './BookShow'
 
-let url = 'https://www.googleapis.com/books/v1/volumes?q='
+// let url = 'https://www.googleapis.com/books/v1/volumes?q='
 
 const Books = props => {
-  const testRef = useRef(null);
-  const move = e => {
-    if (testRef.current) {
-      testRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-      });
-    }
-  }
-  const [user,setUser] = useState(props.profile);
-  const [search, setSearch] = useState('');
-  const [books, setBooks] = useState([]);
+  // const testRef = useRef(null);
+  // const move = e => {
+  //   if (testRef.current) {
+  //     testRef.current.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "nearest"
+  //     });
+  //   }
+  // }
+  // const [user,setUser] = useState(props.profile);
+  // const [search, setSearch] = useState('');
+  // const [books, setBooks] = useState([]);
 
 
-  useEffect(()=> {
-    // setUser(props.profile)
-    // getAllMyBooks()
-  },[props.profile])
+  // useEffect(()=> {
+  //   // setUser(props.profile)
+  //   // getAllMyBooks()
+  // },[props.profile])
 
   useEffect(()=> {
     let elems = document.querySelectorAll('.tabs');
@@ -53,7 +53,8 @@ return (
 
   <div  className="books container">
   <div className="space"></div>
-  <ul ref={testRef} className="tabs round">
+  {/* {ref={testRef} } */}
+  <ul className="tabs round">
         <li className="tab col s3"><a className="active" href="#test1">My List</a></li>
         <li className="tab col s3"><a href="#test2">Wishlist</a></li>
         <li className="tab col s3"><a href="#test4">Rating</a></li>

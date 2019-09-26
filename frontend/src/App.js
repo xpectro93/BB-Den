@@ -11,7 +11,6 @@ import Books from './components/books/Books'
 import Memes from './components/memes/Memes'
 import Todos from './components/todos/Todos'
 import Den from './components/profiles/Den'
-import Profiles from './components/profiles/Profiles'
 // const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
@@ -33,7 +32,8 @@ const checkAuth = async () => {
    setIsLoggedIn(isLogged)
    setProfile(user.data.user)
   }catch(err){
-    console.log('err at user', err);
+    //err here just comment out lol
+    // console.log('err at user', err);
     
   }
  
@@ -82,15 +82,15 @@ return ()=> {
         <Route path='/books' render={(props) => <Books {...props} profile={profile} /> } />
         <Route path='/memes/:id' render={(props) => <Memes {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
         <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
-        <Route path='/den/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
-        <Route path='/myden' render={(props) => <Den {...props} profile={profile} /> } />
+        <Route path='/den/:id' render={(props) => <Den me={false}{...props} profile={profile} /> } />
+        <Route path='/myden' render={(props) => <Den me={true}{...props} profile={profile} /> } />
         <Route path='/' render={(props) => <Den {...props} profile={profile} /> } />
       </Switch>
       :
       <>
       <SignUp {...props} login={login} logout={logout} isLoggedIn = {isLoggedIn} />
       <Switch>
-        <Route path='/den/:id' render={(props) => <Profiles {...props} profile={profile} /> } />
+        <Route path='/den/:id' render={(props) => <Den me={false} {...props} profile={profile} /> } />
       </Switch>
       </>}
 

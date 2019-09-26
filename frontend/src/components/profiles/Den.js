@@ -27,12 +27,21 @@ const Den = props => {
   const [ meGusta, setMeGusta ] = useState([])
 
   const loadMyProfile = async() => {
+
     try{
-      let myProfile = await axios.get(`/api/users/${localStorage.getItem("token")}`)
-      setProfile(myProfile.data.user);
-      let meLikes = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
-      
-      setMyLikedPosts(meLikes.data.data)
+      let { me } = props;
+      if(me){
+        let myProfile = await axios.get(`/api/users/${localStorage.getItem("token")}`)
+        setProfile(myProfile.data.user)
+        let meLikes = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
+         setMyLikedPosts(meLikes.data.data)
+      }else{
+        let resp = await axios.get('/api/users/username/'+ props.match.params.id)
+        setProfile(resp.data.user)
+        let meLikes = await axios.get(`/api/likes/${resp.data.user.id}`)
+        setMyLikedPosts(meLikes.data.data)
+      }
+
       
     }catch(err){
       console.log(err);
@@ -40,7 +49,7 @@ const Den = props => {
   }
 
   const getMeGusta = async () => {
-    let meGusta = await axios.get('/api/likes/memes')
+    let meGusta = await axios.get(`/api/likes/${localStorage.getItem('token')}`)
       setMeGusta(meGusta.data)
 
   }
@@ -50,7 +59,7 @@ const Den = props => {
   },[])
   useEffect(()=> {
   loadMyProfile()
-  },[meGusta])
+  },[meGusta,props.match.params])
 
    let displayMyLikes = myLikedPosts.map((post, i) => {
     let meme = {
@@ -70,7 +79,6 @@ const Den = props => {
       return (<span key={i}></span>)
     }
    })
-
 
   if(profile){
     return (<>
