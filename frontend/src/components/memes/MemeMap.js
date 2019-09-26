@@ -36,21 +36,38 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
       )
     }else if(meme && meme.data){
       if(memeType(url) === "IMG"){
+        let memeData = {
+          url: meme.data.url,
+          title : meme.data.title,
+          author : meme.data.author}
 
-        return (<DisplayMeme key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+        return (<DisplayMeme key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
 
       }else if(memeType(url) === "VID" && meme.data.secure_media){
+        let memeData = {
+          url: meme.data.secure_media.reddit_video.fallback_url,
+          title : meme.data.title,
+          author : meme.data.author}
 
-        return (<DisplayVid key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+        return (<DisplayVid key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
         
       }else if(memeType(url) === "GFYCAT"){
-       
-        return (<DisplayGFY key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+            let memeData = {
+              url: meme.data.url,
+              title : meme.data.title,
+              author : meme.data.author
+                          }
+
+        return (<DisplayGFY key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
 
       }else if(memeType(url) === "GIFV"){
-        // console.log('GIFV',url);
+        let memeData = {
+              url: meme.data.url,
+              title : meme.data.title,
+              author : meme.data.author
+        }
       
-        return ( <DisplayGif key={i} i={i} meme={meme} getMeGusta={getMeGusta} likes={likes}/>)
+        return ( <DisplayGif key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
       }
     }else return (<h1 id={i}>We b ded</h1>)
 

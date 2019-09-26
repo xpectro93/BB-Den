@@ -29,7 +29,7 @@ const Memes = props => {
   }
 
   const nextPage = async() => {
-    let resp = await axios.get(url + currentType+'.json?&count=' + (page *25 ) + '&after=' + next)
+    let resp = await axios.get(url + currentType+'.json?&count=' + (page * 25 ) + '&after=' + next)
     setLeContent(resp,setContent,setPrev,setNext);
     setPage(page + 1)
     setFirstLoad(false)
@@ -56,8 +56,6 @@ const Memes = props => {
       
     }
       
-      
-
   }
   const getMeGusta = async () => {
     let meGusta = await axios.get('/api/likes/memes')

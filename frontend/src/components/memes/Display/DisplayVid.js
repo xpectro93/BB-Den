@@ -22,8 +22,9 @@ export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
       return isPlaying
     }
 
-  }
-   let fallback = meme.data.secure_media.reddit_video.fallback_url.split('DASH')
+  }      
+        let vidUrl = meme.url
+        let fallback = meme.url.split('DASH')
         let audioUrl = fallback[0]+'audio?source=fallback'
         let isPlaying = false;
 
@@ -36,20 +37,20 @@ export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
                     isPlaying = vidControl(e,isPlaying)
                   }} >
             <video className="card-video" id={`video-${i}`} autoPlay={false}>
-              <source src={meme.data.secure_media.reddit_video.fallback_url} type="video/mp4"/>
+              <source src={vidUrl} type="video/mp4"/>
             </video>
             <audio id={`audio-${i}`} autoPlay={false} src={audioUrl}> Something</audio>
           </div>
 
           <div id={`cardContent-${i}`} className="row card-content">
             <div id={`likeC-${i}`} className='col s2 m5 l2'>
-            <LikeMeme i={i}getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
+            <LikeMeme i={i}getMeGusta={getMeGusta} likes={likes} memeInfo={meme}/>
             </div>
             <div id={`tdiv-${i}`} className='col s10 m7 l10'>
 
-            Title:<p id={`title-${i}`}className='flow-text'>{meme.data.title}</p>
+            Title:<p id={`title-${i}`}className='flow-text'>{meme.title}</p>
             <br/>
-            Author: {meme.data.author}
+            Author: {meme.author}
             </div>
           </div>
 

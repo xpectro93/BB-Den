@@ -9,11 +9,13 @@ let div2 = {
     top:'0',
     left:'0'
 }
+// Uses i from map, url=meme, fetchofLikes(refresh likes), likes
 
-export const DisplayGFY =({i ,meme, getMeGusta, likes})=> {
+export const DisplayGFY =({i ,meme, getMeGusta, likes,title,author})=> {
 
     //modified gif url to turn it into mp4
-    let url =meme.data.url.split('.com')
+    let url = meme.url.split('.com')
+    // let url =meme.data.url.split('.com')
     let content = url[0]+'.com/ifr'+url[1]
 
     
@@ -36,13 +38,13 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes})=> {
 
           <div className="row card-content">
             <div className='col s2 m5 l2'>
-            <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme.data}/>
+            <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme}/>
             </div>
             <div className='col s10 m7 l10'>
 
-            Title:<p className='flow-text'>{meme.data.title}</p>
+            Title:<p className='flow-text'>{meme.title}</p>
             <br/>
-            Author: {meme.data.author}
+            Author: {meme.author}
             </div>
           </div>
 
