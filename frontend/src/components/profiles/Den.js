@@ -80,7 +80,7 @@ const Den = props => {
               <img className="prof responsive-img round" src={profile.profile_pic} alt='leMe'/>
             </div>
             <div className="col s12 offset-m1 m5  offset-l1 l5">
-              <h1>Hi, my name is {profile.username} </h1>
+              <h3>Hi, my name is {profile.username} and this is my meme stash.. you can look..but no touching. </h3>
             </div>
 
             

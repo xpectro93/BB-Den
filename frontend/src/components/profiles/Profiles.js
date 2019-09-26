@@ -9,7 +9,7 @@ const Profiles = props => {
   const [ userContent, setUserContent ] = useState([])
   const getProfile = async() => {
   try {
-    let resp = await axios.get('/api/users/username/'+props.match.params.id)
+    let resp = await axios.get('/api/users/username/'+ props.match.params.id)
      setProfile(resp);
       }catch(err){
      console.log(err);

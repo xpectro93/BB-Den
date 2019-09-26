@@ -3,6 +3,7 @@ import '../../CSS/Books.css'
 import M from 'materialize-css'
 import axios from 'axios'
 
+import tired from '../../assets/tired.gif'
 //Book components
 import BookShow from './BookShow'
 
@@ -24,8 +25,8 @@ const Books = props => {
 
 
   useEffect(()=> {
-    setUser(props.profile)
-    getAllMyBooks()
+    // setUser(props.profile)
+    // getAllMyBooks()
   },[props.profile])
 
   useEffect(()=> {
@@ -33,27 +34,20 @@ const Books = props => {
     M.Tabs.init(elems);
   },[])
 
-  const getBooks = () => {
-  axios.get(url+search).then(resp => setBooks(resp.data.items))
-  }
-  const getAllMyBooks = () => {
-    axios.get(`/api/likes/${localStorage.getItem("token")}`).then(res => setBooks(res.data.data))
-  }
-let myBooks = books ? books.map((el, index) => {
-  if(el.type === 'MEME'){
-    return (<div className='container col m9 meme' key={index}>
-              <img className='responsive-img'src={el.likeurl} alt='leMeme'/>
-            </div>)
-  }else {
-    return(
-      <div className='meme' key={index}>
-    <img  className='responsive-img'src={el.thumbnail} alt=''/>
-    <a target='_blank' rel="noopener noreferrer" href={el.likeurl}>Learn More</a>
-      </div>
-    )
-  }
+  // const getBooks = () => {
+  // axios.get(url+search).then(resp => setBooks(resp.data.items))
+  // }
+  // const getAllMyBooks = () => {
+  //   axios.get(`/api/likes/${localStorage.getItem("token")}`).then(res => setBooks(res.data.data))
+  // }
+let construction = (
+  <div className="todos container center-align">
+  <h1 className='center-align'>Under Construction</h1>
 
-}) : null;
+  <img className='responsive-img round' src={tired} alt='under construction'/>
+ 
+  </div>
+)
 
 return (
 
@@ -64,20 +58,17 @@ return (
         <li className="tab col s3"><a href="#test2">Wishlist</a></li>
         <li className="tab col s3"><a href="#test4">Rating</a></li>
   </ul>
-  <h1>User Token {user.id}</h1>
-  <input onChange={(e)=>setSearch(e.target.value)}/>
-  <button onClick={()=>getBooks()}> Search</button>
+  {/* <h1>User Token {user.id}</h1> */}
+  {/* <input onChange={(e)=>setSearch(e.target.value)}/> */}
+  {/* <button onClick={()=>getBooks()}> Search</button> */}
 
 
   <div id="test1" className="col s12">
-    {myBooks}
-    <div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    </div>
-  <button onClick={(e)=>move(e)}>click</button>
+    {construction}
+  {/* <button onClick={(e)=>move(e)}>click</button> */}
   </div>
-  <div id="test2" className="col s12"><BookShow books={books}/></div>
-  <div id="test4" className="col s12">Rating</div>
+  <div id="test2" className="col s12">{construction}</div>
+  <div id="test4" className="col s12">{construction}</div>
 
   </div>
 
@@ -85,7 +76,10 @@ return (
 )
 }
 
+
 export default Books;
+
+////////////////// <BookShow books={books}/> /////////////////////////////
 //Get to Books
 //let books = resp.data.items <- gives array of books
 // books[0].volumeInfo.authors <- array of strings
