@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as Util from '../../util/util';
 import M from 'materialize-css';
+import badger from '../../assets/bbb2.png'
 
 const SignUp = props => {
   const [username, setUsername] = useState('');
@@ -40,15 +41,23 @@ const SignUp = props => {
        setPassword('');
        setVerPass('');
      }
-    console.log(username);
-    console.log(password);
-    console.log(verPass);
-    
-    
    }
+
+   let intro = (
+     <div className='container'>
+       <ul class="collapsible">
+    <li>
+      <div class="collapsible-header z-depth-1"><img className='nav-icon' src={badger} alt="banner"/><p>The Legend of the BlueBadger...</p></div>
+      <div class="collapsible-body"><span>Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked. </span></div>
+    </li>
+  </ul>
+     </div>
+   )
 
    useEffect(()=> {
      M.updateTextFields();
+     let elems = document.querySelectorAll('.collapsible');
+     let instance = M.Collapsible.init(elems);
    },[])
    //New User Sign up
    if(isNewUser){
@@ -57,6 +66,7 @@ const SignUp = props => {
             <div className='space'></div>
             <div className='space'></div>
             <div className='container'>
+              {intro}
                <form onSubmit={signUp}>
                  <div className='input-field'>
                    <input  onChange={changeName} id="username" type="text" className="validate"/>
@@ -64,7 +74,7 @@ const SignUp = props => {
                  </div>
                  <div className='input-field'>
                    <input  onChange={setPic} id="profile-pic" type="text" className="validate"/>
-                   <label htmlFor="profile-pic">Paste a link to a picture</label>
+                   <label htmlFor="profile-pic">Paste a link to a picture or gif</label>
                  </div>
                  <div className='input-field'>
                    <input  onChange={changePassword} id="password" type="password" className="validate"/>
@@ -102,6 +112,7 @@ const SignUp = props => {
             <div className='space'></div>
             <div className='space'></div>
             <div className='container'>
+            {intro}
                <form>
                  <div className='input-field'>
                    <input  onChange={changeName} id="username" type="text" className="validate"/>
@@ -134,6 +145,7 @@ const SignUp = props => {
          <div className='space'></div>
 
          <div className='row'>
+         {intro}
          <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsNewUser(true)}>Sign Up</button>
          <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsExistingUser(true)}>Log In</button>
          </div>

@@ -46,13 +46,13 @@ const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
                               await deleteMeme()
                               M.toast({html: 'Deleted meme from you stash', classes: 'rounded toast'})
                               await getMeGusta()
-                            } } className= "btn-floating btn-large waves-effect waves-light indigo lighten-3" ><i id={`icon-${i}`} className="material-icons">favorite</i></button>
+                            } } className= "btn-floating btn-large waves-effect waves-light indigo lighten-3 likebtn" ><i id={`icon-${i}`} className="material-icons">favorite</i></button>
 }else{
-    return <button onClick={()=> {
-                              postMemeLike()
+    return <button onClick={async()=> {
+                              await postMemeLike()
                               M.toast({html: 'Saved to your stash of memes.', classes: 'rounded toast'})
-                              getMeGusta()
-                            } }className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3" ><i id={`icon-${i}`}className="material-icons">favorite_border</i></button>
+                              await getMeGusta()
+                            } }className="btn-floating btn-large pulse waves-effect waves-light indigo lighten-3 likebtn" ><i id={`icon-${i}`}className="material-icons">favorite_border</i></button>
     }
 };
 

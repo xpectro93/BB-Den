@@ -77,7 +77,7 @@ const Den = props => {
             <div className="row container align-center">
             
             <div className="align-center col s12 offset-m1 m4  offset-l1 l4">
-              <img className="align-center responsive-img circle" src={profile.profile_pic} alt='leMe'/>
+              <img className="prof responsive-img round" src={profile.profile_pic} alt='leMe'/>
             </div>
             <div className="col s12 offset-m1 m5  offset-l1 l5">
               <h1>Hi, my name is {profile.username} </h1>

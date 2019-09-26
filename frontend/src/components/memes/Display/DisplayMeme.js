@@ -17,7 +17,7 @@ export const DisplayMeme =({i ,meme, getMeGusta, likes})=> {
             <div className='col s2 m5 l2'>
             <LikeMeme getMeGusta={getMeGusta} likes={likes} memeInfo={meme}/>
             </div>
-            <div className='col s10 m7 l10'>
+            <div className='truncate col s10 m7 l10'>
 
             Title:<p className='truncate'>{meme.title}</p>
             <br/>
