@@ -47,8 +47,20 @@ const SignUp = props => {
      <div className='container'>
        <ul class="collapsible">
     <li>
-      <div class="collapsible-header z-depth-1"><img className='nav-icon' src={badger} alt="banner"/><p>The Legend of the BlueBadger...</p></div>
-      <div class="collapsible-body"><span>Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked. </span></div>
+      <div class="collapsible-header z-depth-1"><img  src={badger} alt="banner"/><p>The Legend of the BlueBadger(Click to read)</p></div>
+      <div class="collapsible-body">
+      <span>
+      Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked. She was coolest brussel sprout in her hood, girls would envy her, she was not only pretty, but she was smart and a hoot to be around. 
+      <br/>
+      <br/>
+      One day she was frolicking thought the forest.... hills. When she ran across a boy....lets call him Flapper Jackson. Flapper was a shy boy, afraid of live, could even barely speak or believe in himself, he was also always sad. She saw him sitting in the grass, looking all moppy and complaining about how his life sucked. She found it quite amusing, but she also felt bad for him so she decided to make him laugh at his own problems, was this unusual? Yes. Did it work? Absolutely! Within minutes of her roasting him, they were both laughing out loud. They spend the rest of that day talking... they got along very well and decided to hangout.
+      <br/>
+      Within a short period of time she made that fool feel the most loved he's ever felt by anymore. They both fell in love. She made him experience life, she taught many lessons on how to enjoy life. After many years he was finally, able to feel confident and was able to see a bring future for them both. They went on adventures together, they traveled to an abandoned city where the trains stop working at 11pm...spooky, huh? They almost died in that city. But through it all, he loved having that adventure with her. It was life changing for him. They both spent so much time together, they grew so close..
+      <br/>
+      But this boy was a fool, a big fool.
+
+      </span>
+      </div>
     </li>
   </ul>
      </div>
