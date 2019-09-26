@@ -58,8 +58,10 @@ const Memes = props => {
       
   }
   const getMeGusta = async () => {
-    let meGusta = await axios.get('/api/likes/memes')
-    setLikes(meGusta);
+    let melike = await axios.get('/api/likes/memes')
+    console.log('this is meLikes',melike);
+    
+    setLikes(melike);
 
   }
   const changeTopic = () => {

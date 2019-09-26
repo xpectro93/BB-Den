@@ -6,22 +6,27 @@ import { DisplayGif } from './Display/DisplayGif'
 import { DisplayGFY } from './Display/DisplayGFY'
 import '../../CSS/Meme.css'
 
+export const Displays = {
+        DisplayMeme,
+        DisplayVid,
+        DisplayGif,
+        DisplayGFY    }
 
-
+export const MemeType = url => {
+  let type;
+  if(url.includes('jpg')) type = 'IMG'
+  else if(url.includes('png')) type = 'IMG'
+  else if(url.includes('v.redd.it'))type = 'VID'
+  else if(url.includes('gfycat')) type = 'GFYCAT'
+  else if(url.includes('gifv')) type = 'GIFV'
+  else type = null;
+  return type
+}
 const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
   
   
-  const memeType = url => {
-    let type;
-    if(url.includes('jpg')) type = 'IMG'
-    else if(url.includes('png')) type = 'IMG'
-    else if(url.includes('v.redd.it'))type = 'VID'
-    else if(url.includes('gfycat')) type = 'GFYCAT'
-    else if(url.includes('gifv')) type = 'GIFV'
-    else type = null;
-    return type
-  }
+
   let memeList = memes.map((meme,i) => {
     let url = meme.data.url;
     // let imgType = meme.data.url.slice(-3)
@@ -35,7 +40,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
         </div>
       )
     }else if(meme && meme.data){
-      if(memeType(url) === "IMG"){
+      if(MemeType(url) === "IMG"){
         let memeData = {
           url: meme.data.url,
           title : meme.data.title,
@@ -43,7 +48,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
         return (<DisplayMeme key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
 
-      }else if(memeType(url) === "VID" && meme.data.secure_media){
+      }else if(MemeType(url) === "VID" && meme.data.secure_media){
         let memeData = {
           url: meme.data.secure_media.reddit_video.fallback_url,
           title : meme.data.title,
@@ -51,7 +56,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
         return (<DisplayVid key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
         
-      }else if(memeType(url) === "GFYCAT"){
+      }else if(MemeType(url) === "GFYCAT"){
             let memeData = {
               url: meme.data.url,
               title : meme.data.title,
@@ -60,7 +65,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
         return (<DisplayGFY key={i} i={i} meme={memeData} getMeGusta={getMeGusta} likes={likes}/>)
 
-      }else if(memeType(url) === "GIFV"){
+      }else if(MemeType(url) === "GIFV"){
         let memeData = {
               url: meme.data.url,
               title : meme.data.title,

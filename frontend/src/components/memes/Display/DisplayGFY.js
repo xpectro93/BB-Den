@@ -18,11 +18,7 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes,title,author})=> {
     // let url =meme.data.url.split('.com')
     let content = url[0]+'.com/ifr'+url[1]
 
-    
-    
   return (
-   
-
         <div id={i} className="container col s12 offset-m1 m4  offset-l1 l4 meme">
           <div className="card-image">
           <div style={div1}>
