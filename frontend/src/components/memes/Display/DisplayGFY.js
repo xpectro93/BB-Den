@@ -19,9 +19,9 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes})=> {
     
     
   return (
-    <div id={i} className="row">
+   
 
-        <div className="container card col s12 offset-m2 m8 offset-l3 l6 meme">
+        <div id={i} className="container col s12 offset-m1 m4  offset-l1 l4 meme">
           <div className="card-image">
           <div style={div1}>
               <iframe title={meme.title} 
@@ -49,7 +49,7 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes})=> {
 
 
         </div>
-      </div>
+ 
   )
 }
 

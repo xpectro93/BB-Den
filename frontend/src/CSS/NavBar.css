@@ -45,3 +45,7 @@ nav {
 button, input, optgroup, select, textarea {
   text-align: center
 }
+.color-red {
+  background-color: #EBB5FB
+  
+}

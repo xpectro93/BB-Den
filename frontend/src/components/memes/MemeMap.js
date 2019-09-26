@@ -61,7 +61,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
   return (
     <>
-    <div className='center-align'>
+    <div className="row">
     {memeList.length !== 0 ? memeList :<h1>Nothing to see, move along</h1>}
     </div>
   </>

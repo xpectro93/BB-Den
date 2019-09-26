@@ -29,8 +29,8 @@ export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
 
        
         return (
-          <div id={i} className="row" key={i}>
-          <div id={`container-${i}`} className="container card col s12 offset-m2 m8 offset-l3 l6 meme">
+          
+          <div key={i} id={`container-${i}`} className="container card col s12 offset-m1 m4  offset-l1 l4 meme">
 
           <div id={`cardimg-${i}`} className="card-image" onClick={(e)=>{
                     isPlaying = vidControl(e,isPlaying)
@@ -55,6 +55,6 @@ export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
 
 
           </div>
-          </div>  )
+            )
 
 }

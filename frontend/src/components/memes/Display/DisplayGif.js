@@ -11,9 +11,9 @@ export const DisplayGif =({i ,meme, getMeGusta, likes})=> {
     
     
   return (
-    <div id={i} className="row">
+  
 
-        <div className="container card col s12 offset-m2 m8 offset-l3 l6 meme">
+        <div id={i} className="container col s12 offset-m1 m4  offset-l1 l4 meme">
           <div className="card-image">
           <video poster={jpgUrl} width='100%' preload="auto" autoPlay="autoplay" muted="muted" loop="loop" webkit-playsinline="">
                 <source src={gifUrl} type="video/mp4"/>
@@ -35,6 +35,6 @@ export const DisplayGif =({i ,meme, getMeGusta, likes})=> {
 
 
         </div>
-      </div>
+    
   )
 }

@@ -79,13 +79,14 @@ const NavBar = props => {
                  <li className="sidenav-close"><NavLink to='/memes/dankmemes'><img  src={memepic} alt='topic pic'/>Memes</NavLink></li>
                  <li className="sidenav-close"><NavLink to='/memes/insanepeoplequora'><img  src={quora} alt='topic pic'/>Quora Madness</NavLink></li>
                  <li className="sidenav-close"><NavLink to='/memes/tiktokcringe'><img  src={tiktok} alt='topic pic'/>Tik Tok Cringe</NavLink></li>
-
+                 
                </ul>
              </div>
            </li>
          </ul>
        </li>
-
+       
+       <li className="sidenav-close color-red" onClick={logout}><NavLink to='/'><i className="material-icons">exit_to_app</i>Log Me Outie</NavLink></li>
 
      </ul>
 

@@ -3,10 +3,12 @@ import LikeMeme from '../LikeMeme'
 
 
 export const DisplayMeme =({i ,meme, getMeGusta, likes})=> {
-  return (
-    <div id={i} className="row">
 
-        <div className="container card col s12 offset-m2 m8 offset-l3 l6 meme">
+  
+  return (
+    
+
+        <div id ={i} className="container card col s12 offset-m1 m4  offset-l1 l4 meme">
           <div className="card-image">
             <img src={meme.data.url} alt="content"/>
           </div>
@@ -26,6 +28,6 @@ export const DisplayMeme =({i ,meme, getMeGusta, likes})=> {
 
 
         </div>
-      </div>
+  
   )
 }

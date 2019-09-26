@@ -102,7 +102,7 @@ const Memes = props => {
              <div className="input-field">
             <input  id='digup' type="text" className="validate"
             onChange={(e)=>setSearchInput(e.target.value)}/>
-            <label className="truncate" htmlFor="digup">Type a word to search for specific content.(ex."apples","filthyfrank","h3h3productions") </label>
+            <label className="truncate" htmlFor="digup">Type a word to search for specific content.(ex."apples", "filthyfrank", "h3h3productions") </label>
             <button className='btn round indigo lighten-3' type='submit' >Search the badger's den</button>
           </div>
     </form>
