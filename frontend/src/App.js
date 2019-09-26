@@ -36,8 +36,7 @@ const checkAuth = async () => {
     console.log('err at user', err);
     
   }
-
-  
+ 
   }
 
   const login = (arr) => {
@@ -58,7 +57,6 @@ const checkAuth = async () => {
     setIsLoggedIn(isLogged);
     setProfile(resp)
   }
-
 
 useEffect(()=> {
   checkAuth()

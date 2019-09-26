@@ -5,6 +5,7 @@ import M from 'materialize-css';
 const SignUp = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [ pic, setPic ] = useState('');
   const [verPass , setVerPass ] = useState('');
   const [isNewUser, setIsNewUser] = useState(false);
   const [isExistingUser, setIsExistingUser] = useState(false);
@@ -21,16 +22,23 @@ const SignUp = props => {
    }
    const logout = () => {
      //this returns w/e checkAuthenticateStatus returns
-     //AWAIT Canceled here due to memory leak
+     
     Util.logout()
     props.logout([{},false,null])
    }
-   const signUp = (e) => {
+   const signUp = async e => {
      e.preventDefault()
      if(password === verPass){
       console.log('they match!')
+     let resp = await Util.newUser({username:username, 
+                    password_digest:password,
+                    profile_pic:pic})
+      props.login(resp)
+
      }else{
-       console.log('they dont match')  
+       console.log('they dont match') 
+       setPassword('');
+       setVerPass('');
      }
     console.log(username);
     console.log(password);
@@ -53,6 +61,10 @@ const SignUp = props => {
                  <div className='input-field'>
                    <input  onChange={changeName} id="username" type="text" className="validate"/>
                    <label htmlFor="username">Username</label>
+                 </div>
+                 <div className='input-field'>
+                   <input  onChange={setPic} id="profile-pic" type="text" className="validate"/>
+                   <label htmlFor="profile-pic">Paste a link to a picture</label>
                  </div>
                  <div className='input-field'>
                    <input  onChange={changePassword} id="password" type="password" className="validate"/>

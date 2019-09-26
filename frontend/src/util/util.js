@@ -17,19 +17,32 @@ export const login =async (userInfo) => {
 }
 
 export const logout = async() => {
-  await axios.post('api/users/logout')
+  try{
+    await axios.post('api/users/logout')
 
-  Auth.deauthenticateUser();
-  return await checkAuthenticateStatus()
+    Auth.deauthenticateUser();
+    return await checkAuthenticateStatus()
+  }catch(err){
+    console.log(err);
+    
+  }
 
-} ;
+}
+//username, password_digest, profile_pic
 
-export const newUser = (userInfo) => axios.post('api/users/new',userInfo);
+export const newUser = async userInfo =>{ 
 
-export const logoutUser = () => {
-    logout().then(() => Auth.deauthenticateUser())
-    .then(() => checkAuthenticateStatus());
+ await axios.post('api/users/new',userInfo)
+ let loginResp = await login({username:userInfo.username,password:userInfo.password_digest})
+  return loginResp
+  
+
 };
+
+// export const logoutUser = () => {
+//     logout().then(() => Auth.deauthenticateUser())
+//     .then(() => checkAuthenticateStatus());
+// };
 
 export const checkAuthenticateStatus = async() => {
   let user = await isLoggedIn()
@@ -41,7 +54,9 @@ export const checkAuthenticateStatus = async() => {
   } else {
     if (user.data.id) {
 
-      logoutUser();
+      // logoutUser();
+      await logout()
+      Auth.deauthenticateUser()
       console.log('here1');
       return [false, null]
     } else {
