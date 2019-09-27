@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./backend/bin/www",
-    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install --only=prod && npm run build"
+    "start": "node ./backendx/bin/www",
+    "heroku-postbuild": "cd backendx && npm install && cd ../frontend && npm install --only=prod && npm run build"
   },
   "repository": {
     "type": "git",
