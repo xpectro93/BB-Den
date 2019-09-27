@@ -45,7 +45,7 @@ const SignUp = props => {
      <div className='container'>
        <ul className="collapsible">
       <li>
-      <div className="collapsible-header z-depth-1"><img  className='alil' src={badger} alt="banner"/><p>The legend of the Bluebadger and the fool(Click to read)</p></div>
+      <div className="collapsible-header z-depth-1"><img  className='alil' src={badger} alt="banner"/><p>The legend of the Bluebadger and the fool(Click to read)<b> Ilana </b> please read.</p></div>
       <div className="collapsible-body">
       <span>
       Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked, she also liked to troll people there, she was a bit of a rascal. She was coolest brussel sprout in her hood, girls would envy her, she was not only pretty, but she was smart and a hoot to be around. 
@@ -203,6 +203,11 @@ const SignUp = props => {
          {intro}
          <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsNewUser(true)}>Sign Up</button>
          <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsExistingUser(true)}>Log In</button>
+         <div className="col s12 offset-m4 m4 offset-l4 l4">
+           <h3>With much love,</h3>
+           <br/>
+           <h3>For Ilana</h3>
+         </div>
          </div>
        </div>
      )
