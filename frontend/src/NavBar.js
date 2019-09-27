@@ -57,7 +57,7 @@ const NavBar = props => {
               <li><NavLink to="/myden">My Den</NavLink></li> 
               <li><a href="/#" className="dropdown-trigger"  data-target="dropdown1">Meme Type<i className="material-icons right">arrow_drop_down</i></a></li>
               <li><NavLink to="/books">Books</NavLink></li>
-              <li><NavLink to="/todos">To-Do</NavLink></li>
+              <li><NavLink to="/todos">Todo List</NavLink></li>
               <button  className='waves-effect waves-light btn round' onClick={logout}>Log me Outie</button>
             </ul>
           </div>
@@ -70,17 +70,17 @@ const NavBar = props => {
   <ul id="mobile-demo" className="sidenav">
        <li className="sidenav-close" ><NavLink to='/'>Home</NavLink></li>
        <li className="sidenav-close" ><NavLink to='/myden'>My Den</NavLink></li>
-       <li className="sidenav-close" ><NavLink to='/books'>BOOKS</NavLink></li>
-       <li className="sidenav-close" ><NavLink to='/todos'>TO-DO</NavLink></li>
+       <li className="sidenav-close" ><NavLink to='/books'>Books</NavLink></li>
+       <li className="sidenav-close" ><NavLink to='/todos'>Todo List</NavLink></li>
        <li className="no-padding">
          <ul className="collapsible collapsible-accordion">
            <li>
-             <button className="color-test collapsible-header">CHOOSE MEME TOPIC<i className="medium material-icons">arrow_drop_down</i></button>
+             <button className="collapsible-header"> Choose Meme Type<i className="medium material-icons">arrow_drop_down</i></button>
              <div className="collapsible-body">
                <ul className='icons'>
-                 <li className="sidenav-close"><NavLink to='/memes/dankmemes'><img  src={memepic} alt='topic pic'/>Memes</NavLink></li>
+                 <li className="sidenav-close"><NavLink to='/memes/dankmemes'><img  src={memepic} alt='topic pic'/>Dank Memes</NavLink></li>
                  <li className="sidenav-close"><NavLink to='/memes/insanepeoplequora'><img  src={quora} alt='topic pic'/>Quora Madness</NavLink></li>
-                 <li className="sidenav-close"><NavLink to='/memes/tiktokcringe'><img  src={tiktok} alt='topic pic'/>Tik Tok Cringe</NavLink></li>
+                 <li className="sidenav-close"><NavLink to='/memes/tiktokcringe'><img  src={tiktok} alt='topic pic'/>TikTok Cringe</NavLink></li>
                  
                </ul>
              </div>
