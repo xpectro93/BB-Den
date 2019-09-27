@@ -45,7 +45,7 @@ const SignUp = props => {
      <div className='container'>
        <ul className="collapsible">
       <li>
-      <div className="collapsible-header z-depth-1"><img  className='alil' src={badger} alt="banner"/><p>The legend of the Bluebadger and the fool(Click to read)<b> Ilana </b> please read.</p></div>
+      <div className="collapsible-header z-depth-1"><img  className='alil' src={badger} alt="banner"/><p>The legend of the Bluebadger and the fool(Click to read) For<b> Ilana </b></p></div>
       <div className="collapsible-body">
       <span>
       Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked, she also liked to troll people there, she was a bit of a rascal. She was coolest brussel sprout in her hood, girls would envy her, she was not only pretty, but she was smart and a hoot to be around. 
@@ -93,10 +93,11 @@ const SignUp = props => {
             <ul>
               <li>YouTube Videos: Browse and save them to your favorites</li>
               <li>Book tracker : Keep track, add to wishlist, and rate books</li>
-              <li>TODO: have a todo list to keep track of all the things you need to do</li>
+              <li>TODO : have a todo list to keep track of all the things you need to do</li>
             </ul>
           </li>
-          <li><h1>SIGN UP ALREADY!</h1></li>
+          <li><h1>SIGN UP ALREADY! </h1></li>
+          <li><h1>Join the Bluebadger Army </h1></li>
           
         </ul>
       </span>
@@ -105,14 +106,14 @@ const SignUp = props => {
   </ul>
      </div>
    )
-
+    
    useEffect(()=> {
      M.updateTextFields();
      let elems = document.querySelectorAll('.collapsible');
      
      // eslint-disable-next-line no-unused-vars
      let instance = M.Collapsible.init(elems);
-   },[])
+   },[props.isLoggedIn])
    //New User Sign up
    if(isNewUser){
      return (

@@ -21,15 +21,20 @@ export const Tutorial = props => {
          <div className='space'></div>
 
          <div className='row'>
-         <div>Pro Tip: Be sure to add us to your bookmarks! Can be used as an app</div>
-         <ul class="round col s12 offset-m4 m3 offset-l5 l2 collapsible">
+         <div>Welcome to the Bluebadger Army!</div>
+         
+         <ul className="round col s12 offset-m4 m3 offset-l5 l2 collapsible">
          <li>
-            <div class="round collapsible-header">What do the post background colors mean?(click to find out)</div>
-            <div class="collapsible-body">
+            <div className="round collapsible-header">What do the post background colors mean?(click to for tips and info about site)</div>
+            <div className="collapsible-body">
                <span>
+               <div>Tip: Refresh page if something doesn't work</div>
+               <div>Tip: Be sure to add us to your bookmarks! Website can work as an app</div>
+               <div>Did you know? All Content is automatically updated daily</div>
                
-               <div className='memeVid'>Videos where you can only pause and play(Usually tiktok)</div>
-               <div className='memeGFY'>Videos with more options(GFY Videos)</div>
+               <div>Click the <span role='img' alt='heart'>💙</span> button will add the content to your den.</div>
+               <div className='memeVid'>Videos where you can only pause and play(Usually tiktok) Tip: pause and unpause if video  and audio doesn't match </div>
+               <div className='memeGFY'>Videos with more options(GFY Videos) Tip: wait a bit before playing video </div>
                <div className='memePic'>Simple Gifs or Pics</div>
                </span>
             </div>
