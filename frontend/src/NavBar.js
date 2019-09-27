@@ -53,7 +53,8 @@ const NavBar = props => {
             <span><Link to='#' data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link></span>
             {/* {SideNav Content} */}
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><NavLink to="/myden">My Den</NavLink></li>
+              <li><NavLink to="/">Home</NavLink></li>
+              <li><NavLink to="/myden">My Den</NavLink></li> 
               <li><a href="/#" className="dropdown-trigger"  data-target="dropdown1">Meme Type<i className="material-icons right">arrow_drop_down</i></a></li>
               <li><NavLink to="/books">Books</NavLink></li>
               <li><NavLink to="/todos">To-Do</NavLink></li>
@@ -67,7 +68,8 @@ const NavBar = props => {
   <div>
 
   <ul id="mobile-demo" className="sidenav">
-       <li className="sidenav-close" ><NavLink to='/myden'>MY DEN</NavLink></li>
+       <li className="sidenav-close" ><NavLink to='/'>Home</NavLink></li>
+       <li className="sidenav-close" ><NavLink to='/myden'>My Den</NavLink></li>
        <li className="sidenav-close" ><NavLink to='/books'>BOOKS</NavLink></li>
        <li className="sidenav-close" ><NavLink to='/todos'>TO-DO</NavLink></li>
        <li className="no-padding">

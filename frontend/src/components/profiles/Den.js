@@ -4,6 +4,7 @@ import { DisplayMeme } from '../memes/Display/DisplayMeme.js'
 import { DisplayVid } from '../memes/Display/DisplayVid.js'
 import { DisplayGif } from '../memes/Display/DisplayGif.js'
 import { DisplayGFY } from '../memes/Display/DisplayGFY.js'
+import looking from '../../assets/looking.gif'
 
 
 const MemeType = url => {
@@ -27,6 +28,7 @@ const Den = props => {
   const [ profile, setProfile ] = useState(null)
   const [ myLikedPosts, setMyLikedPosts ] = useState([])
   const [ meGusta, setMeGusta ] = useState([])
+  const [ lookup, setLookup ] = useState('')
 
   const loadMyProfile = async() => {
 
@@ -85,6 +87,7 @@ const Den = props => {
    })
 
   if(profile){
+    let { me } = props
     return (<>
             <div className="row container align-center">
             
@@ -92,7 +95,7 @@ const Den = props => {
               <img className="prof responsive-img round" src={profile.profile_pic} alt='leMe'/>
             </div>
             <div className="col s12 offset-m1 m5  offset-l1 l5">
-              <h3>Hi, my name is {profile.username} and this is my meme stash.. you can look..but no touching. </h3>
+              {me?<h3>Your meme stash. </h3>:<h3>This is {profile.username}'s meme stash. </h3>}
             </div>
 
             
@@ -104,7 +107,25 @@ const Den = props => {
             
             </>)
   }else{
-    return <h1>You're not logged in...how did you get here... 0.0</h1>
+    return (<div className='row'>
+      <div className='space'></div>
+    <div className='col s12 offset-m1 m4 offset-l1 l4'>
+       <img className='responsive-img' src={looking} alt='looking'/>
+    </div>
+    <div className='col s12  offset-m1 m4 offset-l1 l5'>
+    
+   <h3>Looks like user doesn't exist, searching for another badger</h3>
+   <div className='input-field'>
+          <input  onChange={(e)=>{setLookup(e.target.value)}} id="profile" type="text" className="validate"/>
+          <label htmlFor="profile">Look up profile</label>
+          <button className="waves-effect waves-light btn round indigo lighten-3" onClick={()=>{
+                                   if(lookup !== ''){
+                                    props.history.push(`/den/${lookup}`)
+                                   }
+                                   }}>LookUp</button>
+   </div>
+   </div>
+</div>)
   }
   
 };

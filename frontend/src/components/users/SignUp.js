@@ -45,7 +45,7 @@ const SignUp = props => {
      <div className='container'>
        <ul className="collapsible">
       <li>
-      <div className="collapsible-header z-depth-1"><img  src={badger} alt="banner"/><p>The Legend of the BlueBadger and the fool(Click to read)</p></div>
+      <div className="collapsible-header z-depth-1"><img  className='alil' src={badger} alt="banner"/><p>The Legend of the BlueBadger and the fool(Click to read)</p></div>
       <div className="collapsible-body">
       <span>
       Once upon a time there was a gorgeous girl, she loved to read, look at memes, make funny videos, and from time to time go through quora to see what kind of weird questions people asked, she also liked to troll people there, she was a bit of a rascal. She was coolest brussel sprout in her hood, girls would envy her, she was not only pretty, but she was smart and a hoot to be around. 

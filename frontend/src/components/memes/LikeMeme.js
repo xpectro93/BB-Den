@@ -22,8 +22,7 @@ const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
   const deleteMeme = async() => {
     likeSet.delete(memeInfo.url)
     let memes = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
-    console.log('checking meme resp', memes
-    )
+  
     let memeId;
     //changed from filter
     memes.data.data.forEach(el=> {
