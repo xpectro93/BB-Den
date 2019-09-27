@@ -9,10 +9,12 @@ import { DisplayGFY } from '../memes/Display/DisplayGFY.js'
 const MemeType = url => {
   let type;
   if(url.includes('jpg')) type = 'IMG'
+  else if(url.includes('gifv')) type = 'GIFV'
+  else if(url.includes('gif')) type = 'IMG'
   else if(url.includes('png')) type = 'IMG'
   else if(url.includes('v.redd.it'))type = 'VID'
   else if(url.includes('gfycat')) type = 'GFYCAT'
-  else if(url.includes('gifv')) type = 'GIFV'
+  
   else type = null;
   return type
 }

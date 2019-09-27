@@ -3,7 +3,7 @@ import LikeMeme from '../LikeMeme'
 
 
 export const DisplayGif =({i ,meme, getMeGusta, likes})=> {
-    console.log('this is gif',meme);
+  
     //modified gif url to turn it into mp4
     let gifUrl = meme.url.slice(6,-5)+'.mp4'
     let jpgUrl = meme.url.slice(6,-5)+'.jpg'

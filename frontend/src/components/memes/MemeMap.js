@@ -12,13 +12,15 @@ export const Displays = {
         DisplayGif,
         DisplayGFY    }
 
-export const MemeType = url => {
+const MemeType = url => {
   let type;
   if(url.includes('jpg')) type = 'IMG'
+  else if(url.includes('gifv')) type = 'GIFV'
+  else if(url.includes('gif')) type = 'IMG'
   else if(url.includes('png')) type = 'IMG'
   else if(url.includes('v.redd.it'))type = 'VID'
   else if(url.includes('gfycat')) type = 'GFYCAT'
-  else if(url.includes('gifv')) type = 'GIFV'
+  
   else type = null;
   return type
 }
@@ -28,9 +30,10 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
   
 
   let memeList = memes.map((meme,i) => {
+    
     let url = meme.data.url;
-    // let imgType = meme.data.url.slice(-3)
-    // let isVid = meme.data.url.includes('v.redd.it')
+    console.log(url);
+    
     if(firstLoad && i === 0){
       return(
         <div className='container warning' key={i}>
@@ -78,7 +81,6 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
   })
   useEffect(()=> {
-    console.log('rerender at displaymemes');
   },[likes])
 
   return (

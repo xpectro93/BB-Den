@@ -48,7 +48,6 @@ const Memes = props => {
   const fetchContent = async() => {
     try{
       let resp = await axios.get(url+ currentType +'/.json?&count='+ 25 + '&after=' + next)
-      console.log('this b resp',resp);
       setLeContent(resp,setContent,setPrev,setNext);
       getMeGusta()
     }catch(err){
@@ -59,7 +58,6 @@ const Memes = props => {
   }
   const getMeGusta = async () => {
     let melike = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
-    console.log('this is meLikes',melike);
     
     setLikes(melike);
 
@@ -132,7 +130,7 @@ if(currentType === ''){
 }else{
 
   
-console.log('real current type', currentType);
+
 
   return (
     

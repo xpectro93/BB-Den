@@ -12,10 +12,13 @@ let div2 = {
 // Uses i from map, url=meme, fetchofLikes(refresh likes), likes
 
 export const DisplayGFY =({i ,meme, getMeGusta, likes,title,author})=> {
-
+    // console.log(meme.url)
     //modified gif url to turn it into mp4
     let url = meme.url.split('.com')
     // let url =meme.data.url.split('.com')
+    if(url[1].includes('fr')){
+      url[1] = url[[1]].replace('/fr/','/')
+    }
     let content = url[0]+'.com/ifr'+url[1]
 
   return (
