@@ -12,7 +12,7 @@ passport.use(
     db.one("SELECT * FROM users WHERE username = ${username}", {
       username: username
     }).then(user => {
-        console.log('user at local',user)
+        // console.log('user at local',user)
 
         if (!helpers.comparePass(password, user.password_digest)) {
           return done(null, false);

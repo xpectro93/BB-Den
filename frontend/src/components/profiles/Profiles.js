@@ -41,7 +41,7 @@ const Profiles = props => {
     setUserContent(userLikedPosts.data.data)
 
       }catch(err){
-     console.log(err);
+    //  console.log(err);
       }
 
   }

@@ -81,7 +81,6 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
 
   })
   // useEffect(()=> {
-
   // },[likes])
 
   return (

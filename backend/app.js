@@ -25,7 +25,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser('Scrambled words'));
-app.use(express.static(path.join(__dirname, 'public')));
+//before deployment 
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "client/build")));
+
 app.use(
   session({
     secret: 'Scrambled words',
@@ -45,6 +48,10 @@ app.use('/api/users', usersRouter);
 app.use('/api/books', booksRouter);
 app.use('/api/likes', likesRouter);
 app.use('/api/todos', todosRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+});
 
 
 

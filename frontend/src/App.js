@@ -69,7 +69,7 @@ useEffect(()=> {
     var instances = M.FloatingActionButton.init(elemss)
 
 return ()=> {
-  console.log('checauth clean up');
+  // console.log('checauth clean up');
   }
 },[props.isLoggedIn])
 

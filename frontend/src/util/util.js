@@ -39,11 +39,6 @@ export const newUser = async userInfo =>{
 
 };
 
-// export const logoutUser = () => {
-//     logout().then(() => Auth.deauthenticateUser())
-//     .then(() => checkAuthenticateStatus());
-// };
-
 export const checkAuthenticateStatus = async() => {
   let user = await isLoggedIn()
 

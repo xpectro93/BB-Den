@@ -36,7 +36,7 @@ const Memes = props => {
     setFirstLoad(false)
 
     }catch(err){
-      console.log(err);
+      // console.log(err);
       
     }
     
@@ -58,7 +58,7 @@ const Memes = props => {
       setLeContent(resp,setContent,setPrev,setNext);
       getMeGusta()
     }catch(err){
-      console.log(err);
+      // console.log(err);
       
     }
       
@@ -68,7 +68,7 @@ const Memes = props => {
     let melike = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
     setLikes(melike);
     }catch(err){
-      console.log(err);
+      // console.log(err);
       
     }
     

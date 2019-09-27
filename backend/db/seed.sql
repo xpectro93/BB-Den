@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS burrow;
-CREATE DATABASE burrow;
+-- DROP DATABASE IF EXISTS burrow;
+-- CREATE DATABASE burrow;
 
-\c burrow;
+-- \c burrow;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
