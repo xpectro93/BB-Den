@@ -1,5 +1,6 @@
 import React from 'react';
 import LikeMeme from '../LikeMeme'
+import '../../../CSS/Meme.css'
 let div1 = {
     position:"relative",
     paddingBottom: "56.25%"
@@ -22,7 +23,7 @@ export const DisplayGFY =({i ,meme, getMeGusta, likes,title,author})=> {
     let content = url[0]+'.com/ifr'+url[1]
 
   return (
-        <div id={i} className="container col s12 offset-m1 m4  offset-l1 l4 meme">
+        <div id={i} className="container col s12 offset-m1 m4  offset-l1 l4 meme memeGFY">
           <div className="card-image">
           <div style={div1}>
               <iframe title={meme.title} 

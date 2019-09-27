@@ -3,12 +3,14 @@ import LikeMeme from '../LikeMeme'
 
 
 export const DisplayMeme =({i ,meme, getMeGusta, likes})=> {
-
   
+  if(!meme.url.includes('http')){
+    meme.url='http:'+ meme.url
+  }
   return (
     
 
-        <div id ={i} className="container card col s12 offset-m1 m4  offset-l1 l4 meme">
+        <div id ={i} className="container card col s12 offset-m1 m4  offset-l1 l4 meme memePic">
           <div className="card-image">
             <img src={meme.url} alt="content"/>
           </div>

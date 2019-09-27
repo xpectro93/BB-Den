@@ -1,16 +1,40 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../CSS/Meme.css'
+import M from 'materialize-css'
 import looking from '../assets/looking.gif'
 import pusheen from '../assets/pusheen.gif'
 
 
 export const Tutorial = props => {
     const [lookup, setLookup] = useState('')
-   
+    useEffect(()=> {
+      document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('.collapsible');
+         // eslint-disable-next-line no-unused-vars
+         var instances = M.Collapsible.init(elems);
+       });
+    })
     return (
         <div className='center-align tut'>
          <div className='space'></div>
          <div className='space'></div>
+
+         <div className='row'>
+         <ul class="round col s12 offset-m4 m3 offset-l5 l2 collapsible">
+         <li>
+            <div class="round collapsible-header">What do the post background colors mean?</div>
+            <div class="collapsible-body">
+               <span>
+               <div className='memeVid'>Videos where you can only pause and play(Usually tiktok)</div>
+               <div className='memeGFY'>Videos with more options(GFY Videos)</div>
+               <div className='memePic'>Simple Gifs or Pics</div>
+               </span>
+            </div>
+         </li>
+        
+       </ul>
+
+         </div>
 
          <div className='row'>
 

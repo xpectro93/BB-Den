@@ -1,5 +1,4 @@
 .meme{
-  background-color: #EBB5FC;
   border-radius: 10px;
   width:100%;
 }
@@ -13,15 +12,7 @@
   background-color: #9cb4d8;
   text-align: center;
 }
-/* .row .col {
-  padding:0px;
-} */
-/* .post-container {
-  background: #9cb4d8;
-  margin-top:25px;
-  margin-bottom:25px;
-  border-radius: 10px;
-} */
+
 .card-video {
   width:100%;
   height:90vh;
@@ -34,3 +25,19 @@
 .tut {
   height:100vh;
 }
+.memePic {
+  background-color: #EBB5FC;
+}
+/* usually for tiktok */
+.memeVid {
+  background-color: #EE1d52;
+  /* background-image: linear-gradient(to right, #010101, #69d9d0 #ffffff, #EE1D52); */ 
+}
+.memeGFY {
+background-color:white;
+}
+.memeGIFV {
+  background-color: #EBB5FC;
+}
+
+/* background-image: linear-gradient(to right, #010101, #69d9d0 #ffffff, #EE1D52); */

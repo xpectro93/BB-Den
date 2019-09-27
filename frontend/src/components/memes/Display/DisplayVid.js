@@ -1,5 +1,6 @@
 import React from 'react';
 import LikeMeme from '../LikeMeme'
+import '../../../CSS/Meme.css'
 
 export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
   //controls vid pause and play settings
@@ -31,7 +32,7 @@ export const DisplayVid = ({i, meme, getMeGusta, likes}) => {
        
         return (
           
-          <div key={i} id={`container-${i}`} className="container card col s12 offset-m1 m4  offset-l1 l4 meme">
+          <div key={i} id={`container-${i}`} className="container card col s12 offset-m1 m4  offset-l1 l4 meme memeVid">
 
           <div id={`cardimg-${i}`} className="card-image" onClick={(e)=>{
                     isPlaying = vidControl(e,isPlaying)
