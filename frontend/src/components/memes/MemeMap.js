@@ -33,7 +33,6 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
   let memeList = memes.map((meme,i) => {
     
     let url = meme.data.url;
-    console.log(url);
     
     if(firstLoad && i === 0){
       return(

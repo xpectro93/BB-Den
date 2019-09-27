@@ -15,8 +15,8 @@ const LikeMeme = ({memeInfo, getMeGusta,likes,i}) => {
       likeurl:memeInfo.url
     }
 
-    let resp =  await axios.post('/api/likes',body)
-    console.log('This is meme like response',resp);
+     await axios.post('/api/likes',body)
+
     
   }
   const deleteMeme = async() => {

@@ -56,7 +56,6 @@ export const checkAuthenticateStatus = async() => {
       // logoutUser();
       await logout()
       Auth.deauthenticateUser()
-      console.log('here1');
       return [false, null]
     } else {
       Auth.deauthenticateUser();
