@@ -29,10 +29,17 @@ const Memes = props => {
   }
 
   const nextPage = async() => {
+    try{
     let resp = await axios.get(url + currentType+'.json?&count=' + (page * 25 ) + '&after=' + next)
     setLeContent(resp,setContent,setPrev,setNext);
     setPage(page + 1)
     setFirstLoad(false)
+
+    }catch(err){
+      console.log(err);
+      
+    }
+    
   }
 
   const prevPage = async() => {
@@ -51,15 +58,20 @@ const Memes = props => {
       setLeContent(resp,setContent,setPrev,setNext);
       getMeGusta()
     }catch(err){
-      console.log('err log =>',err);
+      console.log(err);
       
     }
       
   }
   const getMeGusta = async () => {
+    try{
     let melike = await axios.get(`/api/likes/${localStorage.getItem("token")}`)
-    
     setLikes(melike);
+    }catch(err){
+      console.log(err);
+      
+    }
+    
 
   }
   const changeTopic = () => {
@@ -109,7 +121,6 @@ const Memes = props => {
    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   useEffect(()=> {
-    console.log('at currentType',currentType);
     setCurrentType(props.match.params.id)
     changeTopic()
     setPage(1)
@@ -121,7 +132,7 @@ const Memes = props => {
 
   },[likes])
   let loadTotoro = ( <div className="container" >
-                    <h1>Loading Badger relating content</h1>
+                    <h1>Looking for  Badger related content</h1>
                     <img className='responsive-img'src={totoro} alt='loading'/>
                     </div>)
 

@@ -58,9 +58,11 @@ const Den = props => {
   useEffect(()=> {
   getMeGusta()
   loadMyProfile()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   useEffect(()=> {
   loadMyProfile()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[meGusta,props.match.params])
 
    let displayMyLikes = myLikedPosts.map((post, i) => {

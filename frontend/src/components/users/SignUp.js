@@ -110,6 +110,7 @@ const SignUp = props => {
      M.updateTextFields();
      let elems = document.querySelectorAll('.collapsible');
      
+     // eslint-disable-next-line no-unused-vars
      let instance = M.Collapsible.init(elems);
    },[])
    //New User Sign up

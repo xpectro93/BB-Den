@@ -1,4 +1,5 @@
-import React, { useEffect} from 'react'
+/* eslint-disable array-callback-return */
+import React from 'react'
 // import LikeMeme from './LikeMeme.js'
 import { DisplayMeme } from './Display/DisplayMeme'
 import { DisplayVid } from './Display/DisplayVid'
@@ -32,7 +33,6 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
   let memeList = memes.map((meme,i) => {
     
     let url = meme.data.url;
-    console.log(url);
     
     if(firstLoad && i === 0){
       return(
@@ -80,8 +80,9 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
     }else return (<h1 id={i}>We b ded</h1>)
 
   })
-  useEffect(()=> {
-  },[likes])
+  // useEffect(()=> {
+
+  // },[likes])
 
   return (
     <>

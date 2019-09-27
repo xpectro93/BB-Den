@@ -48,7 +48,6 @@ export const checkAuthenticateStatus = async() => {
   let user = await isLoggedIn()
 
   if(user.data.id === +Auth.getToken()) {
-    console.log('CHECKEDAUTH');
     return [Auth.isUserAuthenticated(), +Auth.getToken()]
 
   } else {

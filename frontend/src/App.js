@@ -19,6 +19,7 @@ import { Tutorial } from './components/Tutorial'
 const App = props =>{
 
 const [isLoggedIn, setIsLoggedIn] = useState(false);
+// eslint-disable-next-line no-unused-vars
 const [userId, setUserId] = useState(9);
 const [profile, setProfile] = useState({});
 
@@ -64,6 +65,7 @@ useEffect(()=> {
     var elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems);
     var elemss = document.querySelectorAll('.fixed-action-btn');
+    // eslint-disable-next-line no-unused-vars
     var instances = M.FloatingActionButton.init(elemss)
 
 return ()=> {
