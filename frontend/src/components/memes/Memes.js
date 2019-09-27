@@ -94,7 +94,8 @@ const Memes = props => {
              <div className="input-field">
             <input  id='digup' type="text" className="validate"
             onChange={(e)=>setSearchInput(e.target.value)}/>
-            <label className="truncate" htmlFor="digup">Type a word to search for specific content.(ex."apples", "filthyfrank", "h3h3productions") </label>
+            <span>Type a word to search for content and be creative</span>
+            <label className="truncate" htmlFor="digup">(ex."cats", "filthyfrank", "h3h3productions") </label>
             <button className='btn round indigo lighten-3' type='submit' >Search the badger's den</button>
           </div>
     </form>
@@ -152,7 +153,9 @@ if(currentType === ''){
 
       {pageButtons}
       {content && likes.data ? <MemeMap getMeGusta={getMeGusta} memes={content} likes={likes.data} firstLoad={firstLoad}/> : loadTotoro}
+      
       {pageButtons}
+      <div className='space'></div>
 
     </div>
         )

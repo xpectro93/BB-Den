@@ -38,7 +38,7 @@ const MemeMap =({memes, firstLoad, likes, getMeGusta}) => {
       return(
         <div className='container warning' key={i}>
           <h1 className='flow-text' >Some Memes might be too spicy</h1>
-          <h1 className='flow-text' >Proceed at your own risk</h1>
+          <h1 className='flow-text' >Scroll at your own risk</h1>
           <img className="circle responsive-img" src='https://steamuserimages-a.akamaihd.net/ugc/360653586050510880/2F485F41314D6EC9AA611689E9DC3BAA2573D5E0/?imw=268&imh=268&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true' alt='dank meme'/>
         </div>
       )

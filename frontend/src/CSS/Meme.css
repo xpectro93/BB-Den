@@ -3,7 +3,7 @@
   width:100%;
 }
 .warning {
-  min-height: 100vh
+  min-height: 50vh
 }
 .pageNum {
   margin:30px;
@@ -22,9 +22,7 @@
     left:12%
   } */
 }
-.tut {
-  height:100vh;
-}
+
 .memePic {
   background-color: #EBB5FC;
 }

@@ -15,6 +15,7 @@ export const Tutorial = props => {
        });
     })
     return (
+       <>
         <div className='center-align tut'>
          <div className='space'></div>
          <div className='space'></div>
@@ -22,7 +23,7 @@ export const Tutorial = props => {
          <div className='row'>
          <ul class="round col s12 offset-m4 m3 offset-l5 l2 collapsible">
          <li>
-            <div class="round collapsible-header">What do the post background colors mean?</div>
+            <div class="round collapsible-header">What do the post background colors mean?(click to find out)</div>
             <div class="collapsible-body">
                <span>
                <div className='memeVid'>Videos where you can only pause and play(Usually tiktok)</div>
@@ -61,10 +62,10 @@ export const Tutorial = props => {
          <div className='col s12  offset-m1 m4 offset-l1 l5'>
              
              <h3>Look for content within the badger's den. Who knows, you might find something cool</h3>
-             <h3>Remember, you can only look up one word</h3>
+             <h3>Remember, you can only look up one word at a time</h3>
              <div className='input-field'>
                     <input  onChange={(e)=>{setLookup(e.target.value)}} id="content" type="text" className="validate"/>
-                    <label htmlFor="content">Look for Content(ex:'pusheen', 'pewdiepie', 'fortnite', 'cats', 'mildlyinteresting')</label>
+                    <label htmlFor="content">Look for Content(ex:'pewdiepie', 'mildlyinteresting')</label>
                     <button className="waves-effect waves-light btn round indigo lighten-3" onClick={()=>{
                                              if(lookup !== ''){
                                               props.history.push(`/memes/${lookup}`)
@@ -80,5 +81,9 @@ export const Tutorial = props => {
          
 
         </div>
+        <div className='space'></div>
+         <div className='space'></div>
+             <div className='space'></div>
+        </>
            )
 }

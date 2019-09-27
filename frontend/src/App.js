@@ -75,7 +75,7 @@ return ()=> {
 
 
     return (
-
+<>
       <div className="App">
 
       <NavBar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} logout={logout}/>
@@ -95,8 +95,18 @@ return ()=> {
         <Route path='/den/:id' render={(props) => <Den me={false} {...props} profile={profile} /> } />
       </Switch>
       </>}
-
+     
       </div>
+       <footer className="page-footer footer-color">
+          
+       <div className="footer-copyright">
+         <div className="container">
+         © 2019 Copyright xpectro93@Github
+         <p className="right" >Suggestions?@me <a href='#!'>jonathanandrade@pursuit.org</a></p>
+         </div>
+       </div>
+     </footer>
+     </>
     )
 }
 

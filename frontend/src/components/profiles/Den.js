@@ -89,10 +89,11 @@ const Den = props => {
   if(profile){
     let { me } = props
     return (<>
-            <div className="row container align-center">
-            
-            <div className="align-center col s12 offset-m1 m4  offset-l1 l4">
-              <img className="prof responsive-img round" src={profile.profile_pic} alt='leMe'/>
+            <div className="row container center-align">
+            <div className='space'></div>
+            <div className='space'></div>
+            <div className="center-align col s12  m4  l4">
+              <img className="responsive-img round" src={profile.profile_pic} alt='leMe'/>
             </div>
             <div className="col s12 offset-m1 m5  offset-l1 l5">
               {me?<h3>Your meme stash. </h3>:<h3>This is {profile.username}'s meme stash. </h3>}
@@ -124,7 +125,9 @@ const Den = props => {
                                    }
                                    }}>LookUp</button>
    </div>
+   
    </div>
+   
 </div>)
   }
   
