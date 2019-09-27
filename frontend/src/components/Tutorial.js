@@ -21,11 +21,13 @@ export const Tutorial = props => {
          <div className='space'></div>
 
          <div className='row'>
+         <div>Pro Tip: Be sure to add us to your bookmarks! Can be used as an app</div>
          <ul class="round col s12 offset-m4 m3 offset-l5 l2 collapsible">
          <li>
             <div class="round collapsible-header">What do the post background colors mean?(click to find out)</div>
             <div class="collapsible-body">
                <span>
+               
                <div className='memeVid'>Videos where you can only pause and play(Usually tiktok)</div>
                <div className='memeGFY'>Videos with more options(GFY Videos)</div>
                <div className='memePic'>Simple Gifs or Pics</div>
