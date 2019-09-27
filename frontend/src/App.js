@@ -11,6 +11,7 @@ import Books from './components/books/Books'
 import Memes from './components/memes/Memes'
 import Todos from './components/todos/Todos'
 import Den from './components/profiles/Den'
+import { Tutorial } from './components/Tutorial'
 // const secret = require('./secret.json')
 
 // axios.get(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&q=${query}`)
@@ -45,7 +46,6 @@ const checkAuth = async () => {
     let [res,isLogged,userId] = arr
     setUserId(userId);
     setIsLoggedIn(isLogged);
-    console.log(res)
     setProfile(res)
   }
 
@@ -84,7 +84,7 @@ return ()=> {
         <Route path='/todos' render={(props) => <Todos {...props} setIsLoggedIn= {setIsLoggedIn} setUserId={setUserId} /> } />
         <Route path='/den/:id' render={(props) => <Den me={false}{...props} profile={profile} /> } />
         <Route path='/myden' render={(props) => <Den me={true}{...props} profile={profile} /> } />
-        <Route path='/' render={(props) => <Den {...props} profile={profile} /> } />
+        <Route path='/' render={(props) => <Tutorial isLoggedIn={isLoggedIn}{...props} /> } />
       </Switch>
       :
       <>

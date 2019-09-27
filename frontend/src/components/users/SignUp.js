@@ -178,7 +178,7 @@ const SignUp = props => {
                  </div>
                </form>
             <div className='row'>
-             <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={login}type='submit'>Submit</button>
+             <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={login}type='submit'>Login</button>
              <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3"
                 onClick={()=>{
                  setIsExistingUser(false);
