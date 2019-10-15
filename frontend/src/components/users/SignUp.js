@@ -173,7 +173,7 @@ const SignUp = props => {
            <div class='space'></div>
            <div class='space'></div>
 
-           <p id='dedication'>For Ilana, who pushed me both out of my comfort zone and to better myself. While also teaching me to laugh at my problems. </p>
+           <p id='dedication'>With love for Ilana, who pushed me both out of my comfort zone and to better myself. While also teaching me to laugh at my problems. </p>
            <br />
            <p id='dedication'>LMAO</p>
          </div>
