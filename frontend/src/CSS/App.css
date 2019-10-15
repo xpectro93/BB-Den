@@ -77,3 +77,6 @@ main {
 .footer-color {
   background-image: linear-gradient(to right, #f9e1c2, #f9dbe7, #ebb5fc);
 }
+.row .col.offset-s1 {
+  margin-left:11.3%
+}
