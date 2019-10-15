@@ -170,7 +170,7 @@ const SignUp = props => {
          <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsNewUser(true)}>Sign Up</button>
          <button className="col s4 offset-s1 waves-effect waves-light btn round indigo lighten-3" onClick={()=>setIsExistingUser(true)}>Log In</button>
          <div className="col s12 offset-m4 m4 offset-l4 l4">
-           <div class='space'></div>
+           <div className='space'></div>
            <p id='dedication'>With much love,</p> 
            <p id='dedication'>For Ilana, who pushed me both out of my comfort zone and to better myself. While also teaching me to laugh on my worst days. </p>
            <p id='dedication'>LMAO</p>

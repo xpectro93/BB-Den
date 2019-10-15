@@ -32,7 +32,7 @@ export const Tutorial = props => {
                <div>Tip: Be sure to add us to your bookmarks! Website can work as an app</div>
                <div>Did you know? All Content is automatically updated daily</div>
                
-               <div>Click the <span role='img' alt='heart'>💙</span> button will add the content to your den.</div>
+               <div>Clicking the indigo heart button will add the like to your den.</div>
                <div className='memeVid'>Videos where you can only pause and play(Usually tiktok) Tip: pause and unpause if video  and audio doesn't match </div>
                <div className='memeGFY'>Videos with more options(GFY Videos) Tip: wait a bit before playing video </div>
                <div className='memePic'>Simple Gifs or Pics</div>
