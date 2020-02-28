@@ -2,7 +2,7 @@
 A Badger's sett
 
 ## Live Link
-[BlueBadger](www.bluebadger.army)
+# www.bluebadger.army
 
 ## Our Purpose
 This app aims to decrease work productivity while increasing entertainment from their phone or desktop by creating an environment where the user can relax and enjoy memes and videos from their local Reddit forums.
