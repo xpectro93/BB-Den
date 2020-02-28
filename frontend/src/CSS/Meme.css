@@ -29,7 +29,7 @@
 /* usually for tiktok */
 .memeVid {
   background-color: #EE1d52;
-  /* background-image: linear-gradient(to right, #010101, #69d9d0 #ffffff, #EE1D52); */ 
+ 
 }
 .memeGFY {
 background-color:white;
@@ -37,5 +37,3 @@ background-color:white;
 .memeGIFV {
   background-color: #EBB5FC;
 }
-
-/* background-image: linear-gradient(to right, #010101, #69d9d0 #ffffff, #EE1D52); */
