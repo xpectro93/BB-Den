@@ -15,6 +15,7 @@ let div2 = {
 export const DisplayGFY =({i ,meme, getMeGusta, likes,title,author})=> {
 
     let url = meme.url.split('.com')
+    console.log(url)
 
     if(url[1].includes('fr')){
       url[1] = url[[1]].replace('/fr/','/')
